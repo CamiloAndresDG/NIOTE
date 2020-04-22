@@ -28,10 +28,6 @@ We are students of Systems Engineering at the University of San Buenaventura.
 | NetIoTEmulator | This is the emulator that we are making, where you can find its structure, logic, among other things. |
 ---
 
-## Remember
-
-> "Measuring the progress of software development by lines of code is like measuring the progress of building an airplane by its weight." (Bill Gates)
----
 
 ## If you want to contact me
 ![Login](https://image.flaticon.com/icons/png/512/61/61109.png) [Camilo Andrés Díaz Gómez](https://www.linkedin.com/in/camilo-andr%C3%A9s-d%C3%ADaz-g%C3%B3mez-97b5581a3/)
