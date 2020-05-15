@@ -5,25 +5,17 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
-import co.edu.usbbog.datan.niote.recursos.TextPrompt;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Camilo y Roberth
  */
-public class CrearProyectoJPanel extends javax.swing.JPanel {
-
-    private Principal principal;
+public class ConfiguracionDeRedJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form InicioJPanel
+     * Creates new form ConfiguracionDeRedJPanel
      */
-    public CrearProyectoJPanel(Principal principal) {
-        this.principal = principal;
+    public ConfiguracionDeRedJPanel() {
         initComponents();
-        inicioTextosPrevios();
     }
 
     /**
@@ -35,6 +27,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabelTituloCreacion = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelUbicacion = new javax.swing.JLabel();
@@ -46,7 +39,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         jTextAreaDescripcion = new javax.swing.JTextArea();
         jLabelUbicacion1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(38, 38, 38));
+        jPanel1.setBackground(new java.awt.Color(38, 38, 38));
 
         jLabelTituloCreacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelTituloCreacion.setForeground(new java.awt.Color(255, 255, 255));
@@ -60,7 +53,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         jLabelUbicacion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUbicacion.setText("Ubicacion:");
 
-        jTextFieldUbicacion.setText("C:\\Users\\Camilo y Roberth\\Documents\\NIOTE_Projects");
+        jTextFieldUbicacion.setText("C:\\Users\\MyPC\\\\Documents\\\\NIOTE_Projects");
         jTextFieldUbicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUbicacionActionPerformed(evt);
@@ -89,50 +82,50 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         jLabelUbicacion1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUbicacion1.setText("Descripción");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelUbicacion)
                             .addComponent(jLabelNombre))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jTextFieldNombreDelProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(108, 108, 108)
                                         .addComponent(jLabelTituloCreacion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonBuscarNuevaUbicacion))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonCrearProyecto))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelUbicacion1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabelTituloCreacion)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombre)
                     .addComponent(jTextFieldNombreDelProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUbicacion)
                     .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscarNuevaUbicacion))
@@ -144,10 +137,35 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
                 .addComponent(jButtonCrearProyecto)
                 .addContainerGap())
         );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 338, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextFieldUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUbicacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUbicacionActionPerformed
+
     private void jButtonBuscarNuevaUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarNuevaUbicacionActionPerformed
-        JFileChooser chooser;
+       /* JFileChooser chooser;
         String choosertitle = null;
         chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
@@ -157,7 +175,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         // disable the "All files" option.
         //
         chooser.setAcceptAllFileFilterUsed(false);
-        //    
+        //
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             System.out.println("getCurrentDirectory(): "
                     + chooser.getCurrentDirectory());
@@ -168,7 +186,6 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
             System.out.println("No Selection ");
         }
 
-
         /*        JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(this);
         File archivoSeleccionado = chooser.getSelectedFile();
@@ -178,13 +195,9 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         }  */     // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBuscarNuevaUbicacionActionPerformed
 
-    private void jTextFieldUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUbicacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUbicacionActionPerformed
-
     private void jButtonCrearProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearProyectoActionPerformed
-        crearProyecto();
-        irAEmulacion();
+        // crearProyecto();
+        // irAEmulacion();
     }//GEN-LAST:event_jButtonCrearProyectoActionPerformed
 
 
@@ -195,66 +208,10 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelTituloCreacion;
     private javax.swing.JLabel jLabelUbicacion;
     private javax.swing.JLabel jLabelUbicacion1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDescripcion;
     private javax.swing.JTextField jTextFieldNombreDelProyecto;
     private javax.swing.JTextField jTextFieldUbicacion;
     // End of variables declaration//GEN-END:variables
-
-    /*
-    Variables recogidas del panel
-     */
- /* private void variablesRecogidas() {
-        String nombre = jTextFieldNombreDelProyecto.getText();
-        String descripcion = jTextAreaDescripcion.getText();
-    }*/
-
- /*
-    Metodo para ir a la pantalla de emulacion
-     */
-    private void irAEmulacion() {
-        principal.irAEm();
-    }
-
-    /*
-    Metodo para crear nuevo proyecto con los datos ingresados
-     */
-    private void crearProyecto() {
-        Boolean validacion = validacionDatosIngresados();
-        if (validacion = true) {
-            String nombre = jTextFieldNombreDelProyecto.getText();
-            String descripcion = jTextAreaDescripcion.getText();
-            principal.crearRed(nombre, nombre, descripcion);
-            guardarRed();
-        }
-
-    }
-
-    /**
-     * Con este metodo se guardara el nuevo proyecto en la ruta escogida
-     */
-    private void guardarRed() {
-        String ruta = jTextFieldUbicacion.getText();
-        System.out.println(ruta);
-        String nombreArchivo = jTextFieldNombreDelProyecto.getText();
-        System.out.println(this.principal.getGestionRed().guardarRed(ruta, nombreArchivo));
-    }
-
-    private void inicioTextosPrevios() {
-        TextPrompt textoNombre = new TextPrompt("Nombre del nuevo proyecto", jTextFieldNombreDelProyecto);
-        TextPrompt textoDescripcion = new TextPrompt("Descripción del nuevo proyecto", jTextAreaDescripcion);
-    }
-
-    private boolean validacionDatosIngresados() {
-        if (jTextFieldNombreDelProyecto.getText() == null || jTextFieldNombreDelProyecto.getText() == "") {
-            if (jTextAreaDescripcion.getText() == null || jTextAreaDescripcion.getText() == "") {
-                JOptionPane.showMessageDialog(null, "Hace falta ingresar la descripcion del proyecto");
-                return false;
-            }
-            JOptionPane.showMessageDialog(null, "Hace falta ingresar el nombre del proyecto");
-            return false;
-        } else {
-            return true;
-        }
-    }
 }

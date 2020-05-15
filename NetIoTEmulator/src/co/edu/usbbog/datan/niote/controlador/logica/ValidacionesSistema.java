@@ -7,6 +7,7 @@ package co.edu.usbbog.datan.niote.controlador.logica;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import javax.swing.JOptionPane;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -62,6 +63,7 @@ public class ValidacionesSistema {
             sampleClient.disconnect();
             return true;
         } catch (MqttException me) {
+            JOptionPane.showMessageDialog(null, "MQTT Fallo");
             return false;
         }
     }
@@ -89,6 +91,7 @@ public class ValidacionesSistema {
             return true;
 
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "TCPIP Fallo");
             return false;
         }
     }

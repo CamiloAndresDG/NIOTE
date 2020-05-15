@@ -16,6 +16,7 @@ import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
 //Emulador (Grafico)
 import co.edu.usbbog.datan.niote.recursos.Graficar;
 import co.edu.usbbog.datan.niote.recursos.Grafos;
+import co.edu.usbbog.datan.niote.recursos.paletaDeNodos.PaletaNodosIoTJPanel;
 
 //Files
 import java.io.File;
@@ -62,14 +63,17 @@ public class Principal extends JFrame {
     private int aristM;
     VentanaDialog ventanaDialog;
 
-    public CrearProyectoJPanel crearProyectoJPanel;
+    CrearProyectoJPanel crearProyectoJPanel;
     EmulacionJPanel emulacionJPanel;
+    SobreNosotrosJPanel sobreNosotrosJPanel;
+    PaletaNodosIoTJPanel paletaSensoresJPanel;
+    PantallaDeCargaJPanel pantallaDeCargaJPanel;
 
     /**
      * Creates new form Principal
      */
     public Principal() {
-
+        this.pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
         this.validacionesSistema = new ValidacionesSistema();
         this.emulador = new Emulador(this);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -82,17 +86,21 @@ public class Principal extends JFrame {
         //Central ventana
         setLocationRelativeTo(null);
 
-        //Creacion de carpeta raiz (Donde se guardaran por defecto)
-        crearCarpeta();
+        //Mostrar ventana de carga
+        irAPantallaDeCarga();
+        //Verificacion de requisitos
+        if (pantallaDeCargaJPanel.validacionesMetodo()) {
+            //Creacion de carpeta raiz (Donde se guardaran por defecto)
+            crearCarpeta();
 
-        // Iniciarlizacion para emulacion (grafico)
-        Graficar paint = new Graficar();
-        Grafos trees = new Grafos();
-        Graficar graph = new Graficar();
+            // Iniciarlizacion para emulacion (grafico)
+            Graficar paint = new Graficar();
+            Grafos trees = new Grafos();
+            Graficar graph = new Graficar();
 
-        //Inicio
-        initComponents();
-
+            //Inicio
+            initComponents();
+        }
     }
 
     /**
@@ -107,7 +115,6 @@ public class Principal extends JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabelVersion = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
@@ -115,12 +122,14 @@ public class Principal extends JFrame {
         jMenuItemAbrirProyecto = new javax.swing.JMenuItem();
         jMenuItemCerrarProyecto = new javax.swing.JMenuItem();
         jMenuItemCerrarTodo = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuEditar = new javax.swing.JMenu();
         jMenuEjecutar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 109, 0));
@@ -135,9 +144,11 @@ public class Principal extends JFrame {
         jButton1.setText("Obtener informacion");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
-
-        jButton2.setBackground(new java.awt.Color(153, 153, 153));
-        jButton2.setText("Sobre nosotros");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabelVersion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelVersion.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,9 +165,7 @@ public class Principal extends JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(187, 187, 187)
                         .addComponent(jLabelVersion)))
@@ -169,9 +178,7 @@ public class Principal extends JFrame {
                 .addComponent(jLabel1)
                 .addGap(55, 55, 55)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(jLabelVersion))
         );
 
@@ -206,6 +213,14 @@ public class Principal extends JFrame {
         jMenuItemCerrarTodo.setText("Cerrar todos los proyectos");
         jMenuArchivo.add(jMenuItemCerrarTodo);
 
+        jMenuItem4.setText("Borrar proyecto");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenuArchivo.add(jMenuItem4);
+
         jMenuBar1.add(jMenuArchivo);
 
         jMenuEditar.setText("Editar");
@@ -224,6 +239,14 @@ public class Principal extends JFrame {
 
         jMenuItem3.setText("Buscar actualizaciones");
         jMenu1.add(jMenuItem3);
+
+        jMenuItem5.setText("Sobre nosotros");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
 
@@ -255,14 +278,17 @@ public class Principal extends JFrame {
         try {
             String tipodeArchivo = Files.probeContentType(archivoSeleccionado.toPath());
             if (tipodeArchivo.equals(".niote")) {
-
+                cargarRed(ruta, ".niote");
+                System.out.println("Se cargo");
             } else {
 
             }
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            //REVISAR
+            System.out.println("No se cargo");
+//REVISAR
         } catch (NullPointerException ex2) {
+            System.out.println("No se cargo2");
         }
         /* if (archivoSeleccionado!=null) {
             ruta.setText(archivoSeleccionado.getAbsolutePath());
@@ -270,6 +296,21 @@ public class Principal extends JFrame {
         String archivo;
         //  jTreeProjects.add(archivo);
     }//GEN-LAST:event_jMenuItemAbrirProyectoActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        String nombre = "Aqui va el proyecto que se va a borrar";
+        String ruta = "Aqui va la ruta";
+        File archivo = new File(ruta);
+        archivo.delete();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        irASobreNosotros();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        irAprueba();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,7 +337,6 @@ public class Principal extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelVersion;
     private javax.swing.JMenu jMenu1;
@@ -307,6 +347,8 @@ public class Principal extends JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItemAbrirProyecto;
     private javax.swing.JMenuItem jMenuItemCerrarProyecto;
     private javax.swing.JMenuItem jMenuItemCerrarTodo;
@@ -411,11 +453,26 @@ public class Principal extends JFrame {
      */
     protected void irACrearProyecto() {
         crearProyectoJPanel = new CrearProyectoJPanel(this);
-        ventanaDialog = new VentanaDialog(this, crearProyectoJPanel, "Ventana", false, false, DISPOSE_ON_CLOSE);
+        ventanaDialog = new VentanaDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
 
     protected void irAEm() {
         emulacionJPanel = new EmulacionJPanel(this);
-        ventanaDialog = new VentanaDialog(this, emulacionJPanel, "Ventana", false, false, DISPOSE_ON_CLOSE);
+        ventanaDialog = new VentanaDialog(this, emulacionJPanel, "Entorno", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    protected void irASobreNosotros() {
+        sobreNosotrosJPanel = new SobreNosotrosJPanel(this);
+        ventanaDialog = new VentanaDialog(this, sobreNosotrosJPanel, "Información", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    protected void irAprueba() {
+        paletaSensoresJPanel = new PaletaNodosIoTJPanel(this);
+        ventanaDialog = new VentanaDialog(this, paletaSensoresJPanel, "Testeo", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    private void irAPantallaDeCarga() {
+        pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
+        ventanaDialog = new VentanaDialog(this, pantallaDeCargaJPanel, "Pantalla de carga", false, false, DISPOSE_ON_CLOSE);
     }
 }

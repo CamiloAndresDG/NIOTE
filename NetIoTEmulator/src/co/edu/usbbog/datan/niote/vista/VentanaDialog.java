@@ -17,6 +17,17 @@ public class VentanaDialog extends JDialog {
     private Principal principal;
     private JPanel jPanel;
 
+    /**
+     * Constructor de la clase VentanaDialog
+     *
+     * @param principal jFrame principal donde sera usado
+     * @param jPanel al que se le hara la ventana emergente
+     * @param titulo de la ventana emergente
+     * @param modal
+     * @param marco de la ventana emergente
+     * @param opcionDeCerrado de la ventana emergente, en este caso se usa
+     * DISPOSE_ON_CLOSE para que se cierre al dar click en X
+     */
     public VentanaDialog(Principal principal, JPanel jPanel, String titulo, boolean modal, boolean marco, int opcionDeCerrado) {
         super(principal, titulo, modal);
 
