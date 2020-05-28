@@ -136,7 +136,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#xa1;Hola! Queremos seguir mejorando en el proceso del desarrollo de nuestro emulador NioTe, si llego hasta esta instancia es por que &#xa;tiene alguna recomendaci&#xf3;n o a encontrado algun error en el uso dado al emulador,  para esto, queremos que describa el error en &#xa;la caja de texto inferior."/>
+            <Property name="text" type="java.lang.String" value="&#xa1;Hola! Queremos seguir mejorando en el proceso del desarrollo de nuestro emulador NioTe, si llego hasta esta instancia es por que &#xa;tiene alguna recomendaci&#xf3;n o a encontrado algun error en el uso dado al emulador,  para esto, queremos que describa el error en &#xa;la caja de texto inferior.."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
