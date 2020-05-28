@@ -57,7 +57,7 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
         jTextArea2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea2.setRows(5);
-        jTextArea2.setText("¡Hola! Queremos seguir mejorando en el proceso del desarrollo de nuestro emulador NioTe, si llego hasta esta instancia es por que \ntiene alguna recomendación o a encontrado algun error en el uso dado al emulador,  para esto, queremos que describa el error en \nla caja de texto inferior.");
+        jTextArea2.setText("¡Hola! Queremos seguir mejorando en el proceso del desarrollo de nuestro emulador NioTe, si llego hasta esta instancia es por que \ntiene alguna recomendación o a encontrado algun error en el uso dado al emulador,  para esto, queremos que describa el error en \nla caja de texto inferior..");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_send_white_24dp.png"))); // NOI18N
         jButton1.setBorder(null);
