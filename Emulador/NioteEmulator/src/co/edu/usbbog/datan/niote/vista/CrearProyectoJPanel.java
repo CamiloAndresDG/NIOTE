@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Camilo y Roberth
+ * @version 1.0
  */
 public class CrearProyectoJPanel extends javax.swing.JPanel {
 
@@ -23,8 +24,8 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
      */
     public CrearProyectoJPanel(Principal principal) {
         this.principal = principal;
+        homePreviousTexts();
         initComponents();
-        inicioTextosPrevios();
     }
 
     /**
@@ -39,13 +40,13 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         jLabelTituloCreacion = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelUbicacion = new javax.swing.JLabel();
-        jTextFieldUbicacion = new javax.swing.JTextField();
         jButtonBuscarNuevaUbicacion = new javax.swing.JButton();
         jTextFieldNombreDelProyecto = new javax.swing.JTextField();
         jButtonCrearProyecto = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescripcion = new javax.swing.JTextArea();
         jLabelUbicacion1 = new javax.swing.JLabel();
+        jTextFieldUbicacion = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(27, 27, 27));
 
@@ -61,19 +62,10 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         jLabelUbicacion.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUbicacion.setText("Ubicacion:");
 
-        jTextFieldUbicacion.setBackground(new java.awt.Color(45, 45, 45));
-        jTextFieldUbicacion.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldUbicacion.setText("C:\\Users\\Camilo y Roberth\\Documents\\NIOTE_Projects");
-        jTextFieldUbicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUbicacionActionPerformed(evt);
-            }
-        });
-
         jButtonBuscarNuevaUbicacion.setBackground(new java.awt.Color(66, 66, 66));
         jButtonBuscarNuevaUbicacion.setText("Buscar nueva ubicacion");
         jButtonBuscarNuevaUbicacion.setBorderPainted(false);
-        jButtonBuscarNuevaUbicacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonBuscarNuevaUbicacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonBuscarNuevaUbicacion.setDefaultCapable(false);
         jButtonBuscarNuevaUbicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +78,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
 
         jButtonCrearProyecto.setBackground(new java.awt.Color(66, 66, 66));
         jButtonCrearProyecto.setText("Crear proyecto");
-        jButtonCrearProyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCrearProyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonCrearProyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCrearProyectoActionPerformed(evt);
@@ -104,6 +96,10 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         jLabelUbicacion1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelUbicacion1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUbicacion1.setText("Descripción");
+
+        jTextFieldUbicacion.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldUbicacion.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldUbicacion.setText("C:\\Users\\Camilo y Roberth\\Documents\\NIOTE_Projects");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -124,13 +120,13 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
                             .addComponent(jLabelUbicacion)
                             .addComponent(jLabelNombre))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(108, 108, 108)
                                 .addComponent(jLabelTituloCreacion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldNombreDelProyecto))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNombreDelProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldUbicacion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonBuscarNuevaUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -146,8 +142,8 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUbicacion)
-                    .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscarNuevaUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonBuscarNuevaUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(jLabelUbicacion1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -159,31 +155,12 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonBuscarNuevaUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarNuevaUbicacionActionPerformed
-        JFileChooser chooser;
-        String choosertitle = null;
-        chooser = new JFileChooser();
-        chooser.setCurrentDirectory(new java.io.File("."));
-        chooser.setDialogTitle(choosertitle);
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser.setAcceptAllFileFilterUsed(false);
-        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-//            System.out.println("getCurrentDirectory(): "
-//                    + chooser.getCurrentDirectory());
-//            System.out.println("getSelectedFile() : "
-//                    + chooser.getSelectedFile());
-            jTextFieldUbicacion.setText(String.valueOf(chooser.getSelectedFile()));
-        } else {
-            System.out.println("No Selection ");
-        }
+        searchNewLocation();
     }//GEN-LAST:event_jButtonBuscarNuevaUbicacionActionPerformed
 
-    private void jTextFieldUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUbicacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUbicacionActionPerformed
-
     private void jButtonCrearProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearProyectoActionPerformed
-        crearProyecto();
-        irAEmulacion();
+        createProject();
+        goToEmulation();
     }//GEN-LAST:event_jButtonCrearProyectoActionPerformed
 
 
@@ -200,52 +177,61 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldUbicacion;
     // End of variables declaration//GEN-END:variables
 
-    /*
-    Metodo para ir a la pantalla de emulacion
+    /**
+     * Method to go to the emulation screen
      */
-    private void irAEmulacion() {
+    private void goToEmulation() {
         jTextFieldNombreDelProyecto.setBackground(Color.GRAY);
         jTextFieldNombreDelProyecto.setForeground(Color.GREEN);
 // principal.irAEm(this);
     }
 
-    /*
-    Metodo para crear nuevo proyecto con los datos ingresados
+    /**
+     * Method to create new project with the entered data
      */
-    private void crearProyecto() {
-        Boolean validacion = validacionDatosIngresados();
+    private void createProject() {
+        Boolean validacion = validationEntereData();
         if (validacion = true) {
             String nombre = jTextFieldNombreDelProyecto.getText();
             String descripcion = jTextAreaDescripcion.getText();
 
             principal.crearRed(nombre, nombre, descripcion);
-   //         principal.arbolProyectosJPanel.joinedProjects(nombre);
-            guardarRed();
+            principal.arbolProyectosJPanel.joinedProjects(nombre);
+            keepRed();
             principal.cerrarVentana();
         }
     }
 
     /**
-     * Con este metodo se guardara el nuevo proyecto en la ruta escogida
+     * Method the new project will be saved in the chosen path
      */
-    private void guardarRed() {
+    private void keepRed() {
         String ruta = jTextFieldUbicacion.getText();
-        System.out.println(ruta);
-        System.out.println(jTextFieldNombreDelProyecto.getText() + " difsoifndsiofnsf");
+        // System.out.println(ruta);
+        //System.out.println(jTextFieldNombreDelProyecto.getText() + " difsoifndsiofnsf");
         String nombreArchivo = jTextFieldNombreDelProyecto.getText();
         System.out.println(this.principal.getGestionRed().guardarRed(ruta, nombreArchivo));
     }
 
-    private void inicioTextosPrevios() {
-        TextPrompt textoNombre = new TextPrompt("Nombre del nuevo proyecto", jTextFieldNombreDelProyecto);
-        TextPrompt textoDescripcion = new TextPrompt("Descripción del nuevo proyecto", jTextAreaDescripcion);
+    private void homePreviousTexts() {
+//        TextPrompt textoNombre = new TextPrompt("Nombre del nuevo proyecto", jTextFieldNombreDelProyecto);
+        //       TextPrompt textoDescripcion = new TextPrompt("Descripción del nuevo proyecto", jTextAreaDescripcion);
     }
 
-    private boolean validacionDatosIngresados() {
-        if (jTextFieldNombreDelProyecto.getText() == null || jTextFieldNombreDelProyecto.getText() == "") {
-            if (jTextAreaDescripcion.getText() == null || jTextAreaDescripcion.getText() == "") {
-//                Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
-//                  JOptionPane.showMessageDialog(this, "Tiene un campo donde el valor no es valido o esta vacio", "Error al agregar la  nueva aeronave", JOptionPane.INFORMATION_MESSAGE, imagenError);
+    /**
+     * Method to validate that the project name and description boxes have text
+     *
+     * @return True if it have text, false if it don't have it
+     */
+    private boolean validationEntereData() {
+        String comparableProjectName = "javax.swing.JTextField[,89,57,309x20,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder@69d11f90,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],columns=0,columnWidth=0,command=,horizontalAlignment=LEADING]";
+        String comparableDescription = "javax.swing.JTextArea[,0,0,537x111,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],colums=20,columWidth=8,rows=5,rowHeight=14,word=false,wrap=false]";
+        //System.out.println(jTextFieldNombreDelProyecto+" 222222");
+        //      System.out.println(jTextAreaDescripcion+" 333");
+        if (jTextFieldNombreDelProyecto.getText() == null || jTextFieldNombreDelProyecto.getText() == "" || jTextFieldNombreDelProyecto.getText() == comparableProjectName) {
+            if (jTextAreaDescripcion.getText() == null || jTextAreaDescripcion.getText() == "" || jTextAreaDescripcion.getText() == comparableDescription) {
+                //   Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
+                JOptionPane.showMessageDialog(this, "Tiene un campo donde el valor no es valido o esta vacio", "Error al agregar la  nueva aeronave", JOptionPane.INFORMATION_MESSAGE);
 
                 JOptionPane.showMessageDialog(null, "Hace falta ingresar la descripcion del proyecto");
                 return false;
@@ -254,6 +240,28 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
             return false;
         } else {
             return true;
+        }
+    }
+
+    /**
+     *
+     */
+    private void searchNewLocation() {
+        JFileChooser chooser;
+        String choosertitle = null;
+        chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle(choosertitle);
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+//            System.out.println("getCurrentDirectory(): "
+//                    + chooser.getCurrentDirectory());
+//            System.out.println("getSelectedFile() : "
+//                    + chooser.getSelectedFile());
+            jTextFieldUbicacion.setText(String.valueOf(chooser.getSelectedFile()));
+        } else {
+            System.out.println("No Selection ");
         }
     }
 }

@@ -108,17 +108,6 @@ public class Principal extends JFrame {
         this.validacionesSistema = new ValidacionesSistema();
         this.emulador = new Emulador(this);
 
-//        this.setAlwaysOnTop(true);
-//        this.setResizable(false);
-//        this.setVisible(true);
-//        Toolkit tk = Toolkit.getDefaultToolkit();
-//        int tamanioX = (int) tk.getScreenSize().getWidth();
-//        int tamanioY = (int) tk.getScreenSize().getHeight();
-//        this.setSize(tamanioX, tamanioY);
-//dim=super.getToolkit().getScreenSize();
-//        super.setSize(dim);
-//        super.setUndecorated(true);
-//        super.setVisible(true);
         //Mostrar ventana de carga
         irAPantallaDeCarga();
         //Verificacion de requisitos

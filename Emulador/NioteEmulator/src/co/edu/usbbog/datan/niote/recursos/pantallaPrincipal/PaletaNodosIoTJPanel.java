@@ -70,10 +70,10 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jButton11)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addComponent(jButton12)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,10 +81,9 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
-                    .addComponent(jButton12))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(180, Short.MAX_VALUE))
+                    .addComponent(jButton12)
+                    .addComponent(jButton1))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Sensores", jPanel2);
@@ -173,7 +172,7 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

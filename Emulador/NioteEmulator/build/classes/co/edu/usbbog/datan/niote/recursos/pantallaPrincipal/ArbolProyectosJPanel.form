@@ -16,6 +16,26 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCerrarActionPerformed"/>
           </Events>
         </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEjecutar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ejecutar"/>
+          </Properties>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jMenuItemBorrar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Borrar"/>
+          </Properties>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jMenuItemRenombrar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Renombrar"/>
+          </Properties>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPropiedades">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Propiedades"/>
+          </Properties>
+        </MenuItem>
       </SubComponents>
     </Container>
   </NonVisualComponents>
@@ -57,13 +77,17 @@
               <Color blue="2d" green="2d" red="2d" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
-              <TreeModel code="Proyectos&#xa; colors&#xa;  blue&#xa;  violet&#xa;  red&#xa;  yellow&#xa; sports&#xa;  basketball&#xa;  soccer&#xa;  football&#xa;  hockey&#xa; food&#xa;  hot dogs&#xa;  pizza&#xa;  ravioli&#xa;  bananas"/>
+              <TreeModel code="Proyectos&#xa;"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="jPopupMenu1"/>
             </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+          </AccessibilityProperties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTreeProjectsMouseClicked"/>
           </Events>

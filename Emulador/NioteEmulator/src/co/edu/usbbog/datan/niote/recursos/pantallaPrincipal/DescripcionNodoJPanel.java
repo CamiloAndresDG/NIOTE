@@ -121,7 +121,7 @@ public class DescripcionNodoJPanel extends javax.swing.JPanel {
         jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setText("Gateway");
         add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 163, -1, -1));
-        add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 11, -1, 134));
+        add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, 250));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

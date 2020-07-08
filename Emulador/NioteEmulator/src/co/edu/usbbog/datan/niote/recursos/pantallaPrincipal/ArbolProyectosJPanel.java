@@ -5,8 +5,13 @@
  */
 package co.edu.usbbog.datan.niote.recursos.pantallaPrincipal;
 
+import java.util.List;
+import javax.swing.ImageIcon;
+import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
@@ -33,6 +38,10 @@ public class ArbolProyectosJPanel extends javax.swing.JPanel {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuItemCerrar = new javax.swing.JMenuItem();
+        jMenuItemEjecutar = new javax.swing.JMenuItem();
+        jMenuItemBorrar = new javax.swing.JMenuItem();
+        jMenuItemRenombrar = new javax.swing.JMenuItem();
+        jMenuItemPropiedades = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTreeProjects = new javax.swing.JTree();
 
@@ -44,47 +53,31 @@ public class ArbolProyectosJPanel extends javax.swing.JPanel {
         });
         jPopupMenu1.add(jMenuItemCerrar);
 
+        jMenuItemEjecutar.setText("Ejecutar");
+        jPopupMenu1.add(jMenuItemEjecutar);
+
+        jMenuItemBorrar.setText("Borrar");
+        jPopupMenu1.add(jMenuItemBorrar);
+
+        jMenuItemRenombrar.setText("Renombrar");
+        jPopupMenu1.add(jMenuItemRenombrar);
+
+        jMenuItemPropiedades.setText("Propiedades");
+        jPopupMenu1.add(jMenuItemPropiedades);
+
         jTreeProjects.setBackground(new java.awt.Color(45, 45, 45));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Proyectos");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("colors");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("blue");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("violet");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("red");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("yellow");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("sports");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("basketball");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("soccer");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("football");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("hockey");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("food");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("hot dogs");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("pizza");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("ravioli");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("bananas");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
         jTreeProjects.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTreeProjects.setToolTipText("");
         jTreeProjects.setComponentPopupMenu(jPopupMenu1);
+        jTreeProjects.setName(""); // NOI18N
         jTreeProjects.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTreeProjectsMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTreeProjects);
+        jTreeProjects.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,7 +102,11 @@ public class ArbolProyectosJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMenuItemBorrar;
     private javax.swing.JMenuItem jMenuItemCerrar;
+    private javax.swing.JMenuItem jMenuItemEjecutar;
+    private javax.swing.JMenuItem jMenuItemPropiedades;
+    private javax.swing.JMenuItem jMenuItemRenombrar;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTreeProjects;

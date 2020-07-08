@@ -39,15 +39,15 @@
                           <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextFieldUbicacion" pref="309" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
                               <Component id="jLabelTituloCreacion" min="-2" pref="174" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTextFieldNombreDelProyecto" max="32767" attributes="0"/>
+                          <Component id="jTextFieldNombreDelProyecto" min="-2" pref="309" max="-2" attributes="0"/>
+                          <Component id="jTextFieldUbicacion" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonBuscarNuevaUbicacion" min="-2" pref="145" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -68,8 +68,8 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelUbicacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUbicacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonBuscarNuevaUbicacion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUbicacion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Component id="jLabelUbicacion1" min="-2" max="-2" attributes="0"/>
@@ -115,20 +115,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Ubicacion:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUbicacion">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="2d" green="2d" red="2d" type="rgb"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="C:\u005cUsers\u005cCamilo y Roberth\u005cDocuments\u005cNIOTE_Projects" containsInvalidXMLChars="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUbicacionActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonBuscarNuevaUbicacion">
       <Properties>
@@ -206,6 +192,17 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldUbicacion">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2d" green="2d" red="2d" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="C:\u005cUsers\u005cCamilo y Roberth\u005cDocuments\u005cNIOTE_Projects" containsInvalidXMLChars="true"/>
       </Properties>
     </Component>
   </SubComponents>
