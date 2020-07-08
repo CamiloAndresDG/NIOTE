@@ -27,9 +27,9 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
 
         this.principal = principal;
         this.valorTomado = false;
-        this.validaciones = new ValidacionesSistema();
+        //    this.validaciones = new ValidacionesSistema();
 //        setProgresoMax(100);
-
+//        this.principal.setUndecorated(true);
         validacionesMetodo();
         initComponents();
     }
@@ -52,7 +52,7 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
         jPanelCarga.setForeground(new java.awt.Color(33, 33, 33));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/NIOTE CON O TransitoriaPNG.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/LogoNIOTE.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanelCargaLayout = new javax.swing.GroupLayout(jPanelCarga);
         jPanelCarga.setLayout(jPanelCargaLayout);
@@ -111,8 +111,8 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
     public boolean validacionesMetodo() {
 //        principal.cerrarVentana();
 //        jLabelProgreso.setText("Paso");
-        return validaciones.estaConfiguradoElSistema();
-
+//        return validaciones.estaConfiguradoElSistema();
+        return true;
     }
 
     public void setProgresoMax(int maxProgress) {

@@ -204,8 +204,8 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     Metodo para ir a la pantalla de emulacion
      */
     private void irAEmulacion() {
-jTextFieldNombreDelProyecto.setBackground(Color.GRAY);
-                jTextFieldNombreDelProyecto.setForeground(Color.GREEN);       
+        jTextFieldNombreDelProyecto.setBackground(Color.GRAY);
+        jTextFieldNombreDelProyecto.setForeground(Color.GREEN);
 // principal.irAEm(this);
     }
 
@@ -217,8 +217,9 @@ jTextFieldNombreDelProyecto.setBackground(Color.GRAY);
         if (validacion = true) {
             String nombre = jTextFieldNombreDelProyecto.getText();
             String descripcion = jTextAreaDescripcion.getText();
-           
+
             principal.crearRed(nombre, nombre, descripcion);
+   //         principal.arbolProyectosJPanel.joinedProjects(nombre);
             guardarRed();
             principal.cerrarVentana();
         }
@@ -230,7 +231,7 @@ jTextFieldNombreDelProyecto.setBackground(Color.GRAY);
     private void guardarRed() {
         String ruta = jTextFieldUbicacion.getText();
         System.out.println(ruta);
-        System.out.println(jTextFieldNombreDelProyecto.getText()+" difsoifndsiofnsf");
+        System.out.println(jTextFieldNombreDelProyecto.getText() + " difsoifndsiofnsf");
         String nombreArchivo = jTextFieldNombreDelProyecto.getText();
         System.out.println(this.principal.getGestionRed().guardarRed(ruta, nombreArchivo));
     }
@@ -245,8 +246,7 @@ jTextFieldNombreDelProyecto.setBackground(Color.GRAY);
             if (jTextAreaDescripcion.getText() == null || jTextAreaDescripcion.getText() == "") {
 //                Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
 //                  JOptionPane.showMessageDialog(this, "Tiene un campo donde el valor no es valido o esta vacio", "Error al agregar la  nueva aeronave", JOptionPane.INFORMATION_MESSAGE, imagenError);
-                
-                
+
                 JOptionPane.showMessageDialog(null, "Hace falta ingresar la descripcion del proyecto");
                 return false;
             }

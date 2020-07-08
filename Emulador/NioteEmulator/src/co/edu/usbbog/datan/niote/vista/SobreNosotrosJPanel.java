@@ -41,7 +41,7 @@ public class SobreNosotrosJPanel extends javax.swing.JPanel {
         jPanel2.setForeground(new java.awt.Color(33, 33, 33));
 
         jLabelLogo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/NIOTE CON O TransitoriaPNG.png"))); // NOI18N
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/LogoNIOTE.png"))); // NOI18N
 
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(45, 45, 45));
@@ -67,7 +67,7 @@ public class SobreNosotrosJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
+                .addGap(204, 204, 204)
                 .addComponent(jLabelLogo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -79,7 +79,7 @@ public class SobreNosotrosJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

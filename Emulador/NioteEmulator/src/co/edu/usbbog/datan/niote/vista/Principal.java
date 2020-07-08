@@ -5,6 +5,9 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
+//Packet Tracer ver tutoriales
+//IconElectronics
+
 /*
 Relaciones
  */
@@ -12,6 +15,7 @@ Relaciones
 import co.edu.usbbog.datan.niote.controlador.logica.Emulador;
 import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
+import co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel;
 
 //Emulador (Grafico)
 import co.edu.usbbog.datan.niote.vista.media.Graficar;
@@ -19,7 +23,10 @@ import co.edu.usbbog.datan.niote.vista.media.Grafos;
 import co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Dimension;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 
 //Files
 import java.io.File;
@@ -39,6 +46,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -71,7 +79,7 @@ public class Principal extends JFrame {
     CrearProyectoJPanel crearProyectoJPanel;
     EmulacionJPanel emulacionJPanel;
     PaletaNodosIoTJPanel paletaSensoresJPanel;
-
+    ArbolProyectosJPanel arbolProyectosJPanel;
     NotificarErrorJPanel notificarErrorJPanel;
     SobreNosotrosJPanel sobreNosotrosJPanel;
 
@@ -81,9 +89,10 @@ public class Principal extends JFrame {
      * Creates new form Principal
      */
     public Principal() {
+
         setTitle("NIOTE");
 
-        setIconImage(new ImageIcon(getClass().getResource("../vista/media/ICONO NIOTE.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("../vista/media/IconNIOTE.png")).getImage());
         setName("pricipalJFrame");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -139,11 +148,12 @@ public class Principal extends JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         arbolProyectosJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel();
-        paletaNodosIoTJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel();
         emulacionJPanel1 = new co.edu.usbbog.datan.niote.vista.EmulacionJPanel();
         jToolBar2 = new javax.swing.JToolBar();
         jButtonSave = new javax.swing.JButton();
         jButtonRun = new javax.swing.JButton();
+        paletaNodosIoTJPanel2 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel();
+        descripcionNodoJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchive = new javax.swing.JMenu();
         jMenuItemNewProject = new javax.swing.JMenuItem();
@@ -174,6 +184,7 @@ public class Principal extends JFrame {
 
         jButtonSave.setBackground(new java.awt.Color(45, 45, 45));
         jButtonSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_save_white_18dp.png"))); // NOI18N
+        jButtonSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonSave.setFocusable(false);
         jButtonSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -184,9 +195,15 @@ public class Principal extends JFrame {
         jButtonRun.setBorder(null);
         jButtonRun.setBorderPainted(false);
         jButtonRun.setContentAreaFilled(false);
+        jButtonRun.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonRun.setFocusable(false);
         jButtonRun.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRunActionPerformed(evt);
+            }
+        });
         jToolBar2.add(jButtonRun);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -195,12 +212,14 @@ public class Principal extends JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(emulacionJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(paletaNodosIoTJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(descripcionNodoJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(paletaNodosIoTJPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
             .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -208,12 +227,17 @@ public class Principal extends JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(paletaNodosIoTJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(emulacionJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(emulacionJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(paletaNodosIoTJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(descripcionNodoJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -224,7 +248,7 @@ public class Principal extends JFrame {
         jMenuArchive.setText("Archivo");
 
         jMenuItemNewProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemNewProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_create_new_folder_black_18dp.png"))); // NOI18N
+        jMenuItemNewProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/crearproyectox1_18.png"))); // NOI18N
         jMenuItemNewProject.setText("Nuevo proyecto");
         jMenuItemNewProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,7 +258,7 @@ public class Principal extends JFrame {
         jMenuArchive.add(jMenuItemNewProject);
 
         jMenuItemOpenProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemOpenProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_folder_open_black_18dp.png"))); // NOI18N
+        jMenuItemOpenProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Openx1_18.png"))); // NOI18N
         jMenuItemOpenProject.setText("Abrir proyecto");
         jMenuItemOpenProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,26 +269,36 @@ public class Principal extends JFrame {
 
         jMenuItemCloseProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemCloseProject.setBackground(new java.awt.Color(45, 45, 45));
-        jMenuItemCloseProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_cancel_presentation_black_18dp.png"))); // NOI18N
+        jMenuItemCloseProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"))); // NOI18N
         jMenuItemCloseProject.setText("Cerrar proyecto");
+        jMenuItemCloseProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCloseProjectActionPerformed(evt);
+            }
+        });
         jMenuArchive.add(jMenuItemCloseProject);
 
         jMenuItemCloseAllProjects.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemCloseAllProjects.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_cancel_presentation_black_18dp.png"))); // NOI18N
+        jMenuItemCloseAllProjects.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"))); // NOI18N
         jMenuItemCloseAllProjects.setText("Cerrar todos los proyectos");
         jMenuArchive.add(jMenuItemCloseAllProjects);
 
-        jMenuExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_import_export_black_18dp.png"))); // NOI18N
+        jMenuExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exportx1_18.png"))); // NOI18N
         jMenuExport.setText("Exportar");
 
-        jMenuItemExportToRar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/rar-outline (1).png"))); // NOI18N
+        jMenuItemExportToRar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/rarx1_18.png"))); // NOI18N
         jMenuItemExportToRar.setText("a .rar");
         jMenuExport.add(jMenuItemExportToRar);
 
         jMenuArchive.add(jMenuExport);
 
-        jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_exit_to_app_black_18dp.png"))); // NOI18N
+        jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exitx1_18.png"))); // NOI18N
         jMenuItemExit.setText("Salir");
+        jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemExitActionPerformed(evt);
+            }
+        });
         jMenuArchive.add(jMenuItemExit);
 
         jMenuBar1.add(jMenuArchive);
@@ -280,7 +314,7 @@ public class Principal extends JFrame {
         jMenuExecute.setText("Ejecutar");
 
         jMenuItemRun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
-        jMenuItemRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_play_arrow_black_18dp.png"))); // NOI18N
+        jMenuItemRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Executex1_18.png"))); // NOI18N
         jMenuItemRun.setText("Ejecutar");
         jMenuItemRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,11 +327,11 @@ public class Principal extends JFrame {
 
         jMenuHelp.setText("Ayuda");
 
-        jMenuItemDocumentation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_description_black_18dp.png"))); // NOI18N
+        jMenuItemDocumentation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/documentacionx1_18.png"))); // NOI18N
         jMenuItemDocumentation.setText("Documentacion (Proximamente...)");
         jMenuHelp.add(jMenuItemDocumentation);
 
-        jMenuItemReportError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_notification_important_black_18dp.png"))); // NOI18N
+        jMenuItemReportError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/BugNotificationx1_18dp.png"))); // NOI18N
         jMenuItemReportError.setText("Reportar error");
         jMenuItemReportError.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,7 +340,7 @@ public class Principal extends JFrame {
         });
         jMenuHelp.add(jMenuItemReportError);
 
-        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_youtube_searched_for_black_18dp.png"))); // NOI18N
+        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Updatex1_18.png"))); // NOI18N
         jMenuItemSearchUpdate.setText("Buscar actualizaciones");
         jMenuHelp.add(jMenuItemSearchUpdate);
 
@@ -381,6 +415,19 @@ public class Principal extends JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemRunActionPerformed
 
+    private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRunActionPerformed
+
+    private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
+
+        this.dispose();
+    }//GEN-LAST:event_jMenuItemExitActionPerformed
+
+    private void jMenuItemCloseProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCloseProjectActionPerformed
+        arbolProyectosJPanel1.deleteProjects();
+    }//GEN-LAST:event_jMenuItemCloseProjectActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -406,6 +453,7 @@ public class Principal extends JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel arbolProyectosJPanel1;
+    private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel descripcionNodoJPanel1;
     private co.edu.usbbog.datan.niote.vista.EmulacionJPanel emulacionJPanel1;
     private javax.swing.JButton jButtonRun;
     private javax.swing.JButton jButtonSave;
@@ -429,7 +477,7 @@ public class Principal extends JFrame {
     private javax.swing.JMenuItem jMenuItemSearchUpdate;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar2;
-    private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel paletaNodosIoTJPanel1;
+    private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel paletaNodosIoTJPanel2;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -556,16 +604,6 @@ public class Principal extends JFrame {
         ventanaDialog.dispose();
         ventanaDialog = null;
         //  irAHome();
-    }
-
-    //String auxiliar=proyectos;
-    protected void metodoParaAgregarAlJTree(String nomProyecto) {
-        /*  String proyectos=null;
-        proyectos+="Proyectos\n";
-        if (rootPaneCheckingEnabled) {
-            proyectos+=nombreProyecto+"\n";
-            
-        }*/
     }
 
     private void validarBotonesClickeados() {

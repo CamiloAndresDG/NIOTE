@@ -6,13 +6,14 @@
 package co.edu.usbbog.datan.niote.recursos.pantallaPrincipal;
 
 import co.edu.usbbog.datan.niote.vista.Principal;
+import java.awt.MouseInfo;
+import java.awt.Point;
 
 /**
  *
  * @author Camilo y Roberth
  */
 public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
-
 
     /**
      * Creates new form InicioJPanel
@@ -51,6 +52,11 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(45, 45, 45));
 
         jButton11.setText("jButton11");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton11MousePressed(evt);
+            }
+        });
 
         jButton12.setText("jButton12");
 
@@ -67,7 +73,7 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,6 +89,8 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Sensores", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(45, 45, 45));
+
         jButton9.setText("jButton9");
 
         jButton10.setText("jButton10");
@@ -96,7 +104,7 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
                 .addComponent(jButton9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton10)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,6 +117,8 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
         );
 
         jTabbedPane2.addTab("Actuadores", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(45, 45, 45));
 
         jButton3.setText("jButton3");
 
@@ -140,7 +150,7 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton8)))
-                .addGap(0, 44, Short.MAX_VALUE))
+                .addGap(0, 169, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,15 +173,17 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -191,4 +203,6 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane2;
     // End of variables declaration//GEN-END:variables
+
+    
 }

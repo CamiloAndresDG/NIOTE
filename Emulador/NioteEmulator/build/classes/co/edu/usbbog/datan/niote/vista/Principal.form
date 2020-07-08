@@ -29,7 +29,7 @@
                   <KeyStroke key="Ctrl+N"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_create_new_folder_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/crearproyectox1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nuevo proyecto"/>
               </Properties>
@@ -43,7 +43,7 @@
                   <KeyStroke key="Ctrl+A"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_folder_open_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/Openx1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Abrir proyecto"/>
               </Properties>
@@ -60,10 +60,13 @@
                   <Color blue="2d" green="2d" red="2d" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_cancel_presentation_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar proyecto"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemCloseProjectActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCloseAllProjects">
               <Properties>
@@ -71,7 +74,7 @@
                   <KeyStroke key="Shift+Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_cancel_presentation_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar todos los proyectos"/>
               </Properties>
@@ -79,7 +82,7 @@
             <Menu class="javax.swing.JMenu" name="jMenuExport">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_import_export_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/Exportx1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Exportar"/>
               </Properties>
@@ -87,7 +90,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItemExportToRar">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/rar-outline (1).png"/>
+                      <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/rarx1_18.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="a .rar"/>
                   </Properties>
@@ -97,10 +100,13 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemExit">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_exit_to_app_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/Exitx1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemExitActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -127,7 +133,7 @@
                   <KeyStroke key="F5"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_play_arrow_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/Executex1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ejecutar"/>
               </Properties>
@@ -145,7 +151,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemDocumentation">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_description_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/documentacionx1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Documentacion (Proximamente...)"/>
               </Properties>
@@ -153,7 +159,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemReportError">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_notification_important_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/BugNotificationx1_18dp.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Reportar error"/>
               </Properties>
@@ -164,7 +170,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemSearchUpdate">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_youtube_searched_for_black_18dp.png"/>
+                  <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/Updatex1_18.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar actualizaciones"/>
               </Properties>
@@ -233,12 +239,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="arbolProyectosJPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="arbolProyectosJPanel1" min="-2" pref="226" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="emulacionJPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
-                  <Component id="paletaNodosIoTJPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="descripcionNodoJPanel1" max="32767" attributes="0"/>
+                      <Component id="paletaNodosIoTJPanel2" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
               <Component id="jToolBar2" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -248,12 +257,19 @@
               <Group type="102" attributes="0">
                   <Component id="jToolBar2" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="arbolProyectosJPanel1" max="32767" attributes="0"/>
-                      <Component id="paletaNodosIoTJPanel1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="arbolProyectosJPanel1" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Component id="emulacionJPanel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="emulacionJPanel1" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="paletaNodosIoTJPanel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="descripcionNodoJPanel1" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -263,8 +279,6 @@
       </Layout>
       <SubComponents>
         <Component class="co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel" name="arbolProyectosJPanel1">
-        </Component>
-        <Component class="co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel" name="paletaNodosIoTJPanel1">
         </Component>
         <Component class="co.edu.usbbog.datan.niote.vista.EmulacionJPanel" name="emulacionJPanel1">
         </Component>
@@ -286,6 +300,9 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/co/edu/usbbog/datan/niote/vista/media/baseline_save_white_18dp.png"/>
                 </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Default Cursor"/>
+                </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
@@ -304,13 +321,23 @@
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Default Cursor"/>
+                </Property>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRunActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel" name="paletaNodosIoTJPanel2">
+        </Component>
+        <Component class="co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel" name="descripcionNodoJPanel1">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

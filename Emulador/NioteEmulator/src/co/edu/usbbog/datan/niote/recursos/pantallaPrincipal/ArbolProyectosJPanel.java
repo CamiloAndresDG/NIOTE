@@ -6,6 +6,8 @@
 package co.edu.usbbog.datan.niote.recursos.pantallaPrincipal;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
@@ -17,10 +19,6 @@ public class ArbolProyectosJPanel extends javax.swing.JPanel {
      * Creates new form ArbolProyectosJPanel
      */
     public ArbolProyectosJPanel() {
-//        DefaultMutableTreeNode proyectos = new DefaultMutableTreeNode();
-//        DefaultMutableTreeNode nodos = new DefaultMutableTreeNode();
-//        proyectos.add(nodos);
-//        proyectos.setUserObject("hola");
         initComponents();
     }
 
@@ -33,10 +31,20 @@ public class ArbolProyectosJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItemCerrar = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jTreeProjects = new javax.swing.JTree();
 
-        jTree1.setBackground(new java.awt.Color(45, 45, 45));
+        jMenuItemCerrar.setText("Cerrar");
+        jMenuItemCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCerrarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItemCerrar);
+
+        jTreeProjects.setBackground(new java.awt.Color(45, 45, 45));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Proyectos");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("colors");
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("blue");
@@ -68,9 +76,15 @@ public class ArbolProyectosJPanel extends javax.swing.JPanel {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("bananas");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTree1.setToolTipText("");
-        jScrollPane1.setViewportView(jTree1);
+        jTreeProjects.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTreeProjects.setToolTipText("");
+        jTreeProjects.setComponentPopupMenu(jPopupMenu1);
+        jTreeProjects.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTreeProjectsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTreeProjects);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -84,13 +98,64 @@ public class ArbolProyectosJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTreeProjectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeProjectsMouseClicked
+        // Method to get the selected project and catch the name
+        methodToCatchProjectName();
+    }//GEN-LAST:event_jTreeProjectsMouseClicked
+
+    private void jMenuItemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCerrarActionPerformed
+        deleteProjects();        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jMenuItemCerrar;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JTree jTreeProjects;
     // End of variables declaration//GEN-END:variables
 
-    private void ingresadoDeProyectos(String nombreProyecto) {
-//        proyectos
+    /**
+     * Method to get the selected project and catch the name
+     */
+    public void methodToCatchProjectName() {
+        // Display Selected Node Text Into JTextFields
+
+        TreeSelectionModel smd = jTreeProjects.getSelectionModel();
+        if (smd.getSelectionCount() > 0) {
+            DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
+            String projectToErase = selectedNode.getUserObject().toString();
+        }
     }
+
+    /**
+     * Method to add a new project to the tree
+     *
+     * @param ProjectName
+     */
+    public void joinedProjects(String ProjectName) {
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
+        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(ProjectName);
+        selectedNode.add(newNode);
+        // Reload jTree model
+        DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
+        model.reload();
+    }
+
+    /**
+     * Method to delete a new project to the tree
+     */
+    public void deleteProjects() {
+
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
+
+        if (selectedNode != jTreeProjects.getModel().getRoot()) {
+            DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
+
+            model.removeNodeFromParent(selectedNode);
+
+            model.reload();
+        }
+    }
+
 }
