@@ -67,14 +67,14 @@ public class EmulacionJPanel extends javax.swing.JPanel {
         for (int j = 0; j < top; j++) {
             for (int k = 0; k < top; k++) {
 //                if (tree.g etMatrizAdyacencia(j, k) == 1) {
-                Graficar.createLine(jPanel1.getGraphics(), tree.getCoordinateX(j),
+                Graficar.createLine(jPanelMap.getGraphics(), tree.getCoordinateX(j),
                         tree.getCoordinateY(j), tree.getCoordinateX(k),
                         tree.getCoordinateY(k));
 //                }
             }
         }
         for (int j = 0; j < top; j++) {
-            Graficar.createCircle(jPanel1.getGraphics(), tree.getCoordinateX(j), tree.getCoordinateY(j), String.valueOf(tree.getName(j)));
+            Graficar.createCircle(jPanelMap.getGraphics(), tree.getCoordinateX(j), tree.getCoordinateY(j), String.valueOf(tree.getName(j)));
         }
     }
 
@@ -116,7 +116,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                 nn++;
                 n = 0;
                 id = -1;
-                Graficar.selectNode(jPanel1.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.GREEN);
+                Graficar.selectNode(jPanelMap.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.GREEN);
                 break;
             }
 
@@ -137,15 +137,15 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                 if (n == 0) {
                     id = j;
                     keepIt(tope, trees);
-                    Graficar.selectNode(jPanel1.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
+                    Graficar.selectNode(jPanelMap.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
                     n++;
                 } else {
                     id2 = j;
                     n++;
-                    Graficar.selectNode(jPanel1.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
+                    Graficar.selectNode(jPanelMap.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
                     if (id == id2) {// solo toma el primer clic
                         n = 0;
-                        Graficar.createCircle(jPanel1.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
+                        Graficar.createCircle(jPanelMap.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
                         id = -1;
                         id2 = -1;
                     }
@@ -166,41 +166,41 @@ public class EmulacionJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        Mapa = new javax.swing.JLabel();
+        jPanelMap = new javax.swing.JPanel();
+        Map = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(27, 27, 27));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setMinimumSize(new java.awt.Dimension(770, 522));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jPanelMap.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelMap.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanelMap.setMinimumSize(new java.awt.Dimension(770, 522));
+        jPanelMap.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jPanel1MouseMoved(evt);
+                jPanelMapMouseMoved(evt);
             }
         });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelMap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
+                jPanelMapMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
+                jPanelMapMousePressed(evt);
             }
         });
-        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPanelMap.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPanel1KeyPressed(evt);
+                jPanelMapKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jPanel1KeyReleased(evt);
+                jPanelMapKeyReleased(evt);
             }
         });
-        jPanel1.setLayout(null);
+        jPanelMap.setLayout(null);
 
-        Mapa.setBackground(new java.awt.Color(255, 255, 255));
-        Mapa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(Mapa);
-        Mapa.setBounds(10, 10, 700, 320);
+        Map.setBackground(new java.awt.Color(255, 255, 255));
+        Map.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanelMap.add(Map);
+        Map.setBounds(10, 10, 700, 320);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,25 +208,25 @@ public class EmulacionJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelMap, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelMap, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
+    private void jPanelMapMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMapMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1MouseMoved
+    }//GEN-LAST:event_jPanelMapMouseMoved
 
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+    private void jPanelMapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMapMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1MouseClicked
+    }//GEN-LAST:event_jPanelMapMouseClicked
 
 
  /*
@@ -239,7 +239,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
      *
      * @param evt
      */
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+    private void jPanelMapMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMapMousePressed
 
         int x;
         int y;
@@ -259,7 +259,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                             trees.setCoordinateX(tope, x);
                             trees.setCoordinateY(tope, y);
                             trees.setName(tope, tope);
-                            Graficar.createCircleSensor(jPanel1.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
+                            Graficar.createCircleSensor(jPanelMap.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
                             tope++;
                             break;
 
@@ -267,7 +267,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                             trees.setCoordinateX(tope, x);
                             trees.setCoordinateY(tope, y);
                             trees.setName(tope, tope);
-                            Graficar.createCircleActuator(jPanel1.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
+                            Graficar.createCircleActuator(jPanelMap.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
                             tope++;
                             break;
 
@@ -275,7 +275,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                             trees.setCoordinateX(tope, x);
                             trees.setCoordinateY(tope, y);
                             trees.setName(tope, tope);
-                            Graficar.createCircleGateway(jPanel1.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
+                            Graficar.createCircleGateway(jPanelMap.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
                             tope++;
                             break;
                     }
@@ -288,28 +288,28 @@ public class EmulacionJPanel extends javax.swing.JPanel {
             // Securities income
             if (n == 2) {
                 n = 0;
-                Graficar.createLine(jPanel1.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), trees.getCoordinateX(id2), trees.getCoordinateY(id2));
-                Graficar.createCircle(jPanel1.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
-                Graficar.createCircle(jPanel1.getGraphics(), trees.getCoordinateX(id2), trees.getCoordinateY(id2), String.valueOf(trees.getName(id2)));
+                Graficar.createLine(jPanelMap.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), trees.getCoordinateX(id2), trees.getCoordinateY(id2));
+                Graficar.createCircle(jPanelMap.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
+                Graficar.createCircle(jPanelMap.getGraphics(), trees.getCoordinateX(id2), trees.getCoordinateY(id2), String.valueOf(trees.getName(id2)));
                 id = -1;
                 id2 = -1;
             }
         }
 
-    }//GEN-LAST:event_jPanel1MousePressed
+    }//GEN-LAST:event_jPanelMapMousePressed
 
-    private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
+    private void jPanelMapKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanelMapKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1KeyPressed
+    }//GEN-LAST:event_jPanelMapKeyPressed
 
-    private void jPanel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyReleased
+    private void jPanelMapKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanelMapKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1KeyReleased
+    }//GEN-LAST:event_jPanelMapKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Mapa;
-    public static javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel Map;
+    public static javax.swing.JPanel jPanelMap;
     // End of variables declaration//GEN-END:variables
 
 }

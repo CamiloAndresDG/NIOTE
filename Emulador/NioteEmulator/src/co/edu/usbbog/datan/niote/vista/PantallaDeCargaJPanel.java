@@ -44,15 +44,15 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanelCarga = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabelLogo = new javax.swing.JLabel();
+        jProgressBar = new javax.swing.JProgressBar();
         jLabelProgreso = new javax.swing.JLabel();
 
         jPanelCarga.setBackground(new java.awt.Color(27, 27, 27));
         jPanelCarga.setForeground(new java.awt.Color(33, 33, 33));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/LogoNIOTE.png"))); // NOI18N
+        jLabelLogo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/LogoNIOTE.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanelCargaLayout = new javax.swing.GroupLayout(jPanelCarga);
         jPanelCarga.setLayout(jPanelCargaLayout);
@@ -61,23 +61,23 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCargaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelCargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelProgreso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCargaLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
         jPanelCargaLayout.setVerticalGroup(
             jPanelCargaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCargaLayout.createSequentialGroup()
                 .addContainerGap(52, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabelProgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -102,10 +102,10 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelProgreso;
     private javax.swing.JPanel jPanelCarga;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar;
     // End of variables declaration//GEN-END:variables
 
     public boolean validacionesMetodo() {
@@ -116,30 +116,30 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
     }
 
     public void setProgresoMax(int maxProgress) {
-        jProgressBar1.setMaximum(maxProgress);
+        jProgressBar.setMaximum(maxProgress);
     }
 
     public void setProgreso(int progress) {
         final int progreso = progress;
-        jProgressBar1.setValue(progreso);
+        jProgressBar.setValue(progreso);
     }
 
     public void setProgreso(String message, int progress) {
         final int progreso = progress;
         final String theMessage = message;
         setProgreso(progress);
-        jProgressBar1.setValue(progreso);
+        jProgressBar.setValue(progreso);
         setMessage(theMessage);
     }
 
     private void setMessage(String message) {
         if (message == null) {
             message = "";
-            jProgressBar1.setStringPainted(false);
+            jProgressBar.setStringPainted(false);
         } else {
-            jProgressBar1.setStringPainted(true);
+            jProgressBar.setStringPainted(true);
         }
-        jProgressBar1.setString(message);
+        jProgressBar.setString(message);
     }
 
     public void velocidadDeCarga() {

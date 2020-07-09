@@ -145,7 +145,7 @@ public class Principal extends JFrame {
         jButtonRun = new javax.swing.JButton();
         paletaNodosIoTJPanel2 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel();
         descripcionNodoJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar = new javax.swing.JMenuBar();
         jMenuArchive = new javax.swing.JMenu();
         jMenuItemNewProject = new javax.swing.JMenuItem();
         jMenuItemOpenProject = new javax.swing.JMenuItem();
@@ -232,8 +232,8 @@ public class Principal extends JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(27, 27, 27));
-        jMenuBar1.setBorder(null);
+        jMenuBar.setBackground(new java.awt.Color(27, 27, 27));
+        jMenuBar.setBorder(null);
 
         jMenuArchive.setBackground(new java.awt.Color(45, 45, 45));
         jMenuArchive.setText("Archivo");
@@ -292,7 +292,7 @@ public class Principal extends JFrame {
         });
         jMenuArchive.add(jMenuItemExit);
 
-        jMenuBar1.add(jMenuArchive);
+        jMenuBar.add(jMenuArchive);
         jMenuArchive.getAccessibleContext().setAccessibleDescription("");
 
         jMenuEdit.setText("Editar");
@@ -300,7 +300,7 @@ public class Principal extends JFrame {
         jMenuItem4.setText("Borrar proyecto");
         jMenuEdit.add(jMenuItem4);
 
-        jMenuBar1.add(jMenuEdit);
+        jMenuBar.add(jMenuEdit);
 
         jMenuExecute.setText("Ejecutar");
 
@@ -314,7 +314,7 @@ public class Principal extends JFrame {
         });
         jMenuExecute.add(jMenuItemRun);
 
-        jMenuBar1.add(jMenuExecute);
+        jMenuBar.add(jMenuExecute);
 
         jMenuHelp.setText("Ayuda");
 
@@ -343,9 +343,9 @@ public class Principal extends JFrame {
         });
         jMenuHelp.add(jMenuItemAboutUs);
 
-        jMenuBar1.add(jMenuHelp);
+        jMenuBar.add(jMenuHelp);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -419,7 +419,7 @@ public class Principal extends JFrame {
     private javax.swing.JButton jButtonRun;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JMenu jMenuArchive;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuEdit;
     private javax.swing.JMenu jMenuExecute;
     private javax.swing.JMenu jMenuExport;

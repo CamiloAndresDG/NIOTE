@@ -27,28 +27,28 @@
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jButtonCrearProyecto" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonCreateProject" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jLabelUbicacion1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelDescription" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelUbicacion" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLocation" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelName" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                              <Component id="jLabelTituloCreacion" min="-2" pref="174" max="-2" attributes="0"/>
+                              <Component id="jLabelTitleCreation" min="-2" pref="174" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTextFieldNombreDelProyecto" min="-2" pref="309" max="-2" attributes="0"/>
-                          <Component id="jTextFieldUbicacion" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldProjectName" min="-2" pref="309" max="-2" attributes="0"/>
+                          <Component id="jTextFieldLocation" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonBuscarNuevaUbicacion" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="jButtonSearchNewLocation" min="-2" pref="145" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -59,31 +59,31 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="jLabelTituloCreacion" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelTitleCreation" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldNombreDelProyecto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldProjectName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelUbicacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonBuscarNuevaUbicacion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUbicacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonSearchNewLocation" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jTextFieldLocation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Component id="jLabelUbicacion1" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelDescription" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="113" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButtonCrearProyecto" min="-2" max="-2" attributes="0"/>
+              <Component id="jButtonCreateProject" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabelTituloCreacion">
+    <Component class="javax.swing.JLabel" name="jLabelTitleCreation">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -94,7 +94,7 @@
         <Property name="text" type="java.lang.String" value="Creacion de nuevo proyecto"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelNombre">
+    <Component class="javax.swing.JLabel" name="jLabelName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -105,7 +105,7 @@
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUbicacion">
+    <Component class="javax.swing.JLabel" name="jLabelLocation">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -116,7 +116,7 @@
         <Property name="text" type="java.lang.String" value="Ubicacion:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonBuscarNuevaUbicacion">
+    <Component class="javax.swing.JButton" name="jButtonSearchNewLocation">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="42" green="42" red="42" type="rgb"/>
@@ -129,10 +129,10 @@
         <Property name="defaultCapable" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarNuevaUbicacionActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchNewLocationActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldNombreDelProyecto">
+    <Component class="javax.swing.JTextField" name="jTextFieldProjectName">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2d" green="2d" red="2d" type="rgb"/>
@@ -142,7 +142,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonCrearProyecto">
+    <Component class="javax.swing.JButton" name="jButtonCreateProject">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="42" green="42" red="42" type="rgb"/>
@@ -153,7 +153,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCrearProyectoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreateProjectActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -163,7 +163,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextAreaDescripcion">
+        <Component class="javax.swing.JTextArea" name="jTextAreaDescription">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2d" green="2d" red="2d" type="rgb"/>
@@ -183,7 +183,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabelUbicacion1">
+    <Component class="javax.swing.JLabel" name="jLabelDescription">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -194,7 +194,7 @@
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUbicacion">
+    <Component class="javax.swing.JTextField" name="jTextFieldLocation">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="2d" green="2d" red="2d" type="rgb"/>

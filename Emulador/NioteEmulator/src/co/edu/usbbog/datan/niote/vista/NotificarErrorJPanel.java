@@ -33,10 +33,10 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea = new javax.swing.JTextArea();
-        jTextAreaText = new javax.swing.JTextArea();
+        jTextAreaDescriptionError = new javax.swing.JTextArea();
+        jTextAreaTextDescription = new javax.swing.JTextArea();
         jButtonSend = new javax.swing.JButton();
-        jButtonAttachImage2 = new javax.swing.JButton();
+        jButtonAttachImage = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(27, 27, 27));
         jPanel2.setForeground(new java.awt.Color(33, 33, 33));
@@ -44,20 +44,20 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
         jLabelLogo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/LogoNIOTE.png"))); // NOI18N
 
-        jTextArea.setBackground(new java.awt.Color(45, 45, 45));
-        jTextArea.setColumns(20);
-        jTextArea.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jTextArea.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea.setRows(5);
-        jScrollPane1.setViewportView(jTextArea);
+        jTextAreaDescriptionError.setBackground(new java.awt.Color(45, 45, 45));
+        jTextAreaDescriptionError.setColumns(20);
+        jTextAreaDescriptionError.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTextAreaDescriptionError.setForeground(new java.awt.Color(255, 255, 255));
+        jTextAreaDescriptionError.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaDescriptionError);
 
-        jTextAreaText.setEditable(false);
-        jTextAreaText.setBackground(new java.awt.Color(27, 27, 27));
-        jTextAreaText.setColumns(20);
-        jTextAreaText.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextAreaText.setForeground(new java.awt.Color(255, 255, 255));
-        jTextAreaText.setRows(5);
-        jTextAreaText.setText("¡Hola! Queremos seguir mejorando en el proceso del desarrollo de nuestro emulador NioTe, si llego hasta esta instancia es por que \ntiene alguna recomendación o a encontrado algun error en el uso dado al emulador,  para esto, queremos que describa el error en \nla caja de texto inferior.");
+        jTextAreaTextDescription.setEditable(false);
+        jTextAreaTextDescription.setBackground(new java.awt.Color(27, 27, 27));
+        jTextAreaTextDescription.setColumns(20);
+        jTextAreaTextDescription.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextAreaTextDescription.setForeground(new java.awt.Color(255, 255, 255));
+        jTextAreaTextDescription.setRows(5);
+        jTextAreaTextDescription.setText("¡Hola! Queremos seguir mejorando en el proceso del desarrollo de nuestro emulador NioTe, si llego hasta esta instancia es por que \ntiene alguna recomendación o a encontrado algun error en el uso dado al emulador,  para esto, queremos que describa el error en \nla caja de texto inferior.");
 
         jButtonSend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/SendMailx2_24.png"))); // NOI18N
         jButtonSend.setBorder(null);
@@ -71,17 +71,17 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButtonAttachImage2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonAttachImage2.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAttachImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_attach_file_white_24dp.png"))); // NOI18N
-        jButtonAttachImage2.setText("Adjuntar imagenes");
-        jButtonAttachImage2.setBorder(null);
-        jButtonAttachImage2.setBorderPainted(false);
-        jButtonAttachImage2.setContentAreaFilled(false);
-        jButtonAttachImage2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonAttachImage2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAttachImage.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAttachImage.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAttachImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_attach_file_white_24dp.png"))); // NOI18N
+        jButtonAttachImage.setText("Adjuntar imagenes");
+        jButtonAttachImage.setBorder(null);
+        jButtonAttachImage.setBorderPainted(false);
+        jButtonAttachImage.setContentAreaFilled(false);
+        jButtonAttachImage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonAttachImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAttachImage2ActionPerformed(evt);
+                jButtonAttachImageActionPerformed(evt);
             }
         });
 
@@ -95,13 +95,13 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButtonAttachImage2)
+                                .addComponent(jButtonAttachImage)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonSend))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jTextAreaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextAreaTextDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -114,13 +114,13 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
                 .addGap(21, 21, 21)
                 .addComponent(jLabelLogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextAreaText, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextAreaTextDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonSend)
-                    .addComponent(jButtonAttachImage2))
+                    .addComponent(jButtonAttachImage))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -140,18 +140,18 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSendActionPerformed
 
-    private void jButtonAttachImage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttachImage2ActionPerformed
+    private void jButtonAttachImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttachImageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAttachImage2ActionPerformed
+    }//GEN-LAST:event_jButtonAttachImageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAttachImage2;
+    private javax.swing.JButton jButtonAttachImage;
     private javax.swing.JButton jButtonSend;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea;
-    private javax.swing.JTextArea jTextAreaText;
+    private javax.swing.JTextArea jTextAreaDescriptionError;
+    private javax.swing.JTextArea jTextAreaTextDescription;
     // End of variables declaration//GEN-END:variables
 }

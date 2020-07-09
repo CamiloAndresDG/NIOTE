@@ -37,69 +37,69 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelTituloCreacion = new javax.swing.JLabel();
-        jLabelNombre = new javax.swing.JLabel();
-        jLabelUbicacion = new javax.swing.JLabel();
-        jButtonBuscarNuevaUbicacion = new javax.swing.JButton();
-        jTextFieldNombreDelProyecto = new javax.swing.JTextField();
-        jButtonCrearProyecto = new javax.swing.JButton();
+        jLabelTitleCreation = new javax.swing.JLabel();
+        jLabelName = new javax.swing.JLabel();
+        jLabelLocation = new javax.swing.JLabel();
+        jButtonSearchNewLocation = new javax.swing.JButton();
+        jTextFieldProjectName = new javax.swing.JTextField();
+        jButtonCreateProject = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaDescripcion = new javax.swing.JTextArea();
-        jLabelUbicacion1 = new javax.swing.JLabel();
-        jTextFieldUbicacion = new javax.swing.JTextField();
+        jTextAreaDescription = new javax.swing.JTextArea();
+        jLabelDescription = new javax.swing.JLabel();
+        jTextFieldLocation = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(27, 27, 27));
 
-        jLabelTituloCreacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelTituloCreacion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelTituloCreacion.setText("Creacion de nuevo proyecto");
+        jLabelTitleCreation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelTitleCreation.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTitleCreation.setText("Creacion de nuevo proyecto");
 
-        jLabelNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNombre.setText("Nombre:");
+        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelName.setText("Nombre:");
 
-        jLabelUbicacion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelUbicacion.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUbicacion.setText("Ubicacion:");
+        jLabelLocation.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelLocation.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLocation.setText("Ubicacion:");
 
-        jButtonBuscarNuevaUbicacion.setBackground(new java.awt.Color(66, 66, 66));
-        jButtonBuscarNuevaUbicacion.setText("Buscar nueva ubicacion");
-        jButtonBuscarNuevaUbicacion.setBorderPainted(false);
-        jButtonBuscarNuevaUbicacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonBuscarNuevaUbicacion.setDefaultCapable(false);
-        jButtonBuscarNuevaUbicacion.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSearchNewLocation.setBackground(new java.awt.Color(66, 66, 66));
+        jButtonSearchNewLocation.setText("Buscar nueva ubicacion");
+        jButtonSearchNewLocation.setBorderPainted(false);
+        jButtonSearchNewLocation.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonSearchNewLocation.setDefaultCapable(false);
+        jButtonSearchNewLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscarNuevaUbicacionActionPerformed(evt);
+                jButtonSearchNewLocationActionPerformed(evt);
             }
         });
 
-        jTextFieldNombreDelProyecto.setBackground(new java.awt.Color(45, 45, 45));
-        jTextFieldNombreDelProyecto.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldProjectName.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldProjectName.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButtonCrearProyecto.setBackground(new java.awt.Color(66, 66, 66));
-        jButtonCrearProyecto.setText("Crear proyecto");
-        jButtonCrearProyecto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonCrearProyecto.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCreateProject.setBackground(new java.awt.Color(66, 66, 66));
+        jButtonCreateProject.setText("Crear proyecto");
+        jButtonCreateProject.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonCreateProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCrearProyectoActionPerformed(evt);
+                jButtonCreateProjectActionPerformed(evt);
             }
         });
 
-        jTextAreaDescripcion.setBackground(new java.awt.Color(45, 45, 45));
-        jTextAreaDescripcion.setColumns(20);
-        jTextAreaDescripcion.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        jTextAreaDescripcion.setForeground(new java.awt.Color(255, 255, 255));
-        jTextAreaDescripcion.setRows(5);
-        jTextAreaDescripcion.setBorder(null);
-        jScrollPane1.setViewportView(jTextAreaDescripcion);
+        jTextAreaDescription.setBackground(new java.awt.Color(45, 45, 45));
+        jTextAreaDescription.setColumns(20);
+        jTextAreaDescription.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jTextAreaDescription.setForeground(new java.awt.Color(255, 255, 255));
+        jTextAreaDescription.setRows(5);
+        jTextAreaDescription.setBorder(null);
+        jScrollPane1.setViewportView(jTextAreaDescription);
 
-        jLabelUbicacion1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelUbicacion1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUbicacion1.setText("Descripción");
+        jLabelDescription.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelDescription.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDescription.setText("Descripción");
 
-        jTextFieldUbicacion.setBackground(new java.awt.Color(45, 45, 45));
-        jTextFieldUbicacion.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldUbicacion.setText("C:\\Users\\Camilo y Roberth\\Documents\\NIOTE_Projects");
+        jTextFieldLocation.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldLocation.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldLocation.setText("C:\\Users\\Camilo y Roberth\\Documents\\NIOTE_Projects");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -111,78 +111,78 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonCrearProyecto))
+                        .addComponent(jButtonCreateProject))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelUbicacion1)
+                        .addComponent(jLabelDescription)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelUbicacion)
-                            .addComponent(jLabelNombre))
+                            .addComponent(jLabelLocation)
+                            .addComponent(jLabelName))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(108, 108, 108)
-                                .addComponent(jLabelTituloCreacion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldNombreDelProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldUbicacion))
+                                .addComponent(jLabelTitleCreation, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldProjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldLocation))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonBuscarNuevaUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonSearchNewLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabelTituloCreacion)
+                .addComponent(jLabelTitleCreation)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jTextFieldNombreDelProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelName)
+                    .addComponent(jTextFieldProjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUbicacion)
-                    .addComponent(jButtonBuscarNuevaUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelLocation)
+                    .addComponent(jButtonSearchNewLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
-                .addComponent(jLabelUbicacion1)
+                .addComponent(jLabelDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonCrearProyecto)
+                .addComponent(jButtonCreateProject)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonBuscarNuevaUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarNuevaUbicacionActionPerformed
+    private void jButtonSearchNewLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchNewLocationActionPerformed
         searchNewLocation();
-    }//GEN-LAST:event_jButtonBuscarNuevaUbicacionActionPerformed
+    }//GEN-LAST:event_jButtonSearchNewLocationActionPerformed
 
-    private void jButtonCrearProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearProyectoActionPerformed
+    private void jButtonCreateProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateProjectActionPerformed
         createProject();
         goToEmulation();
-    }//GEN-LAST:event_jButtonCrearProyectoActionPerformed
+    }//GEN-LAST:event_jButtonCreateProjectActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscarNuevaUbicacion;
-    private javax.swing.JButton jButtonCrearProyecto;
-    private javax.swing.JLabel jLabelNombre;
-    private javax.swing.JLabel jLabelTituloCreacion;
-    private javax.swing.JLabel jLabelUbicacion;
-    private javax.swing.JLabel jLabelUbicacion1;
+    private javax.swing.JButton jButtonCreateProject;
+    private javax.swing.JButton jButtonSearchNewLocation;
+    private javax.swing.JLabel jLabelDescription;
+    private javax.swing.JLabel jLabelLocation;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelTitleCreation;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaDescripcion;
-    private javax.swing.JTextField jTextFieldNombreDelProyecto;
-    private javax.swing.JTextField jTextFieldUbicacion;
+    private javax.swing.JTextArea jTextAreaDescription;
+    private javax.swing.JTextField jTextFieldLocation;
+    private javax.swing.JTextField jTextFieldProjectName;
     // End of variables declaration//GEN-END:variables
 
     /**
      * Method to go to the emulation screen
      */
     private void goToEmulation() {
-        jTextFieldNombreDelProyecto.setBackground(Color.GRAY);
-        jTextFieldNombreDelProyecto.setForeground(Color.GREEN);
+        jTextFieldProjectName.setBackground(Color.GRAY);
+        jTextFieldProjectName.setForeground(Color.GREEN);
 // principal.irAEm(this);
     }
 
@@ -192,8 +192,8 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     private void createProject() {
         Boolean validacion = validationEntereData();
         if (validacion = true) {
-            String nombre = jTextFieldNombreDelProyecto.getText();
-            String descripcion = jTextAreaDescripcion.getText();
+            String nombre = jTextFieldProjectName.getText();
+            String descripcion = jTextAreaDescription.getText();
 
             principal.crearRed(nombre, nombre, descripcion);
           //  principal.arbolProyectosJPanel.joinedProjects(nombre);
@@ -206,10 +206,10 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
      * Method the new project will be saved in the chosen path
      */
     private void keepRed() {
-        String ruta = jTextFieldUbicacion.getText();
+        String ruta = jTextFieldLocation.getText();
         // System.out.println(ruta);
         //System.out.println(jTextFieldNombreDelProyecto.getText() + " difsoifndsiofnsf");
-        String nombreArchivo = jTextFieldNombreDelProyecto.getText();
+        String nombreArchivo = jTextFieldProjectName.getText();
         System.out.println(this.principal.getGestionRed().guardarRed(ruta, nombreArchivo));
     }
 
@@ -228,8 +228,8 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
         String comparableDescription = "javax.swing.JTextArea[,0,0,537x111,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],colums=20,columWidth=8,rows=5,rowHeight=14,word=false,wrap=false]";
         //System.out.println(jTextFieldNombreDelProyecto+" 222222");
         //      System.out.println(jTextAreaDescripcion+" 333");
-        if (jTextFieldNombreDelProyecto.getText() == null || jTextFieldNombreDelProyecto.getText() == "" || jTextFieldNombreDelProyecto.getText() == comparableProjectName) {
-            if (jTextAreaDescripcion.getText() == null || jTextAreaDescripcion.getText() == "" || jTextAreaDescripcion.getText() == comparableDescription) {
+        if (jTextFieldProjectName.getText() == null || jTextFieldProjectName.getText() == "" || jTextFieldProjectName.getText() == comparableProjectName) {
+            if (jTextAreaDescription.getText() == null || jTextAreaDescription.getText() == "" || jTextAreaDescription.getText() == comparableDescription) {
                 //   Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
                 JOptionPane.showMessageDialog(this, "Tiene un campo donde el valor no es valido o esta vacio", "Error al agregar la  nueva aeronave", JOptionPane.INFORMATION_MESSAGE);
 
@@ -259,7 +259,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
 //                    + chooser.getCurrentDirectory());
 //            System.out.println("getSelectedFile() : "
 //                    + chooser.getSelectedFile());
-            jTextFieldUbicacion.setText(String.valueOf(chooser.getSelectedFile()));
+            jTextFieldLocation.setText(String.valueOf(chooser.getSelectedFile()));
         } else {
             System.out.println("No Selection ");
         }
