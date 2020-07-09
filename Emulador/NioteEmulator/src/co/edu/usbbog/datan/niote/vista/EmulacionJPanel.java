@@ -14,20 +14,18 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Camilo, Juan, Nicolas
+ * @author Camilo
  */
 public class EmulacionJPanel extends javax.swing.JPanel {
 
-   
-
-    //Variables necesarias para graficar nodos IoT
-    private int tope = 0;//acumulado 
-    private int end; // nultimo nodo
+    // Variables needed to graph IoT nodes
+    private int tope = 0; // Accumulated 
+    private int end; // Last Node
     private int start;
     int n = 0, nn = 0, id, id2;
     private int aristM;
 
-    public EmulacionJPanel(){
+    public EmulacionJPanel() {
         initComponents();
     }
 
@@ -37,35 +35,55 @@ public class EmulacionJPanel extends javax.swing.JPanel {
 
     Graficar graph = new Graficar();
 
-    public static int insertOrigen(String origen, String noexts, int top1) {
-        int nodoOrigen = 0;
+    /**
+     * Method to insert origin node
+     *
+     * @param origin
+     * @param noexts
+     * @param top1
+     * @return originNode
+     */
+    public static int insertOrigin(String origin, String noexts, int top1) {
+        int originNode = 0;
         try {
-            nodoOrigen = Integer.parseInt(JOptionPane.showInputDialog("" + origen));
-            if (nodoOrigen >= top1) {
+            originNode = Integer.parseInt(JOptionPane.showInputDialog("" + origin));
+            if (originNode >= top1) {
                 JOptionPane.showMessageDialog(null, "" + noexts + "\nPor favor ingrese un nodo existente");
-                nodoOrigen = insertOrigen(origen, noexts, top1);
+                originNode = insertOrigin(origin, noexts, top1);
             }
         } catch (Exception ex) {
-            nodoOrigen = insertOrigen(origen, noexts, top1);
+            originNode = insertOrigin(origin, noexts, top1);
         }
-        return nodoOrigen;
+        return originNode;
     }
 
-    public static void keepIt(int top, Grafos tree) {//vuelve a dibujar porque desaparecen
+    /**
+     * Method to design the graph of nodes because they are deleted when updated
+     *
+     * @param top
+     * @param tree
+     */
+    public static void keepIt(int top, Grafos tree) {
         for (int j = 0; j < top; j++) {
             for (int k = 0; k < top; k++) {
 //                if (tree.g etMatrizAdyacencia(j, k) == 1) {
-                Graficar.crearLinea(jPanel1.getGraphics(), tree.getCoordenadaX(j),
-                        tree.getCoordenadaY(j), tree.getCoordenadaX(k),
-                        tree.getCoordenadaY(k));
+                Graficar.createLine(jPanel1.getGraphics(), tree.getCoordinateX(j),
+                        tree.getCoordinateY(j), tree.getCoordinateX(k),
+                        tree.getCoordinateY(k));
 //                }
             }
         }
         for (int j = 0; j < top; j++) {
-            Graficar.crearCirculo(jPanel1.getGraphics(), tree.getCoordenadaX(j), tree.getCoordenadaY(j), String.valueOf(tree.getNombre(j)));
+            Graficar.createCircle(jPanel1.getGraphics(), tree.getCoordinateX(j), tree.getCoordinateY(j), String.valueOf(tree.getName(j)));
         }
     }
 
+    /**
+     * FALTA DOCUMENTAR
+     *
+     * @param weight
+     * @return
+     */
     public int setW(String weight) {// validacion de valores >40
         int pesoArista = 0;
         try {
@@ -80,9 +98,15 @@ public class EmulacionJPanel extends javax.swing.JPanel {
         return pesoArista;
     }
 
+    /**
+     * FALTA DOCUMENTAR
+     *
+     * @param x
+     * @param y
+     */
     public void selectNodoLft(int x, int y) {
         for (int j = 0; j < tope; j++) {
-            if ((x + 2) > trees.getCoordenadaX(j) && x < (trees.getCoordenadaX(j) + 13) && (y + 2) > trees.getCoordenadaY(j) && y < (trees.getCoordenadaY(j) + 13)) {
+            if ((x + 2) > trees.getCoordinateX(j) && x < (trees.getCoordinateX(j) + 13) && (y + 2) > trees.getCoordinateY(j) && y < (trees.getCoordinateY(j) + 13)) {
                 if (nn == 0) {
                     start = j;
                     keepIt(tope, trees);
@@ -92,7 +116,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                 nn++;
                 n = 0;
                 id = -1;
-                Graficar.seleccionarNodo(jPanel1.getGraphics(), trees.getCoordenadaX(j), trees.getCoordenadaY(j), null, Color.GREEN);
+                Graficar.selectNode(jPanel1.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.GREEN);
                 break;
             }
 
@@ -100,21 +124,28 @@ public class EmulacionJPanel extends javax.swing.JPanel {
 
     }
 
+    /**
+     * FALTA DOCUMENTAR
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public boolean selectNodoRght(int x, int y) {
         for (int j = 0; j < tope; j++) {// si hay alguno selecionado 
-            if ((x + 2) > trees.getCoordenadaX(j) && x < (trees.getCoordenadaX(j) + 13) && (y + 2) > trees.getCoordenadaY(j) && y < (trees.getCoordenadaY(j) + 13)) {
+            if ((x + 2) > trees.getCoordinateX(j) && x < (trees.getCoordinateX(j) + 13) && (y + 2) > trees.getCoordinateY(j) && y < (trees.getCoordinateY(j) + 13)) {
                 if (n == 0) {
                     id = j;
                     keepIt(tope, trees);
-                    Graficar.seleccionarNodo(jPanel1.getGraphics(), trees.getCoordenadaX(j), trees.getCoordenadaY(j), null, Color.orange);
+                    Graficar.selectNode(jPanel1.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
                     n++;
                 } else {
                     id2 = j;
                     n++;
-                    Graficar.seleccionarNodo(jPanel1.getGraphics(), trees.getCoordenadaX(j), trees.getCoordenadaY(j), null, Color.orange);
+                    Graficar.selectNode(jPanel1.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
                     if (id == id2) {// solo toma el primer clic
                         n = 0;
-                        Graficar.crearCirculo(jPanel1.getGraphics(), trees.getCoordenadaX(id), trees.getCoordenadaY(id), String.valueOf(trees.getNombre(id)));
+                        Graficar.createCircle(jPanel1.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
                         id = -1;
                         id2 = -1;
                     }
@@ -196,19 +227,26 @@ public class EmulacionJPanel extends javax.swing.JPanel {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MouseClicked
-    /*
-    Arreglo de opciones para seleccion
+
+
+ /*
+    Array of options for selection
      */
     String[] boton = {"Sensor", "Actuador", "Gateway"};
 
+    /**
+     * Click node graph event
+     *
+     * @param evt
+     */
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+
         int x;
         int y;
         x = evt.getX();
         y = evt.getY();
         if (evt.isMetaDown()) {
             selectNodoLft(x, y);
-
         } else {
             if (!selectNodoRght(x, y)) {
                 if (tope < 12) {
@@ -216,44 +254,43 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                     int opcion = JOptionPane.showOptionDialog(this, "¿Que nodo IoT quiere agregar?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, boton, boton[0]);
 
                     switch (opcion) {
+
                         case 0:
-                            trees.setCoordenadaX(tope, x);
-                            trees.setCoordenadaY(tope, y);
-                            trees.setNombre(tope, tope);
-                            Graficar.crearCirculoSensor(jPanel1.getGraphics(), trees.getCoordenadaX(tope), trees.getCoordenadaY(tope), String.valueOf(trees.getNombre(tope)));
+                            trees.setCoordinateX(tope, x);
+                            trees.setCoordinateY(tope, y);
+                            trees.setName(tope, tope);
+                            Graficar.createCircleSensor(jPanel1.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
                             tope++;
                             break;
+
                         case 1:
-                            trees.setCoordenadaX(tope, x);
-                            trees.setCoordenadaY(tope, y);
-                            trees.setNombre(tope, tope);
-                            Graficar.crearCirculoActuador(jPanel1.getGraphics(), trees.getCoordenadaX(tope), trees.getCoordenadaY(tope), String.valueOf(trees.getNombre(tope)));
+                            trees.setCoordinateX(tope, x);
+                            trees.setCoordinateY(tope, y);
+                            trees.setName(tope, tope);
+                            Graficar.createCircleActuator(jPanel1.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
                             tope++;
                             break;
+
                         case 2:
-                            trees.setCoordenadaX(tope, x);
-                            trees.setCoordenadaY(tope, y);
-                            trees.setNombre(tope, tope);
-                            Graficar.crearCirculoGateway(jPanel1.getGraphics(), trees.getCoordenadaX(tope), trees.getCoordenadaY(tope), String.valueOf(trees.getNombre(tope)));
+                            trees.setCoordinateX(tope, x);
+                            trees.setCoordinateY(tope, y);
+                            trees.setName(tope, tope);
+                            Graficar.createCircleGateway(jPanel1.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
                             tope++;
                             break;
                     }
-
                 } else {
                     Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
                     JOptionPane.showMessageDialog(this, "Solo se pueden ingresar 12 nodos", "Nodos maximos", JOptionPane.INFORMATION_MESSAGE, imagenError);
                 }
             }
 
-            // ingreso de valores
+            // Securities income
             if (n == 2) {
-
                 n = 0;
-                //  int ta = setW("Digite el valor de los nodos");
-
-                Graficar.crearLinea(jPanel1.getGraphics(), trees.getCoordenadaX(id), trees.getCoordenadaY(id), trees.getCoordenadaX(id2), trees.getCoordenadaY(id2));
-                Graficar.crearCirculo(jPanel1.getGraphics(), trees.getCoordenadaX(id), trees.getCoordenadaY(id), String.valueOf(trees.getNombre(id)));
-                Graficar.crearCirculo(jPanel1.getGraphics(), trees.getCoordenadaX(id2), trees.getCoordenadaY(id2), String.valueOf(trees.getNombre(id2)));
+                Graficar.createLine(jPanel1.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), trees.getCoordinateX(id2), trees.getCoordinateY(id2));
+                Graficar.createCircle(jPanel1.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
+                Graficar.createCircle(jPanel1.getGraphics(), trees.getCoordinateX(id2), trees.getCoordinateY(id2), String.valueOf(trees.getName(id2)));
                 id = -1;
                 id2 = -1;
             }

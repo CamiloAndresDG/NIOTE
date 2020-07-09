@@ -72,7 +72,7 @@ public class Principal extends JFrame {
     private int start;
     int n = 0, nn = 0, id, id2;
     private int aristM;
-    VentanaDialog ventanaDialog;
+    WindowDialog ventanaDialog;
 
     PantallaDeCargaJPanel pantallaDeCargaJPanel;
 
@@ -98,29 +98,31 @@ public class Principal extends JFrame {
 
         pack();
 
-        //Centrar ventana
+        // Center window
         setLocationRelativeTo(null);
 
         /*
-        Relaciones de logica
+        Logic relationships
          */
         this.pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
         this.validacionesSistema = new ValidacionesSistema();
         this.emulador = new Emulador(this);
 
-        //Mostrar ventana de carga
+        // Show loading window
         irAPantallaDeCarga();
-        //Verificacion de requisitos
+
+        // Verification of requirements
         if (pantallaDeCargaJPanel.validacionesMetodo()) {
-            //Creacion de carpeta raiz (Donde se guardaran por defecto)
+
+            // Creation of root folder (Where they are saved by default)
             crearCarpeta();
 
-            // Iniciarlizacion para emulacion (grafico)
+            // Initialization for emulation (graphical environment)
             Graficar paint = new Graficar();
             Grafos trees = new Grafos();
             Graficar graph = new Graficar();
 
-            //Inicio
+            // Start
             initComponents();
 //            validarBotonesClickeados();
         }
@@ -360,44 +362,19 @@ public class Principal extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemNewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNewProjectActionPerformed
-        irACrearProyecto();
+        goCreateProject();
     }//GEN-LAST:event_jMenuItemNewProjectActionPerformed
 
     private void jMenuItemOpenProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOpenProjectActionPerformed
-//Falta leer el archivo y guardarlo en una estructura de datos 
-//Draw and drop  Arrastrar y soltar
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(this);
-        File archivoSeleccionado = chooser.getSelectedFile();
-        String ruta = null;
-        try {
-            String tipodeArchivo = Files.probeContentType(archivoSeleccionado.toPath());
-            if (tipodeArchivo.equals(".niote")) {
-                cargarRed(ruta, ".niote");
-                System.out.println("Se cargo");
-            } else {
-
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No se cargo");
-//REVISAR
-        } catch (NullPointerException ex2) {
-            System.out.println("No se cargo2");
-        }
-        /* if (archivoSeleccionado!=null) {
-            ruta.setText(archivoSeleccionado.getAbsolutePath());
-        }*/
-        String archivo;
-        //  jTreeProjects.add(archivo);
+        openProjects();
     }//GEN-LAST:event_jMenuItemOpenProjectActionPerformed
 
     private void jMenuItemAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAboutUsActionPerformed
-        irASobreNosotros();
+        goAboutUs();
     }//GEN-LAST:event_jMenuItemAboutUsActionPerformed
 
     private void jMenuItemReportErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReportErrorActionPerformed
-        irAReportarError();
+        goReportError();
     }//GEN-LAST:event_jMenuItemReportErrorActionPerformed
 
     private void jMenuItemRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRunActionPerformed
@@ -409,7 +386,6 @@ public class Principal extends JFrame {
     }//GEN-LAST:event_jButtonRunActionPerformed
 
     private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
-
         this.dispose();
     }//GEN-LAST:event_jMenuItemExitActionPerformed
 
@@ -420,9 +396,6 @@ public class Principal extends JFrame {
     /**
      * @param args the command line arguments
      */
-    /*public static void main(String args[]) {
-        Principal principal = new Principal();
-    }*/
     public GestionRed getGestionRed() {
         return gestionRed;
     }
@@ -438,7 +411,6 @@ public class Principal extends JFrame {
     public Emulador getEmulador() {
         return emulador;
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel arbolProyectosJPanel1;
@@ -515,7 +487,7 @@ public class Principal extends JFrame {
         });
     }
 
-    //Navegacion desde inicio
+    // Navigation from start
     public void iniciar(JFrame jFrame) {
         remove(jFrame);
         crearProyectoJPanel = new CrearProyectoJPanel(this);
@@ -525,6 +497,9 @@ public class Principal extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    /**
+     * Method to create main emulator folder in documents
+     */
     private void crearCarpeta() {
         String ubicacion = "C:\\Users\\Camilo y Roberth\\Documents\\NIOTE_Projects";
         File carpeta = new File(ubicacion);
@@ -534,8 +509,16 @@ public class Principal extends JFrame {
         }
     }
 
-    protected boolean crearRed(String id, String nombre, String descripcion) {
-        this.gestionRed = new GestionRed(id, nombre, descripcion);
+    /**
+     * Method to create a new network
+     *
+     * @param id of the network
+     * @param name of the network
+     * @param description of the network
+     * @return True if the network was created or False if not
+     */
+    protected boolean crearRed(String id, String name, String description) {
+        this.gestionRed = new GestionRed(id, name, description);
         if (this.gestionRed != null) {
             return true;
         } else {
@@ -543,50 +526,43 @@ public class Principal extends JFrame {
         }
     }
 
-    protected boolean cargarRed(String ruta, String nombreArchivo) {
-        this.gestionRed = new GestionRed(ruta, nombreArchivo);
+    /**
+     * Method to load a previously created network
+     *
+     * @param route of the network
+     * @param fileName of the project
+     * @return True if the network was loaded or False if not
+     */
+    protected boolean cargarRed(String route, String fileName) {
+        this.gestionRed = new GestionRed(route, fileName);
         if (this.gestionRed != null) {
             return true;
         } else {
             return false;
         }
-    }
-
-    /* public void irAEm(JPanel jPanel) {
-        remove(jPanel);
-        emulacionJPanel = new EmulacionJPanel(this);
-        emulacionJPanel.setVisible(true);
-        add(emulacionJPanel);
-        pack();
-        setLocationRelativeTo(null);
     }
 
     /*
-    Navegacion emergentes
+    Navigation for Pop-Ups
      */
-    protected void irACrearProyecto() {
+    protected void goCreateProject() {
         crearProyectoJPanel = new CrearProyectoJPanel(this);
-        ventanaDialog = new VentanaDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
+        ventanaDialog = new WindowDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
 
-//    protected void irAEm(JPanel jPanel) {
-//        remove(jPanel);
-//        emulacionJPanel = new EmulacionJPanel(this);
-//        ventanaDialog = new VentanaDialog(this, emulacionJPanel, "Entorno", false, false, DISPOSE_ON_CLOSE);
-//    }
     private void irAPantallaDeCarga() {
         pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
-        ventanaDialog = new VentanaDialog(this, pantallaDeCargaJPanel, "Pantalla de carga", false, false, DISPOSE_ON_CLOSE);
+        ventanaDialog = new WindowDialog(this, pantallaDeCargaJPanel, "Pantalla de carga", false, false, DISPOSE_ON_CLOSE);
     }
 
-    protected void irASobreNosotros() {
+    protected void goAboutUs() {
         sobreNosotrosJPanel = new SobreNosotrosJPanel(this);
-        ventanaDialog = new VentanaDialog(this, sobreNosotrosJPanel, "Información sobre nosotros", false, false, DISPOSE_ON_CLOSE);
+        ventanaDialog = new WindowDialog(this, sobreNosotrosJPanel, "Información sobre nosotros", false, false, DISPOSE_ON_CLOSE);
     }
 
-    protected void irAReportarError() {
+    protected void goReportError() {
         notificarErrorJPanel = new NotificarErrorJPanel(this);
-        ventanaDialog = new VentanaDialog(this, notificarErrorJPanel, "Notificar error", false, false, DISPOSE_ON_CLOSE);
+        ventanaDialog = new WindowDialog(this, notificarErrorJPanel, "Notificar error", false, false, DISPOSE_ON_CLOSE);
     }
 
     protected void cerrarVentana() {
@@ -595,6 +571,9 @@ public class Principal extends JFrame {
         //  irAHome();
     }
 
+    /**
+     * Method to validate the clicked key or key combination
+     */
     private void validarBotonesClickeados() {
         java.awt.event.KeyEvent evt = null;
         char teclaPresionada = evt.getKeyChar();
@@ -603,4 +582,35 @@ public class Principal extends JFrame {
         }
     }
 
+    /**
+     * Method to open projects
+     */
+    private void openProjects() {
+//Falta leer el archivo y guardarlo en una estructura de datos 
+//Draw and drop  Arrastrar y soltar
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(this);
+        File archivoSeleccionado = chooser.getSelectedFile();
+        String ruta = null;
+        try {
+            String tipodeArchivo = Files.probeContentType(archivoSeleccionado.toPath());
+            if (tipodeArchivo.equals(".niote")) {
+                cargarRed(ruta, ".niote");
+                System.out.println("Se cargo");
+            } else {
+
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No se cargo");
+//REVISAR
+        } catch (NullPointerException ex2) {
+            System.out.println("No se cargo2");
+        }
+        /* if (archivoSeleccionado!=null) {
+            ruta.setText(archivoSeleccionado.getAbsolutePath());
+        }*/
+        String archivo;
+        //  jTreeProjects.add(archivo);
+    }
 }

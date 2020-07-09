@@ -196,7 +196,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
             String descripcion = jTextAreaDescripcion.getText();
 
             principal.crearRed(nombre, nombre, descripcion);
-            principal.arbolProyectosJPanel.joinedProjects(nombre);
+          //  principal.arbolProyectosJPanel.joinedProjects(nombre);
             keepRed();
             principal.cerrarVentana();
         }

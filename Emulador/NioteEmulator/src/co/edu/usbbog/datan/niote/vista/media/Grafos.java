@@ -7,31 +7,32 @@ package co.edu.usbbog.datan.niote.vista.media;
 
 /**
  *
- * @author Camilo, Juan, Nicolas
+ * @author Camilo
  */
 public class Grafos {
 
-    private int matrizAdyacente[][] = new int[30][30]; // Matriz adyacente
+    private int adjacentMatrix[][] = new int[30][30]; // Adjacent matrix
+    private int matrixCoefficient[][] = new int[30][30]; // Weight store for nodes
 
-    private int coorX[] = new int[30]; // Coordenada en X 
-    private int coorY[] = new int[30]; // Coordenada en Y 
-    private int idNodo[] = new int[30]; // Almacenara el indicador del nodo
+    private int coorX[] = new int[30]; // X coordinate
+    private int coorY[] = new int[30]; // Y coordinate
+    private int idNodo[] = new int[30]; // Will store the node indicator
     private int enGrafo[];
 
-    // gestion matriz adyacencia
+    // Adjacency matrix management
     public Grafos() {
 
     }
 
-    public int getCoordenadaX(int i) {
+    public int getCoordinateX(int i) {
         return coorX[i];
     }
 
-    public int getCoordenadaY(int i) {
+    public int getCoordinateY(int i) {
         return coorY[i];
     }
 
-    public int getNombre(int i) {
+    public int getName(int i) {
         return idNodo[i];
     }
 
@@ -39,23 +40,23 @@ public class Grafos {
         return enGrafo[i];
     }
 
-    public int getMatrizCoeficiente(int i, int j) {
-        return matrizCoeficiente[i][j];
+    public int getMatrixCoefficient(int i, int j) {
+        return matrixCoefficient[i][j];
     }
 
-    public int getMatrizAdyacencia(int i, int j) {
-        return matrizAdyacente[i][j];
+    public int getAdjacentMatrix(int i, int j) {
+        return adjacentMatrix[i][j];
     }
 
-    public void setCoordenadaX(int i, int coordenadaX) {
+    public void setCoordinateX(int i, int coordenadaX) {
         this.coorX[i] = coordenadaX;
     }
 
-    public void setCoordenadaY(int i, int coordenadaY) {
+    public void setCoordinateY(int i, int coordenadaY) {
         this.coorY[i] = coordenadaY;
     }
 
-    public void setNombre(int i, int nombre) {
+    public void setName(int i, int nombre) {
         this.idNodo[i] = nombre;
     }
 
@@ -63,10 +64,7 @@ public class Grafos {
         this.enGrafo[i] = posicionGrafo;
     }
 
-    public void crearArbol(int i) {
+    public void createTree(int i) {
         enGrafo = new int[i];
     }
-
-    private int matrizCoeficiente[][] = new int[30][30]; // Almacenador de los pesos para los nodos
-
 }

@@ -11,7 +11,7 @@ package co.edu.usbbog.datan.niote.vista;
  */
 public class SobreNosotrosJPanel extends javax.swing.JPanel {
 
-    //Relacones
+    // Relations
     private Principal principal;
 
     /**
