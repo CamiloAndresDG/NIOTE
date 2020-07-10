@@ -185,6 +185,53 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuWindows">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ventana"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemWindowsConfiguration">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n de la ventana"/>
+              </Properties>
+            </MenuItem>
+            <Menu class="javax.swing.JMenu" name="jMenuLanguage">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Idioma"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemSpanishLanguage">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Espa&#xf1;ol"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemEnglishLanguage">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="English"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenuThemes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Temas"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemLightTheme">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Claro"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItemDarkTheme">
+                  <Properties>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" value="Oscuro"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
@@ -240,14 +287,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="arbolProyectosJPanel1" min="-2" pref="226" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="emulacionJPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="descripcionNodoJPanel1" max="32767" attributes="0"/>
-                      <Component id="paletaNodosIoTJPanel2" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="paletaNodosIoTJPanel2" min="-2" pref="447" max="-2" attributes="0"/>
+                      <Component id="descripcionNodoJPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Component id="jToolBar2" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -257,30 +304,27 @@
               <Group type="102" attributes="0">
                   <Component id="jToolBar2" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="arbolProyectosJPanel1" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="emulacionJPanel1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="paletaNodosIoTJPanel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="descripcionNodoJPanel1" min="-2" pref="155" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="emulacionJPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel" name="arbolProyectosJPanel1">
-        </Component>
-        <Component class="co.edu.usbbog.datan.niote.vista.EmulacionJPanel" name="emulacionJPanel1">
         </Component>
         <Container class="javax.swing.JToolBar" name="jToolBar2">
           <Properties>
@@ -337,6 +381,8 @@
         <Component class="co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel" name="paletaNodosIoTJPanel2">
         </Component>
         <Component class="co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel" name="descripcionNodoJPanel1">
+        </Component>
+        <Component class="co.edu.usbbog.datan.niote.vista.EmulacionJPanel" name="emulacionJPanel1">
         </Component>
       </SubComponents>
     </Container>

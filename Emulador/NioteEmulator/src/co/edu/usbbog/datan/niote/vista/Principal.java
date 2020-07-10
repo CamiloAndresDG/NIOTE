@@ -111,6 +111,8 @@ public class Principal extends JFrame {
         // Show loading window
         irAPantallaDeCarga();
 
+        // Method to mark and unmark the necessary CheckBox
+        // checkBoxValidation();
         // Verification of requirements
         if (pantallaDeCargaJPanel.validacionesMetodo()) {
 
@@ -139,12 +141,12 @@ public class Principal extends JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         arbolProyectosJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel();
-        emulacionJPanel1 = new co.edu.usbbog.datan.niote.vista.EmulacionJPanel();
         jToolBar2 = new javax.swing.JToolBar();
         jButtonSave = new javax.swing.JButton();
         jButtonRun = new javax.swing.JButton();
         paletaNodosIoTJPanel2 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel();
         descripcionNodoJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel();
+        emulacionJPanel1 = new co.edu.usbbog.datan.niote.vista.EmulacionJPanel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuArchive = new javax.swing.JMenu();
         jMenuItemNewProject = new javax.swing.JMenuItem();
@@ -163,6 +165,14 @@ public class Principal extends JFrame {
         jMenuItemReportError = new javax.swing.JMenuItem();
         jMenuItemSearchUpdate = new javax.swing.JMenuItem();
         jMenuItemAboutUs = new javax.swing.JMenuItem();
+        jMenuWindows = new javax.swing.JMenu();
+        jMenuItemWindowsConfiguration = new javax.swing.JMenuItem();
+        jMenuLanguage = new javax.swing.JMenu();
+        jCheckBoxMenuItemSpanishLanguage = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItemEnglishLanguage = new javax.swing.JCheckBoxMenuItem();
+        jMenuThemes = new javax.swing.JMenu();
+        jCheckBoxMenuItemLightTheme = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItemDarkTheme = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 109, 0));
@@ -204,13 +214,13 @@ public class Principal extends JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(emulacionJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(descripcionNodoJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(paletaNodosIoTJPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(paletaNodosIoTJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(descripcionNodoJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -218,18 +228,17 @@ public class Principal extends JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emulacionJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(paletaNodosIoTJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(descripcionNodoJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(descripcionNodoJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(emulacionJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jMenuBar.setBackground(new java.awt.Color(27, 27, 27));
@@ -345,6 +354,34 @@ public class Principal extends JFrame {
 
         jMenuBar.add(jMenuHelp);
 
+        jMenuWindows.setText("Ventana");
+
+        jMenuItemWindowsConfiguration.setText("Configuración de la ventana");
+        jMenuWindows.add(jMenuItemWindowsConfiguration);
+
+        jMenuLanguage.setText("Idioma");
+
+        jCheckBoxMenuItemSpanishLanguage.setText("Español");
+        jMenuLanguage.add(jCheckBoxMenuItemSpanishLanguage);
+
+        jCheckBoxMenuItemEnglishLanguage.setText("English");
+        jMenuLanguage.add(jCheckBoxMenuItemEnglishLanguage);
+
+        jMenuWindows.add(jMenuLanguage);
+
+        jMenuThemes.setText("Temas");
+
+        jCheckBoxMenuItemLightTheme.setText("Claro");
+        jMenuThemes.add(jCheckBoxMenuItemLightTheme);
+
+        jCheckBoxMenuItemDarkTheme.setSelected(true);
+        jCheckBoxMenuItemDarkTheme.setText("Oscuro");
+        jMenuThemes.add(jCheckBoxMenuItemDarkTheme);
+
+        jMenuWindows.add(jMenuThemes);
+
+        jMenuBar.add(jMenuWindows);
+
         setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -418,6 +455,10 @@ public class Principal extends JFrame {
     private co.edu.usbbog.datan.niote.vista.EmulacionJPanel emulacionJPanel1;
     private javax.swing.JButton jButtonRun;
     private javax.swing.JButton jButtonSave;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemDarkTheme;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemEnglishLanguage;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemLightTheme;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemSpanishLanguage;
     private javax.swing.JMenu jMenuArchive;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuEdit;
@@ -436,6 +477,10 @@ public class Principal extends JFrame {
     private javax.swing.JMenuItem jMenuItemReportError;
     private javax.swing.JMenuItem jMenuItemRun;
     private javax.swing.JMenuItem jMenuItemSearchUpdate;
+    private javax.swing.JMenuItem jMenuItemWindowsConfiguration;
+    private javax.swing.JMenu jMenuLanguage;
+    private javax.swing.JMenu jMenuThemes;
+    private javax.swing.JMenu jMenuWindows;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar jToolBar2;
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel paletaNodosIoTJPanel2;
@@ -613,4 +658,18 @@ public class Principal extends JFrame {
         String archivo;
         //  jTreeProjects.add(archivo);
     }
+
+    /**
+     * Method to mark and unmark the necessary CheckBox
+     */
+    /* private boolean customizar() {
+        if (jCheckBoxMenuItemSpanishLanguage.isEnabled()) {
+            if (jCheckBoxMenuItemEnglishLanguage.isEnabled()) {
+                jCheckBoxMenuItemSpanishLanguage.isSelected(   );
+            }
+            return false;
+        }else{
+            return true;
+        }
+    }*/
 }
