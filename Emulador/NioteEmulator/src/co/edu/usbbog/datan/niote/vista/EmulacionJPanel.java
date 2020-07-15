@@ -5,156 +5,28 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
-import co.edu.usbbog.datan.niote.vista.media.Graficar;
-import co.edu.usbbog.datan.niote.vista.media.Grafos;
-import java.awt.Color;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
 
 /**
  *
- * @author Camilo
+ * @author contr
  */
 public class EmulacionJPanel extends javax.swing.JPanel {
 
-    // Variables needed to graph IoT nodes
-    private int tope = 0; // Accumulated 
-    private int end; // Last Node
-    private int start;
-    int n = 0, nn = 0, id, id2;
-    private int aristM;
 
+    private controladorComponentes controladorComponentes;
+    private DefaultListModel lista = new DefaultListModel();
+
+    /**
+     * Creates new form panelJPanel
+     */
     public EmulacionJPanel() {
         initComponents();
-    }
+        //crea nueva instancia e inicia parametros
+        controladorComponentes = new controladorComponentes(this.panelContenedor, this.lista);
+        //agrega ListModel a JList
+        listaComponentesJList.setModel(lista);
 
-    //Se inicializan los metodos
-    Graficar paint = new Graficar();
-    Grafos trees = new Grafos();
-
-    Graficar graph = new Graficar();
-
-    /**
-     * Method to insert origin node
-     *
-     * @param origin
-     * @param noexts
-     * @param top1
-     * @return originNode
-     */
-    public static int insertOrigin(String origin, String noexts, int top1) {
-        int originNode = 0;
-        try {
-            originNode = Integer.parseInt(JOptionPane.showInputDialog("" + origin));
-            if (originNode >= top1) {
-                JOptionPane.showMessageDialog(null, "" + noexts + "\nPor favor ingrese un nodo existente");
-                originNode = insertOrigin(origin, noexts, top1);
-            }
-        } catch (Exception ex) {
-            originNode = insertOrigin(origin, noexts, top1);
-        }
-        return originNode;
-    }
-
-    /**
-     * Method to design the graph of nodes because they are deleted when updated
-     *
-     * @param top
-     * @param tree
-     */
-    public static void keepIt(int top, Grafos tree) {
-        for (int j = 0; j < top; j++) {
-            for (int k = 0; k < top; k++) {
-//                if (tree.g etMatrizAdyacencia(j, k) == 1) {
-                Graficar.createLine(jPanelMap.getGraphics(), tree.getCoordinateX(j),
-                        tree.getCoordinateY(j), tree.getCoordinateX(k),
-                        tree.getCoordinateY(k));
-//                }
-            }
-        }
-        for (int j = 0; j < top; j++) {
-            Graficar.createCircle(jPanelMap.getGraphics(), tree.getCoordinateX(j), tree.getCoordinateY(j), String.valueOf(tree.getName(j)));
-        }
-    }
-
-    /**
-     * FALTA DOCUMENTAR
-     *
-     * @param weight
-     * @return
-     */
-    public int setW(String weight) {// validacion de valores >40
-        int pesoArista = 0;
-        try {
-            pesoArista = Integer.parseInt(JOptionPane.showInputDialog("" + weight));
-            if (pesoArista < 1 || pesoArista > 1000) {
-                JOptionPane.showMessageDialog(null, "El peso del nodo debe estar entre 1 y 1000");
-                pesoArista = setW(weight);
-            }
-        } catch (Exception ex) {
-            pesoArista = setW(weight);
-        }
-        return pesoArista;
-    }
-
-    /**
-     * FALTA DOCUMENTAR
-     *
-     * @param x
-     * @param y
-     */
-    public void selectNodoLft(int x, int y) {
-        for (int j = 0; j < tope; j++) {
-            if ((x + 2) > trees.getCoordinateX(j) && x < (trees.getCoordinateX(j) + 13) && (y + 2) > trees.getCoordinateY(j) && y < (trees.getCoordinateY(j) + 13)) {
-                if (nn == 0) {
-                    start = j;
-                    keepIt(tope, trees);
-                } else {
-                    end = j;
-                }
-                nn++;
-                n = 0;
-                id = -1;
-                Graficar.selectNode(jPanelMap.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.GREEN);
-                break;
-            }
-
-        }
-
-    }
-
-    /**
-     * FALTA DOCUMENTAR
-     *
-     * @param x
-     * @param y
-     * @return
-     */
-    public boolean selectNodoRght(int x, int y) {
-        for (int j = 0; j < tope; j++) {// si hay alguno selecionado 
-            if ((x + 2) > trees.getCoordinateX(j) && x < (trees.getCoordinateX(j) + 13) && (y + 2) > trees.getCoordinateY(j) && y < (trees.getCoordinateY(j) + 13)) {
-                if (n == 0) {
-                    id = j;
-                    keepIt(tope, trees);
-                    Graficar.selectNode(jPanelMap.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
-                    n++;
-                } else {
-                    id2 = j;
-                    n++;
-                    Graficar.selectNode(jPanelMap.getGraphics(), trees.getCoordinateX(j), trees.getCoordinateY(j), null, Color.orange);
-                    if (id == id2) {// solo toma el primer clic
-                        n = 0;
-                        Graficar.createCircle(jPanelMap.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
-                        id = -1;
-                        id2 = -1;
-                    }
-                }
-                nn = 0;
-                return true;
-            }
-        }
-        return false;
     }
 
     /**
@@ -166,150 +38,91 @@ public class EmulacionJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelMap = new javax.swing.JPanel();
-        Map = new javax.swing.JLabel();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        panelContenedor = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaComponentesJList = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        nombreComponenteJTextField = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(27, 27, 27));
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
-        jPanelMap.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelMap.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanelMap.setMinimumSize(new java.awt.Dimension(770, 522));
-        jPanelMap.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jPanelMapMouseMoved(evt);
+        setBackground(new java.awt.Color(61, 61, 61));
+
+        panelContenedor.setBackground(new java.awt.Color(32, 32, 32));
+
+        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
+        panelContenedor.setLayout(panelContenedorLayout);
+        panelContenedorLayout.setHorizontalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelContenedorLayout.setVerticalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        listaComponentesJList.setBackground(new java.awt.Color(61, 61, 61));
+        listaComponentesJList.setForeground(new java.awt.Color(255, 255, 255));
+        listaComponentesJList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(listaComponentesJList);
+
+        jButton1.setText("Agregar Componente");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanelMap.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelMapMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanelMapMousePressed(evt);
-            }
-        });
-        jPanelMap.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPanelMapKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jPanelMapKeyReleased(evt);
-            }
-        });
-        jPanelMap.setLayout(null);
 
-        Map.setBackground(new java.awt.Color(255, 255, 255));
-        Map.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanelMap.add(Map);
-        Map.setBounds(10, 10, 700, 320);
+        nombreComponenteJTextField.setBackground(new java.awt.Color(32, 32, 32));
+        nombreComponenteJTextField.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelMap, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                        .addComponent(nombreComponenteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(51, 51, 51))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelMap, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(nombreComponenteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanelMapMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMapMouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelMapMouseMoved
-
-    private void jPanelMapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMapMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelMapMouseClicked
-
-
- /*
-    Array of options for selection
-     */
-    String[] boton = {"Sensor", "Actuador", "Gateway"};
-
-    /**
-     * Click node graph event
-     *
-     * @param evt
-     */
-    private void jPanelMapMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelMapMousePressed
-
-        int x;
-        int y;
-        x = evt.getX();
-        y = evt.getY();
-        if (evt.isMetaDown()) {
-            selectNodoLft(x, y);
-        } else {
-            if (!selectNodoRght(x, y)) {
-                if (tope < 12) {
-                    //1 Sensor, 2 Actuador, 3 Gateway
-                    int opcion = JOptionPane.showOptionDialog(this, "¿Que nodo IoT quiere agregar?", null, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, boton, boton[0]);
-
-                    switch (opcion) {
-
-                        case 0:
-                            trees.setCoordinateX(tope, x);
-                            trees.setCoordinateY(tope, y);
-                            trees.setName(tope, tope);
-                            Graficar.createCircleSensor(jPanelMap.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
-                            tope++;
-                            break;
-
-                        case 1:
-                            trees.setCoordinateX(tope, x);
-                            trees.setCoordinateY(tope, y);
-                            trees.setName(tope, tope);
-                            Graficar.createCircleActuator(jPanelMap.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
-                            tope++;
-                            break;
-
-                        case 2:
-                            trees.setCoordinateX(tope, x);
-                            trees.setCoordinateY(tope, y);
-                            trees.setName(tope, tope);
-                            Graficar.createCircleGateway(jPanelMap.getGraphics(), trees.getCoordinateX(tope), trees.getCoordinateY(tope), String.valueOf(trees.getName(tope)));
-                            tope++;
-                            break;
-                    }
-                } else {
-                    Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
-                    JOptionPane.showMessageDialog(this, "Solo se pueden ingresar 12 nodos", "Nodos maximos", JOptionPane.INFORMATION_MESSAGE, imagenError);
-                }
-            }
-
-            // Securities income
-            if (n == 2) {
-                n = 0;
-                Graficar.createLine(jPanelMap.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), trees.getCoordinateX(id2), trees.getCoordinateY(id2));
-                Graficar.createCircle(jPanelMap.getGraphics(), trees.getCoordinateX(id), trees.getCoordinateY(id), String.valueOf(trees.getName(id)));
-                Graficar.createCircle(jPanelMap.getGraphics(), trees.getCoordinateX(id2), trees.getCoordinateY(id2), String.valueOf(trees.getName(id2)));
-                id = -1;
-                id2 = -1;
-            }
-        }
-
-    }//GEN-LAST:event_jPanelMapMousePressed
-
-    private void jPanelMapKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanelMapKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelMapKeyPressed
-
-    private void jPanelMapKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanelMapKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelMapKeyReleased
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        controladorComponentes.nuevoComponente(nombreComponenteJTextField.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Map;
-    public static javax.swing.JPanel jPanelMap;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaComponentesJList;
+    private javax.swing.JTextField nombreComponenteJTextField;
+    private javax.swing.JPanel panelContenedor;
     // End of variables declaration//GEN-END:variables
-
 }
