@@ -43,7 +43,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="bd" green="bd" red="bd" type="rgb"/>
+          <Color blue="26" green="26" red="26" type="rgb"/>
         </Property>
       </Properties>
 
@@ -66,7 +66,13 @@
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTextFieldUbicacion" min="-2" pref="309" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldUbicacion" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                                          <Component id="jLabelTituloCreacion" min="-2" pref="174" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButtonBuscarNuevaUbicacion" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -82,11 +88,6 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabelTituloCreacion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -126,7 +127,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n de red"/>
+            <Property name="text" type="java.lang.String" value="Creacion de nuevo proyecto"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelNombre">
