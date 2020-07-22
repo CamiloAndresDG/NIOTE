@@ -33,93 +33,89 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(45, 45, 45));
 
+        jTabbedPane2.setBackground(new java.awt.Color(61, 61, 61));
+
         jPanel2.setBackground(new java.awt.Color(61, 61, 61));
 
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosComponentes/HumedadIcono_35.45.png"))); // NOI18N
-        jButton11.setText("Humedad");
-        jButton11.setBorder(null);
-        jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
-        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton11MousePressed(evt);
-            }
-        });
-
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosComponentes/TemperaturaIcono_36.59.png"))); // NOI18N
-        jButton12.setText("Temperatura");
-        jButton12.setBorder(null);
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
-
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosComponentes/GPSIcono_38.59.png"))); // NOI18N
-        jButton1.setText("GPS");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/HumidityIcon_35.45.png"))); // NOI18N
+        jButton1.setText("Humedad");
+        jButton1.setToolTipText("Dispositivo de lectura para el control general de la humedad del entorno.");
         jButton1.setContentAreaFilled(false);
 
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosComponentes/OndaIcono.png"))); // NOI18N
-        jButton2.setText("Sonido");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/SpeedIcon_75.38.png"))); // NOI18N
+        jButton2.setText("Velocidad");
+        jButton2.setToolTipText("Dispositivo de lectura usado para el control de la velocidad que tiene un objecto.");
         jButton2.setContentAreaFilled(false);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/TemperatureIcon_36.59.png"))); // NOI18N
+        jButton3.setText("Temperatura");
+        jButton3.setToolTipText("Dispositivo de lectura usado para el control de la temperatura del entorno.");
+        jButton3.setContentAreaFilled(false);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/SoundWhiteIcon_42.42.png"))); // NOI18N
+        jButton4.setText("Sonido");
+        jButton4.setToolTipText("Dispositivo de lectura usado para el control del nivel de sonido que hay en el entorno.");
+        jButton4.setContentAreaFilled(false);
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/GPSIcon_38.59.png"))); // NOI18N
+        jButton5.setText("GPS");
+        jButton5.setToolTipText("Dispositivo de lectura usado para el control de la ubicación en la que se encuentra el dispositivo o un objecto.");
+        jButton5.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jButton11)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addComponent(jButton1))
+                .addGap(18, 30, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton3))
+                    .addComponent(jButton5))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12)
-                    .addComponent(jButton1))
-                .addGap(42, 42, 42)
-                .addComponent(jButton2)
-                .addContainerGap(100, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Sensores", jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(45, 45, 45));
+        jPanel3.setBackground(new java.awt.Color(61, 61, 61));
 
-        jButton9.setText("jButton9");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/FanWhiteIcon_63.61.png"))); // NOI18N
+        jButton6.setText("jButtonFan");
 
-        jButton10.setText("jButton10");
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/LEDWhiteIcon_34.57.png"))); // NOI18N
+        jButton7.setText("jButton7");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -127,70 +123,34 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton10)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addComponent(jButton6)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
-                .addContainerGap(221, Short.MAX_VALUE))
+                    .addComponent(jButton6)
+                    .addComponent(jButton7))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Actuadores", jPanel3);
 
-        jPanel4.setBackground(new java.awt.Color(45, 45, 45));
-
-        jButton3.setText("jButton3");
-
-        jButton4.setText("jButton4");
-
-        jButton5.setText("jButton5");
-
-        jButton6.setText("jButton6");
-
-        jButton7.setText("jButton7");
-
-        jButton8.setText("jButton8");
+        jPanel4.setBackground(new java.awt.Color(61, 61, 61));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8)))
-                .addGap(0, 158, Short.MAX_VALUE))
+            .addGap(0, 519, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton8))
-                .addGap(0, 198, Short.MAX_VALUE))
+            .addGap(0, 255, Short.MAX_VALUE)
         );
 
         jTabbedPane2.addTab("Gateway", jPanel4);
@@ -199,7 +159,7 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,24 +167,15 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11MousePressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

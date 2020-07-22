@@ -27,121 +27,121 @@ public class DescripcionNodoJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
+        jLabelName = new javax.swing.JLabel();
+        jLabelID = new javax.swing.JLabel();
+        jLabelDescription = new javax.swing.JLabel();
+        jLabelState = new javax.swing.JLabel();
+        jLabelKind = new javax.swing.JLabel();
+        jLabelMagnitude = new javax.swing.JLabel();
+        jLabelFrecuency = new javax.swing.JLabel();
+        jTextFieldName = new javax.swing.JTextField();
+        jTextFieldID = new javax.swing.JTextField();
+        jTextFieldState = new javax.swing.JTextField();
+        jTextFieldDescription = new javax.swing.JTextField();
+        jTextFieldMagnitude = new javax.swing.JTextField();
+        jTextFieldFrecuency = new javax.swing.JTextField();
+        jRadioButtonSensor = new javax.swing.JRadioButton();
+        jRadioButtonActuator = new javax.swing.JRadioButton();
+        jRadioButtonGateway = new javax.swing.JRadioButton();
+        jScrollBarMain = new javax.swing.JScrollBar();
 
         setBackground(new java.awt.Color(45, 45, 45));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nombre:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
+        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelName.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelName.setText("Nombre:");
+        add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ID:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, -1, -1));
+        jLabelID.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelID.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelID.setText("ID:");
+        add(jLabelID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Descripcion:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jLabelDescription.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelDescription.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelDescription.setText("Descripcion:");
+        add(jLabelDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Estado:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 128, -1, -1));
+        jLabelState.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelState.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelState.setText("Estado:");
+        add(jLabelState, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 128, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Tipo");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 167, -1, -1));
+        jLabelKind.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelKind.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelKind.setText("Tipo");
+        add(jLabelKind, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 167, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Magnitud");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 207, -1, -1));
+        jLabelMagnitude.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelMagnitude.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMagnitude.setText("Magnitud");
+        add(jLabelMagnitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 207, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Frecuencia");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 245, -1, -1));
+        jLabelFrecuency.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelFrecuency.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelFrecuency.setText("Frecuencia");
+        add(jLabelFrecuency, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 245, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(45, 45, 45));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 11, 323, -1));
+        jTextFieldName.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldName.setForeground(new java.awt.Color(255, 255, 255));
+        add(jTextFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 11, 323, -1));
 
-        jTextField2.setBackground(new java.awt.Color(45, 45, 45));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 49, 323, -1));
+        jTextFieldID.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldID.setForeground(new java.awt.Color(255, 255, 255));
+        add(jTextFieldID, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 49, 323, -1));
 
-        jTextField3.setBackground(new java.awt.Color(45, 45, 45));
-        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 125, 323, -1));
+        jTextFieldState.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldState.setForeground(new java.awt.Color(255, 255, 255));
+        add(jTextFieldState, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 125, 323, -1));
 
-        jTextField5.setBackground(new java.awt.Color(45, 45, 45));
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 87, 323, -1));
+        jTextFieldDescription.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldDescription.setForeground(new java.awt.Color(255, 255, 255));
+        add(jTextFieldDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 87, 323, -1));
 
-        jTextField6.setBackground(new java.awt.Color(45, 45, 45));
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 204, 324, -1));
+        jTextFieldMagnitude.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldMagnitude.setForeground(new java.awt.Color(255, 255, 255));
+        add(jTextFieldMagnitude, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 204, 324, -1));
 
-        jTextField7.setBackground(new java.awt.Color(45, 45, 45));
-        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 242, 324, -1));
+        jTextFieldFrecuency.setBackground(new java.awt.Color(45, 45, 45));
+        jTextFieldFrecuency.setForeground(new java.awt.Color(255, 255, 255));
+        add(jTextFieldFrecuency, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 242, 324, -1));
 
-        jRadioButton1.setBackground(new java.awt.Color(45, 45, 45));
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Sensor");
-        add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 163, -1, -1));
+        jRadioButtonSensor.setBackground(new java.awt.Color(45, 45, 45));
+        jRadioButtonSensor.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButtonSensor.setText("Sensor");
+        add(jRadioButtonSensor, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 163, -1, -1));
 
-        jRadioButton2.setBackground(new java.awt.Color(45, 45, 45));
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Actuador");
-        add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 163, -1, -1));
+        jRadioButtonActuator.setBackground(new java.awt.Color(45, 45, 45));
+        jRadioButtonActuator.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButtonActuator.setText("Actuador");
+        add(jRadioButtonActuator, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 163, -1, -1));
 
-        jRadioButton3.setBackground(new java.awt.Color(45, 45, 45));
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Gateway");
-        add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 163, -1, -1));
-        add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, 250));
+        jRadioButtonGateway.setBackground(new java.awt.Color(45, 45, 45));
+        jRadioButtonGateway.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButtonGateway.setText("Gateway");
+        add(jRadioButtonGateway, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 163, -1, -1));
+        add(jScrollBarMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, 250));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JLabel jLabelDescription;
+    private javax.swing.JLabel jLabelFrecuency;
+    private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelKind;
+    private javax.swing.JLabel jLabelMagnitude;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelState;
+    private javax.swing.JRadioButton jRadioButtonActuator;
+    private javax.swing.JRadioButton jRadioButtonGateway;
+    private javax.swing.JRadioButton jRadioButtonSensor;
+    private javax.swing.JScrollBar jScrollBarMain;
+    private javax.swing.JTextField jTextFieldDescription;
+    private javax.swing.JTextField jTextFieldFrecuency;
+    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldMagnitude;
+    private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTextField jTextFieldState;
     // End of variables declaration//GEN-END:variables
 
 

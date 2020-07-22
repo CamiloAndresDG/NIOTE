@@ -6,6 +6,7 @@
 package co.edu.usbbog.datan.niote.vista;
 
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -16,6 +17,7 @@ public class WindowDialog extends JDialog {
 
     private Principal principal;
     private JPanel jPanel;
+    private JFrame jFrameCarga;
 
     /**
      * Constructor of the WindowDialog class
@@ -37,6 +39,20 @@ public class WindowDialog extends JDialog {
         this.jPanel = jPanel;
         this.jPanel.setVisible(true);
         this.add(this.jPanel);
+        this.pack();
+        this.setVisible(true);
+        this.setLocationRelativeTo(this.principal);
+    }
+    
+    public WindowDialog(Principal jFrame, JFrame jFrameCarga, String title, boolean modal, boolean framework, int closedOption) {
+        super(jFrame, title, modal);
+
+        this.setDefaultCloseOperation(closedOption);
+        this.setUndecorated(framework);
+        this.principal = jFrame;
+        this.jFrameCarga = jFrameCarga;
+        this.jFrameCarga.setVisible(true);
+//        this.add(this.jFrameCarga);
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(this.principal);

@@ -23,10 +23,6 @@ import co.edu.usbbog.datan.niote.vista.media.Grafos;
 import co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Dimension;
-import java.awt.MouseInfo;
-import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 
 //Files
 import java.io.File;
@@ -45,8 +41,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -74,7 +68,8 @@ public class Principal extends JFrame {
     private int aristM;
     WindowDialog ventanaDialog;
 
-    PantallaDeCargaJPanel pantallaDeCargaJPanel;
+    PantallaDeCarga jP;
+//    PantallaDeCargaJPanel pantallaDeCargaJPanel;
 
     CrearProyectoJPanel crearProyectoJPanel;
     EmulacionJPanel emulacionJPanel;
@@ -104,21 +99,19 @@ public class Principal extends JFrame {
         /*
         Logic relationships
          */
-        this.pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
+        //  this.pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
         this.validacionesSistema = new ValidacionesSistema();
         this.emulador = new Emulador(this);
 
-        // Show loading window
-        irAPantallaDeCarga();
+        
 
         // Method to mark and unmark the necessary CheckBox
         // checkBoxValidation();
         // Verification of requirements
-        if (pantallaDeCargaJPanel.validacionesMetodo()) {
-
+   //     if (validation() == true) {
+            //  jP.dispose();
             // Creation of root folder (Where they are saved by default)
             crearCarpeta();
-
             // Initialization for emulation (graphical environment)
             Graficar paint = new Graficar();
             Grafos trees = new Grafos();
@@ -126,11 +119,12 @@ public class Principal extends JFrame {
 
             // Start
             initComponents();
-            this.pack();
+   //         jP.dispose();
+           this.pack();
             this.setLocationRelativeTo(null);
-            this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+            this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //            validarBotonesClickeados();
-        }
+    //    }
     }
 
     /**
@@ -146,7 +140,10 @@ public class Principal extends JFrame {
         arbolProyectosJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel();
         jToolBar2 = new javax.swing.JToolBar();
         jButtonSave = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         jButtonRun = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         paletaNodosIoTJPanel2 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel();
         descripcionNodoJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel();
         emulacionJPanel1 = new co.edu.usbbog.datan.niote.vista.EmulacionJPanel();
@@ -184,6 +181,7 @@ public class Principal extends JFrame {
         jPanel2.setForeground(new java.awt.Color(33, 33, 33));
 
         jToolBar2.setBackground(new java.awt.Color(45, 45, 45));
+        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
         jButtonSave.setBackground(new java.awt.Color(45, 45, 45));
@@ -193,6 +191,7 @@ public class Principal extends JFrame {
         jButtonSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(jButtonSave);
+        jToolBar2.add(jSeparator1);
 
         jButtonRun.setBackground(new java.awt.Color(45, 45, 45));
         jButtonRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_play_arrow_white_24dp.png"))); // NOI18N
@@ -209,6 +208,20 @@ public class Principal extends JFrame {
             }
         });
         jToolBar2.add(jButtonRun);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_pan_tool_white_18dp.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButton1);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_cancel_white_18dp.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButton2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -454,6 +467,8 @@ public class Principal extends JFrame {
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel arbolProyectosJPanel1;
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel descripcionNodoJPanel1;
     private co.edu.usbbog.datan.niote.vista.EmulacionJPanel emulacionJPanel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonRun;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemDarkTheme;
@@ -483,6 +498,7 @@ public class Principal extends JFrame {
     private javax.swing.JMenu jMenuThemes;
     private javax.swing.JMenu jMenuWindows;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar2;
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosIoTJPanel paletaNodosIoTJPanel2;
     // End of variables declaration//GEN-END:variables
@@ -591,16 +607,20 @@ public class Principal extends JFrame {
     /*
     Navigation for Pop-Ups
      */
+    protected void chargingScreen() {
+        jP = new PantallaDeCarga();
+        ventanaDialog = new WindowDialog(this, jP, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
+    }
+
     protected void goCreateProject() {
         crearProyectoJPanel = new CrearProyectoJPanel(this);
         ventanaDialog = new WindowDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
 
-    private void irAPantallaDeCarga() {
+    /* private void irAPantallaDeCarga() {
         pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
         ventanaDialog = new WindowDialog(this, pantallaDeCargaJPanel, "Pantalla de carga", false, false, DISPOSE_ON_CLOSE);
-    }
-
+    }*/
     protected void goAboutUs() {
         sobreNosotrosJPanel = new SobreNosotrosJPanel(this);
         ventanaDialog = new WindowDialog(this, sobreNosotrosJPanel, "Información sobre nosotros", false, false, DISPOSE_ON_CLOSE);
@@ -669,5 +689,11 @@ public class Principal extends JFrame {
         } else {
             return true;
         }
+    }
+
+    private boolean validation() {
+        // Show loading window
+        chargingScreen();
+        return validacionesSistema.getValidacionPantalla();
     }
 }

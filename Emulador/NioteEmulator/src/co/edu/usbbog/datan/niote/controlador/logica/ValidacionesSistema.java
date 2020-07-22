@@ -26,7 +26,7 @@ public class ValidacionesSistema {
     Paso en el que va
     */
     String paso;
-    
+    Boolean validacionPantalla=false;
     /**
      * Método constructor genérico
      */
@@ -109,6 +109,14 @@ public class ValidacionesSistema {
 
     public void setPaso(String paso) {
         this.paso = paso;
+    }
+
+    public Boolean getValidacionPantalla() {
+        return validacionPantalla;
+    }
+
+    public void setValidacionPantalla(Boolean validacion) {
+        this.validacionPantalla = validacion;
     }
 
 }

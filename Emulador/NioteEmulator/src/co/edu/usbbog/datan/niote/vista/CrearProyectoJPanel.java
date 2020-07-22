@@ -261,7 +261,7 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
 //                    + chooser.getSelectedFile());
             jTextFieldLocation.setText(String.valueOf(chooser.getSelectedFile()));
         } else {
-            System.out.println("No Selection ");
+            System.out.println("No Selection");
         }
     }
 }

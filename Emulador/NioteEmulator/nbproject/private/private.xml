@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/WindowDialog.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/SobreNosotrosJPanel.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/recursos/pantallaPrincipal/PaletaNodosIoTJPanel.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/Componente.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/recursos/pantallaPrincipal/ArbolProyectosJPanel.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/modelo/Sensor.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/controlador/logica/ValidacionesSistema.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/Principal.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/NotificarErrorJPanel.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/ConfiguracionDeRedJPanel.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/PantallaDeCarga.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/recursos/pantallaPrincipal/DescripcionNodoJPanel.java</file>
+            <file>file:/C:/Users/Camilo%20y%20Roberth/Documents/GitKraken/NIOTE/Emulador/NioteEmulator/src/co/edu/usbbog/datan/niote/vista/CrearProyectoJPanel.java</file>
+        </group>
     </open-files>
 </project-private>

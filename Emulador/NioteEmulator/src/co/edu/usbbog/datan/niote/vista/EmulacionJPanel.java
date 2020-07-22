@@ -5,6 +5,7 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
+import co.edu.usbbog.datan.niote.recursos.pantallaDeEmulacion.ComponentController;
 import javax.swing.DefaultListModel;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.DefaultListModel;
 public class EmulacionJPanel extends javax.swing.JPanel {
 
 
-    private controladorComponentes controladorComponentes;
+    private ComponentController controladorComponentes;
     private DefaultListModel lista = new DefaultListModel();
 
     /**
@@ -23,7 +24,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
     public EmulacionJPanel() {
         initComponents();
         //crea nueva instancia e inicia parametros
-        controladorComponentes = new controladorComponentes(this.panelContenedor, this.lista);
+        controladorComponentes = new ComponentController(this.panelContenedor, this.lista);
         //agrega ListModel a JList
         listaComponentesJList.setModel(lista);
 
