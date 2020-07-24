@@ -6,7 +6,6 @@
 package co.edu.usbbog.datan.niote.vista;
 
 import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
-import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
