@@ -5,13 +5,20 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author Camilo y Roberth
  */
 public class NotificarErrorJPanel extends javax.swing.JPanel {
 
-    private Principal principal ;
+    private Principal principal;
 
     /**
      * Creates new form NotificarErrorJPanel
@@ -141,7 +148,7 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonSendActionPerformed
 
     private void jButtonAttachImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttachImageActionPerformed
-        // TODO add your handling code here:
+        searchImages();        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAttachImageActionPerformed
 
 
@@ -154,4 +161,9 @@ public class NotificarErrorJPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextAreaDescriptionError;
     private javax.swing.JTextArea jTextAreaTextDescription;
     // End of variables declaration//GEN-END:variables
+
+    private void searchImages() {
+       
+    }
+
 }

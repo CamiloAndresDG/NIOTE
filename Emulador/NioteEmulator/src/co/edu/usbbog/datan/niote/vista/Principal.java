@@ -91,10 +91,8 @@ public class Principal extends JFrame {
         setName("pricipalJFrame");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        pack();
-
-        // Center window
-        setLocationRelativeTo(null);
+        //  pack();
+        //      setLocationRelativeTo(null);
 
         /*
         Logic relationships
@@ -103,28 +101,32 @@ public class Principal extends JFrame {
         this.validacionesSistema = new ValidacionesSistema();
         this.emulador = new Emulador(this);
 
-        
-
         // Method to mark and unmark the necessary CheckBox
         // checkBoxValidation();
         // Verification of requirements
-   //     if (validation() == true) {
-            //  jP.dispose();
-            // Creation of root folder (Where they are saved by default)
-            crearCarpeta();
-            // Initialization for emulation (graphical environment)
-            Graficar paint = new Graficar();
-            Grafos trees = new Grafos();
-            Graficar graph = new Graficar();
+        //    if (validation() == true) {
+        //  jP.dispose();
+        // Creation of root folder (Where they are saved by default)
+        crearCarpeta();
+        // Initialization for emulation (graphical environment)
+        Graficar paint = new Graficar();
+        Grafos trees = new Grafos();
+        Graficar graph = new Graficar();
 
-            // Start
-            initComponents();
-   //         jP.dispose();
-           this.pack();
-            this.setLocationRelativeTo(null);
-            this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        // Start
+        initComponents();
+        //         jP.dispose();
+
+        //Pack the window
+        this.pack();
+
+        // Center window
+        this.setLocationRelativeTo(null);
+
+        // Maximize the window in its maximum size adapting it to the screen
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 //            validarBotonesClickeados();
-    //    }
+      //      }
     }
 
     /**
@@ -534,14 +536,9 @@ public class Principal extends JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
+                    // The search windows in the documents will come out with the customization of windows
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InstantiationException ex) {
-                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IllegalAccessException ex) {
-                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (UnsupportedLookAndFeelException ex) {
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 new Principal().setVisible(true);
@@ -571,7 +568,7 @@ public class Principal extends JFrame {
         }
     }
 
-    /**
+    /** 
      * Method to create a new network
      *
      * @param id of the network

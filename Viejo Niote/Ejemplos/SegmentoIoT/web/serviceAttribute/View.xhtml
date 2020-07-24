@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServiceAttributeViewDlg" widgetVar="ServiceAttributeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewServiceAttributeTitle}">
+            <h:form id="ServiceAttributeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serviceAttributeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewServiceAttributeLabel_idServiceAttribute}"/>
+                        <h:outputText value="#{serviceAttributeController.selected.idServiceAttribute}" title="#{bundle.ViewServiceAttributeTitle_idServiceAttribute}"/>
+                        <h:outputText value="#{bundle.ViewServiceAttributeLabel_description}"/>
+                        <h:outputText value="#{serviceAttributeController.selected.description}" title="#{bundle.ViewServiceAttributeTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewServiceAttributeLabel_value}"/>
+                        <h:outputText value="#{serviceAttributeController.selected.value}" title="#{bundle.ViewServiceAttributeTitle_value}"/>
+                        <h:outputText value="#{bundle.ViewServiceAttributeLabel_attributeType}"/>
+                        <h:outputText value="#{serviceAttributeController.selected.attributeType}" title="#{bundle.ViewServiceAttributeTitle_attributeType}"/>
+                        <h:outputText value="#{bundle.ViewServiceAttributeLabel_service}"/>
+                        <h:outputText value="#{serviceAttributeController.selected.service}" title="#{bundle.ViewServiceAttributeTitle_service}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ServiceAttributeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
