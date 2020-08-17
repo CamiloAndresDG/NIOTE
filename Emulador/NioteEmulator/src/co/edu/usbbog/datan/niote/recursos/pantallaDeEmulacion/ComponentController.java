@@ -43,15 +43,15 @@ public class ComponentController {
      *
      * @param name of the new object
      */
-    public void nuevoComponente(String name) {
+    public void nuevoComponente(String name, int id) {
         //Increases counter by +1 when adding a new object       
         this.internalObjectCounter += 1;
         //// Create a new instance of "Component and the number of the object giving it the name"
-        Componente componente = new Componente(name + " " + this.internalObjectCounter);
+        Componente componente = new Componente(name + " " + this.internalObjectCounter, id);
         //Places the created object in a random position
         componente.setLocation(rndNum(this.container.getWidth() - componente.getWidth()), rndNum(this.container.getHeight() - componente.getHeight()));
         //Add the object in the MAP
-        hashMap.put("Componente " + this.internalObjectCounter, componente);
+        hashMap.put(name + this.internalObjectCounter, componente);
         //Add the key in the List
         listModel.addElement(name + " " + this.internalObjectCounter);
         //add the object in the JPanel
@@ -66,23 +66,23 @@ public class ComponentController {
      *
      * @param String Key object identifier
      */
-    public void cambiarImagen(String key) {
-        Componente tmp = (Componente) hashMap.get(key);
-        tmp.setIcon(new ImageIcon(getClass().getResource("/org/bolivia/app/res/" + ((int) Math.floor(Math.random() * 4 + 1)) + ".png")));
-        tmp.repaint();
-    }
+//    public void cambiarImagen(String key, int id) {
+//        Componente tmp = (Componente) hashMap.get(key);
+//        tmp.setIcon(new ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/pantallaDeEmulacion/iconos/" + id + ".png")));
+//        tmp.repaint();
+//    }
 
     /**
      * Method that changes all the images of all the objects that exist in the
      * MAP
      */
-    public void cambiarTodasLasImagenes() {
-        Iterator it = hashMap.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry) it.next();
-            cambiarImagen(e.getKey().toString());
-        }
-    }
+//    public void cambiarTodasLasImagenes() {
+//        Iterator it = hashMap.entrySet().iterator();
+//        while (it.hasNext()) {
+//            Map.Entry e = (Map.Entry) it.next();
+//            cambiarImagen(e.getKey().toString());
+//        }
+//    }
 
     /**
      * Returns a random integer between 0 and a number passed as a parameter

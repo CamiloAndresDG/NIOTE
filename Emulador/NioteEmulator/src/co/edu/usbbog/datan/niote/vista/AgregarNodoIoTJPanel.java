@@ -5,6 +5,7 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
+import java.io.File;
 import javax.swing.JFileChooser;
 
 /**
@@ -13,10 +14,15 @@ import javax.swing.JFileChooser;
  */
 public class AgregarNodoIoTJPanel extends javax.swing.JPanel {
 
+    Principal principal;
+    Navegacion navegacion;
+
     /**
      * Creates new form AgregarNodoIoTJPanel
      */
-    public AgregarNodoIoTJPanel() {
+    public AgregarNodoIoTJPanel(Principal principal) {
+        this.principal = principal;
+        this.navegacion=new Navegacion();
         initComponents();
     }
 
@@ -80,14 +86,13 @@ public class AgregarNodoIoTJPanel extends javax.swing.JPanel {
                 .addComponent(jLabelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        searchNewImagen();        // TODO add your handling code here:
+        navegacion.searchNewImagenAndPutOnJLabel(jLabelImage);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -96,11 +101,4 @@ public class AgregarNodoIoTJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelImage;
     // End of variables declaration//GEN-END:variables
 
-    private void searchNewImagen() {
-        JFileChooser image = new JFileChooser();
-        image.setDialogTitle("Buscar imagen");
-        if (image.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            rsscalelabel.RSScaleLabel.setScaleLabel(jLabelImage, image.getSelectedFile().toString());
-        }
-    }
 }

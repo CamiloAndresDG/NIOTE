@@ -27,10 +27,11 @@ public class PantallaDeCarga extends javax.swing.JFrame {
     /**
      * Creates new form welcome
      */
-    public PantallaDeCarga() {
+    public PantallaDeCarga(Principal principal) {
+        this.principal=principal;
         initComponents();
         vSystem = new ValidacionesSistema();
-       
+
         this.setResizable(false);
         this.setLocationRelativeTo(this);
     }
@@ -145,7 +146,7 @@ public class PantallaDeCarga extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              //  new PantallaDeCarga().setVisible(true);
+                //  new PantallaDeCarga().setVisible(true);
             }
         });
     }
@@ -171,7 +172,8 @@ public class PantallaDeCarga extends javax.swing.JFrame {
                             break;
                         case 50:
                             vSystem.setValidacionPantalla(true);
-                            inicioPrincipal();
+                            decision=true;
+                          //  inicioPrincipal();
                             //    Principal principal = new Principal();
                             //  principal.setVisible(true);
                             //             System.out.println("s");

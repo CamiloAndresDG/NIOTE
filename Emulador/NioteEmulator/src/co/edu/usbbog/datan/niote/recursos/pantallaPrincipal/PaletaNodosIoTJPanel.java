@@ -5,6 +5,7 @@
  */
 package co.edu.usbbog.datan.niote.recursos.pantallaPrincipal;
 
+import co.edu.usbbog.datan.niote.vista.EmulacionJPanel;
 import co.edu.usbbog.datan.niote.vista.Principal;
 import java.awt.MouseInfo;
 import java.awt.Point;
@@ -14,11 +15,12 @@ import java.awt.Point;
  * @author Camilo y Roberth
  */
 public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
-
+    private EmulacionJPanel emulacionJPanel;
     /**
      * Creates new form InicioJPanel
      */
     public PaletaNodosIoTJPanel() {
+        emulacionJPanel = new EmulacionJPanel();
         initComponents();
     }
 
@@ -53,6 +55,11 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
         jButton1.setText("Humedad");
         jButton1.setToolTipText("Dispositivo de lectura para el control general de la humedad del entorno.");
         jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/paletaNodos/SpeedIcon_75.38.png"))); // NOI18N
         jButton2.setText("Velocidad");
@@ -166,6 +173,10 @@ public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
             .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        emulacionJPanel.agregarComponente("Humedad", 1);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

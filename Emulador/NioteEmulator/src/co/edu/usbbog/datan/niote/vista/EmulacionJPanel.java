@@ -14,9 +14,9 @@ import javax.swing.DefaultListModel;
  */
 public class EmulacionJPanel extends javax.swing.JPanel {
 
-
     private ComponentController controladorComponentes;
     private DefaultListModel lista = new DefaultListModel();
+
 
     /**
      * Creates new form panelJPanel
@@ -27,7 +27,6 @@ public class EmulacionJPanel extends javax.swing.JPanel {
         controladorComponentes = new ComponentController(this.panelContenedor, this.lista);
         //agrega ListModel a JList
         listaComponentesJList.setModel(lista);
-
     }
 
     /**
@@ -57,7 +56,7 @@ public class EmulacionJPanel extends javax.swing.JPanel {
         panelContenedor.setLayout(panelContenedorLayout);
         panelContenedorLayout.setHorizontalGroup(
             panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 496, Short.MAX_VALUE)
         );
         panelContenedorLayout.setVerticalGroup(
             panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,17 +87,16 @@ public class EmulacionJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                        .addGap(48, 48, 48)
                         .addComponent(nombreComponenteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(51, 51, 51))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jButton1))
+                    .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,12 +107,13 @@ public class EmulacionJPanel extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(nombreComponenteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controladorComponentes.nuevoComponente(nombreComponenteJTextField.getText());
+        controladorComponentes.nuevoComponente("Nombre", 1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -126,4 +125,8 @@ public class EmulacionJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField nombreComponenteJTextField;
     private javax.swing.JPanel panelContenedor;
     // End of variables declaration//GEN-END:variables
+    
+    public void agregarComponente(String nombre, int id) {
+        controladorComponentes.nuevoComponente(nombre, id);
+    }
 }

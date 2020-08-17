@@ -32,6 +32,8 @@ public class Componente extends JLabel implements MouseListener, MouseMotionList
      * Object identifier
      */
     private String key = "";
+    
+    private int id;
     /**
      * Image position
      */
@@ -61,7 +63,8 @@ public class Componente extends JLabel implements MouseListener, MouseMotionList
     /**
      * Class constructor
      */
-    public Componente(String key) {
+    public Componente(String key, int id) {
+        this.id = id;
         //se inician propiedades de objeto
         this.key = key;
         //Permite mostrar el nombre del Key del objeto al pasar el mouse por encima
@@ -71,7 +74,7 @@ public class Componente extends JLabel implements MouseListener, MouseMotionList
         this.setSize(dimension);
         this.setPreferredSize(dimension);
         //Asigna una imagen al objeto
-        this.setIcon(new ImageIcon(getClass().getResource("/iconosComponentes/" + ((int) Math.floor(Math.random() * 4 + 1)) + ".png")));
+        this.setIcon(new ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/recursos/pantallaDeEmulacion/iconos/" + id + ".png")));
         this.setText("");
         this.setVisible(true);
         this.setLocation(posicion);
@@ -86,6 +89,14 @@ public class Componente extends JLabel implements MouseListener, MouseMotionList
 
     public void setKey(String key) {
         this.key = key;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
     }
 
     @Override

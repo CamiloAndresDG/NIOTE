@@ -196,9 +196,10 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
             String descripcion = jTextAreaDescription.getText();
 
             principal.crearRed(nombre, nombre, descripcion);
-          //  principal.arbolProyectosJPanel.joinedProjects(nombre);
+            //  principal.arbolProyectosJPanel.joinedProjects(nombre);
             keepRed();
-            principal.cerrarVentana();
+            principal.navegacion.cerrarVentana();
+            
         }
     }
 
@@ -226,8 +227,6 @@ public class CrearProyectoJPanel extends javax.swing.JPanel {
     private boolean validationEntereData() {
         String comparableProjectName = "javax.swing.JTextField[,89,57,309x20,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder@69d11f90,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],columns=0,columnWidth=0,command=,horizontalAlignment=LEADING]";
         String comparableDescription = "javax.swing.JTextArea[,0,0,537x111,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],colums=20,columWidth=8,rows=5,rowHeight=14,word=false,wrap=false]";
-        //System.out.println(jTextFieldNombreDelProyecto+" 222222");
-        //      System.out.println(jTextAreaDescripcion+" 333");
         if (jTextFieldProjectName.getText() == null || jTextFieldProjectName.getText() == "" || jTextFieldProjectName.getText() == comparableProjectName) {
             if (jTextAreaDescription.getText() == null || jTextAreaDescription.getText() == "" || jTextAreaDescription.getText() == comparableDescription) {
                 //   Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
