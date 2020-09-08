@@ -5,8 +5,8 @@
  */
 package co.edu.usbbog.datan.niote.recursos.pantallaPrincipal;
 
-import co.edu.usbbog.datan.niote.vista.EmulacionJPanel;
-import co.edu.usbbog.datan.niote.vista.Principal;
+import co.edu.usbbog.datan.niote.vista.EmulationJPanel;
+import co.edu.usbbog.datan.niote.vista.Main;
 import java.awt.MouseInfo;
 import java.awt.Point;
 
@@ -15,12 +15,12 @@ import java.awt.Point;
  * @author Camilo y Roberth
  */
 public class PaletaNodosIoTJPanel extends javax.swing.JPanel {
-    private EmulacionJPanel emulacionJPanel;
+    private EmulationJPanel emulacionJPanel;
     /**
      * Creates new form InicioJPanel
      */
     public PaletaNodosIoTJPanel() {
-        emulacionJPanel = new EmulacionJPanel();
+        emulacionJPanel = new EmulationJPanel();
         initComponents();
     }
 

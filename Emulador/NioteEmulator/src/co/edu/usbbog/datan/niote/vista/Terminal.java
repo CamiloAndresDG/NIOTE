@@ -23,13 +23,13 @@ public class Terminal {
     /**
      *
      */
-    private Principal principal;
+    private Main principal;
 
     /**
      *
      * @param principal
      */
-    public Terminal(Principal principal) {
+    public Terminal(Main principal) {
         this.principal = principal;
         menuInicial();
     }

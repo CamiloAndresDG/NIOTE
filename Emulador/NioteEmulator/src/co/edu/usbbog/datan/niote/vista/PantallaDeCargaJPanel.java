@@ -14,7 +14,7 @@ import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
 public class PantallaDeCargaJPanel extends javax.swing.JPanel {
 
     //Relacones
-    private Principal principal;
+    private Main principal;
 
     ValidacionesSistema validaciones;
 
@@ -23,7 +23,7 @@ public class PantallaDeCargaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PantallaDeCargaJPanel
      */
-    public PantallaDeCargaJPanel(Principal principal) {
+    public PantallaDeCargaJPanel(Main principal) {
 
         this.principal = principal;
         this.valorTomado = false;

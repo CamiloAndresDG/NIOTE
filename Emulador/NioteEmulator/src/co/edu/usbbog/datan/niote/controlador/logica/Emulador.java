@@ -6,7 +6,7 @@
 package co.edu.usbbog.datan.niote.controlador.logica;
 
 import co.edu.usbbog.datan.niote.modelo.Red;
-import co.edu.usbbog.datan.niote.vista.Principal;
+import co.edu.usbbog.datan.niote.vista.Main;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,10 +16,10 @@ import java.util.logging.Logger;
  */
 public class Emulador extends Thread{
 
-    private Principal principal;
+    private Main principal;
     private Red red;
 
-    public Emulador(Principal principal) {
+    public Emulador(Main principal) {
         this.principal = principal;
     }
 
