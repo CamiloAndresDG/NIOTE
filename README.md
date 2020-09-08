@@ -31,5 +31,7 @@ We are students of Systems Engineering at the University of San Buenaventura.
 
 ## If you want to contact me
 ![Login](https://image.flaticon.com/icons/png/512/61/61109.png) [Camilo Andrés Díaz Gómez](https://www.linkedin.com/in/camilo-andr%C3%A9s-d%C3%ADaz-g%C3%B3mez-97b5581a3/)
+![Login](https://image.flaticon.com/icons/png/512/61/61109.png) [Jhonatan Mauricio Villarreal Corredor](https://www.linkedin.com/in/jhonatan-villarreal-b492571a8/)
+![Login](https://image.flaticon.com/icons/png/512/61/61109.png) [Juan Esteban Contreras Diaz]()
 ---
 ---
