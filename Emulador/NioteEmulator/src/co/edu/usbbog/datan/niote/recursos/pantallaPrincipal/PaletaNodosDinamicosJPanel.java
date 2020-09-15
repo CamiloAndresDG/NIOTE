@@ -6,6 +6,7 @@
 package co.edu.usbbog.datan.niote.recursos.pantallaPrincipal;
 
 import co.edu.usbbog.datan.niote.vista.AgregarNodoIoTJPanel;
+import co.edu.usbbog.datan.niote.vista.ComunicacionLogica;
 import co.edu.usbbog.datan.niote.vista.Navegacion;
 import co.edu.usbbog.datan.niote.vista.Principal;
 import java.awt.Image;
@@ -25,11 +26,12 @@ public class PaletaNodosDinamicosJPanel extends javax.swing.JPanel {
     private Integer indices;
     private AgregarNodoIoTJPanel agregarNodoIoTJPanel;
     private Navegacion navegacion;
-
+    private ComunicacionLogica comunicacionLogica;
     /**
      * Creates new form PaletaNodosDinamicosJPanel
      */
     public PaletaNodosDinamicosJPanel() {
+        this.comunicacionLogica = new ComunicacionLogica();
         this.navegacion=new Navegacion();
         nodes = new ArrayList<>();
         indices = 0;
@@ -65,6 +67,11 @@ public class PaletaNodosDinamicosJPanel extends javax.swing.JPanel {
         jButton2.setText("Humedad");
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanelNodos.add(jButton2);
 
         jButton3.setForeground(new java.awt.Color(240, 240, 240));
@@ -118,6 +125,10 @@ public class PaletaNodosDinamicosJPanel extends javax.swing.JPanel {
         addNewBotton();
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        comunicacionLogica.agregarComponente("Agua", 1);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

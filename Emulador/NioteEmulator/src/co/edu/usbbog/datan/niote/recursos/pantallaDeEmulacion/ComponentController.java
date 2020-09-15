@@ -49,7 +49,8 @@ public class ComponentController {
         //// Create a new instance of "Component and the number of the object giving it the name"
         Componente componente = new Componente(name + " " + this.internalObjectCounter, id);
         //Places the created object in a random position
-        componente.setLocation(rndNum(this.container.getWidth() - componente.getWidth()), rndNum(this.container.getHeight() - componente.getHeight()));
+//        componente.setLocation(rndNum(this.container.getWidth() - componente.getWidth()), rndNum(this.container.getHeight() - componente.getHeight()));
+        componente.setLocation(50, 50);
         //Add the object in the MAP
         hashMap.put(name + this.internalObjectCounter, componente);
         //Add the key in the List

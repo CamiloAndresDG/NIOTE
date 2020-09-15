@@ -140,10 +140,10 @@ public class Principal extends JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         arbolProyectosJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel();
-        emulacionJPanel1 = new co.edu.usbbog.datan.niote.vista.EmulacionJPanel();
         paletaNodosDinamicosJPanel2 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.PaletaNodosDinamicosJPanel();
         descripcionNodoJPanel2 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel();
         menuPrincipalJPanel1 = new co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.MenuPrincipalJPanel();
+        emulacionJPanel2 = new co.edu.usbbog.datan.niote.vista.EmulacionJPanel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuArchive = new javax.swing.JMenu();
         jMenuItemNewProject = new javax.swing.JMenuItem();
@@ -177,6 +177,17 @@ public class Principal extends JFrame {
         jPanel2.setBackground(new java.awt.Color(27, 27, 27));
         jPanel2.setForeground(new java.awt.Color(33, 33, 33));
 
+        javax.swing.GroupLayout emulacionJPanel2Layout = new javax.swing.GroupLayout(emulacionJPanel2);
+        emulacionJPanel2.setLayout(emulacionJPanel2Layout);
+        emulacionJPanel2Layout.setHorizontalGroup(
+            emulacionJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 656, Short.MAX_VALUE)
+        );
+        emulacionJPanel2Layout.setVerticalGroup(
+            emulacionJPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -184,8 +195,8 @@ public class Principal extends JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(arbolProyectosJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(emulacionJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(emulacionJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(descripcionNodoJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +215,7 @@ public class Principal extends JFrame {
                         .addComponent(paletaNodosDinamicosJPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(descripcionNodoJPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(emulacionJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(emulacionJPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -415,7 +426,7 @@ public class Principal extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.ArbolProyectosJPanel arbolProyectosJPanel1;
     private co.edu.usbbog.datan.niote.recursos.pantallaPrincipal.DescripcionNodoJPanel descripcionNodoJPanel2;
-    private co.edu.usbbog.datan.niote.vista.EmulacionJPanel emulacionJPanel1;
+    private co.edu.usbbog.datan.niote.vista.EmulacionJPanel emulacionJPanel2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemDarkTheme;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemEnglishLanguage;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemLightTheme;
