@@ -23,13 +23,13 @@ public class Terminal {
     /**
      *
      */
-    private Main principal;
+    private Principal principal;
 
     /**
      *
      * @param principal
      */
-    public Terminal(Main principal) {
+    public Terminal(Principal principal) {
         this.principal = principal;
         menuInicial();
     }
@@ -96,7 +96,7 @@ public class Terminal {
         String nombre = sn.next();
         System.out.println("ingrese la descripcion de la red");
         String descripcion = sn.next();
-        if (this.principal.crearRed(id, nombre, descripcion)) {
+        if (this.principal.createNetwork(id, nombre, descripcion)) {
             return true;
         } else {
             return false;
@@ -112,7 +112,7 @@ public class Terminal {
         String ruta = sn.next();
         System.out.println("ingrese nombre del archivo de configuracion (.niote)");
         String nombreArchivo = sn.next();
-        if (this.principal.cargarRed(ruta, nombreArchivo)) {
+        if (this.principal.loadNetwork(ruta, nombreArchivo)) {
             return true;
         } else {
             return false;

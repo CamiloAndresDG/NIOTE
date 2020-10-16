@@ -12,12 +12,12 @@ package co.edu.usbbog.datan.niote.vista;
 public class AboutUsJPanel extends javax.swing.JPanel {
 
     // Relations
-    private Main principal;
+    private Principal principal;
 
     /**
      * Creates new form SobreNosotrosJPanel
      */
-    public AboutUsJPanel(Main principal) {
+    public AboutUsJPanel(Principal principal) {
         this.principal = principal;
         initComponents();
     }
@@ -54,7 +54,7 @@ public class AboutUsJPanel extends javax.swing.JPanel {
 
         jLabelDescription.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelDescription.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDescription.setText("NIOTE es un proyecto realizado en el IDE Netbeans 8.2. Es un proyecto realizado en la Universidad de San Buenaventura, sede Bogotá.");
+        jLabelDescription.setText("NIOTE es un proyecto realizado en el IDE Netbeans 8.2. Es un proyecto realizado en la Universidad de San Buenaventura, sede Bogotá");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,8 +78,8 @@ public class AboutUsJPanel extends javax.swing.JPanel {
                 .addComponent(jLabelLogo)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

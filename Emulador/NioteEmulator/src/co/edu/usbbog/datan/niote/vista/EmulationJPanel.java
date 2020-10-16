@@ -5,7 +5,7 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
-import co.edu.usbbog.datan.niote.recursos.pantallaDeEmulacion.ComponentController;
+import co.edu.usbbog.datan.niote.vista.media.controladores.pantallaemulacion.ComponentController;
 import javax.swing.DefaultListModel;
 
 /**
@@ -14,19 +14,20 @@ import javax.swing.DefaultListModel;
  */
 public class EmulationJPanel extends javax.swing.JPanel {
 
-    private ComponentController controladorComponentes;
-    private DefaultListModel lista = new DefaultListModel();
-
+//    private ComponentController controladorComponentes;
+//    private DefaultListModel lista = new DefaultListModel();
+    private Principal principal;
 
     /**
      * Creates new form panelJPanel
      */
-    public EmulationJPanel() {
+    public EmulationJPanel(Principal principal) {
+        this.principal = principal;
         initComponents();
         //crea nueva instancia e inicia parametros
-        controladorComponentes = new ComponentController(this.panelContenedor, this.lista);
+//        controladorComponentes = new ComponentController(this.panelContenedor, this.lista);
         //agrega ListModel a JList
-        listaComponentesJList.setModel(lista);
+//        listaComponentesJList.setModel(lista);
     }
 
     /**
@@ -39,96 +40,30 @@ public class EmulationJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        panelContenedor = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listaComponentesJList = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        nombreComponenteJTextField = new javax.swing.JTextField();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setBackground(new java.awt.Color(61, 61, 61));
 
-        panelContenedor.setBackground(new java.awt.Color(32, 32, 32));
-
-        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
-        panelContenedor.setLayout(panelContenedorLayout);
-        panelContenedorLayout.setHorizontalGroup(
-            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelContenedorLayout.setVerticalGroup(
-            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        listaComponentesJList.setBackground(new java.awt.Color(61, 61, 61));
-        listaComponentesJList.setForeground(new java.awt.Color(255, 255, 255));
-        listaComponentesJList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(listaComponentesJList);
-
-        jButton1.setText("Agregar Componente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        nombreComponenteJTextField.setBackground(new java.awt.Color(32, 32, 32));
-        nombreComponenteJTextField.setForeground(new java.awt.Color(255, 255, 255));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                        .addComponent(nombreComponenteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton1)
-                        .addGap(136, 136, 136))))
+            .addGap(0, 644, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(nombreComponenteJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 405, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controladorComponentes.nuevoComponente("Nombre", 1);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaComponentesJList;
-    private javax.swing.JTextField nombreComponenteJTextField;
-    private javax.swing.JPanel panelContenedor;
     // End of variables declaration//GEN-END:variables
-    
-    public void agregarComponente(String nombre, int id) {
-        controladorComponentes.nuevoComponente(nombre, id);
-    }
+
+//    public void agregarComponente(String nombre, int id) {
+//        controladorComponentes.nuevoComponente(nombre, id);
+//    }
 }
