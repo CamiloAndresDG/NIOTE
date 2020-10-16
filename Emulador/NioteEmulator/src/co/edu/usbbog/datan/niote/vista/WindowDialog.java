@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  */
 public class WindowDialog extends JDialog {
 
-    private Main principal;
+    private Principal principal;
     private JPanel jPanel;
     private JFrame jFrameCarga;
 
@@ -30,7 +30,7 @@ public class WindowDialog extends JDialog {
      * @param closedOption of the popup window, in this case use
      * DISPOSE_ON_CLOSE to close when X is clicked
      */
-    public WindowDialog(Main jFrame, JPanel jPanel, String title, boolean modal, boolean framework, int closedOption) {
+    public WindowDialog(Principal jFrame, JPanel jPanel, String title, boolean modal, boolean framework, int closedOption) {
         super(jFrame, title, modal);
 
         this.setDefaultCloseOperation(closedOption);
@@ -44,7 +44,7 @@ public class WindowDialog extends JDialog {
         this.setLocationRelativeTo(this.principal);
     }
     
-    public WindowDialog(Main jFrame, JFrame jFrameCarga, String title, boolean modal, boolean framework, int closedOption) {
+    public WindowDialog(Principal jFrame, JFrame jFrameCarga, String title, boolean modal, boolean framework, int closedOption) {
         super(jFrame, title, modal);
 
         this.setDefaultCloseOperation(closedOption);

@@ -1,11 +1,11 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package co.edu.usbbog.datan.niote.vista;
 
-import co.edu.usbbog.datan.niote.vista.media.TextPrompt;
+import co.edu.usbbog.datan.niote.vista.media.controladores.vista.TextPrompt;
 import java.awt.Color;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  */
 public class CreateProjectJPanel extends javax.swing.JPanel {
 
-    private Main principal;
+    private Principal principal;
 
     /**
      * Creates new form InicioJPanel
      */
-    public CreateProjectJPanel(Main principal) {
+    public CreateProjectJPanel(Principal principal) {
         this.principal = principal;
         homePreviousTexts();
         initComponents();
@@ -142,7 +142,7 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLocation)
-                    .addComponent(jButtonSearchNewLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSearchNewLocation)
                     .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(jLabelDescription)
@@ -195,11 +195,10 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
             String nombre = jTextFieldProjectName.getText();
             String descripcion = jTextAreaDescription.getText();
 
-            principal.crearRed(nombre, nombre, descripcion);
-            //  principal.arbolProyectosJPanel.joinedProjects(nombre);
+            principal.createNetwork(nombre, nombre, descripcion);
+          //  principal.arbolProyectosJPanel.joinedProjects(nombre);
             keepRed();
-            principal.navegacion.cerrarVentana();
-            
+            principal.closeWindow();
         }
     }
 
@@ -227,6 +226,8 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
     private boolean validationEntereData() {
         String comparableProjectName = "javax.swing.JTextField[,89,57,309x20,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder@69d11f90,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],columns=0,columnWidth=0,command=,horizontalAlignment=LEADING]";
         String comparableDescription = "javax.swing.JTextArea[,0,0,537x111,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],colums=20,columWidth=8,rows=5,rowHeight=14,word=false,wrap=false]";
+        //System.out.println(jTextFieldNombreDelProyecto+" 222222");
+        //      System.out.println(jTextAreaDescripcion+" 333");
         if (jTextFieldProjectName.getText() == null || jTextFieldProjectName.getText() == "" || jTextFieldProjectName.getText() == comparableProjectName) {
             if (jTextAreaDescription.getText() == null || jTextAreaDescription.getText() == "" || jTextAreaDescription.getText() == comparableDescription) {
                 //   Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
@@ -243,7 +244,7 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
     }
 
     /**
-     *
+     * Method to find a new location where the user will save the project
      */
     private void searchNewLocation() {
         JFileChooser chooser;
@@ -254,10 +255,6 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setAcceptAllFileFilterUsed(false);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-//            System.out.println("getCurrentDirectory(): "
-//                    + chooser.getCurrentDirectory());
-//            System.out.println("getSelectedFile() : "
-//                    + chooser.getSelectedFile());
             jTextFieldLocation.setText(String.valueOf(chooser.getSelectedFile()));
         } else {
             System.out.println("No Selection");
