@@ -53,13 +53,6 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPaneActuators = new javax.swing.JScrollPane();
-        jPanelNodosActuators1 = new javax.swing.JPanel();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
         jScrollPaneSensors = new javax.swing.JScrollPane();
         jPanelNodos = new javax.swing.JPanel();
         jButtonHumedity = new javax.swing.JButton();
@@ -71,6 +64,13 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jScrollPaneActuators = new javax.swing.JScrollPane();
+        jPanelNodosActuators1 = new javax.swing.JPanel();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(27, 27, 27));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,73 +85,6 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 40, 50));
-
-        jPanelNodosActuators1.setBackground(new java.awt.Color(61, 61, 61));
-        jPanelNodosActuators1.setLayout(new java.awt.GridLayout(0, 3));
-
-        jButton12.setForeground(new java.awt.Color(240, 240, 240));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Air Conditioning Actuator.png"))); // NOI18N
-        jButton12.setText("Aire Acondicionado");
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        jPanelNodosActuators1.add(jButton12);
-
-        jButton13.setForeground(new java.awt.Color(240, 240, 240));
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Alarm Actuator.png"))); // NOI18N
-        jButton13.setText("Alarma");
-        jButton13.setBorderPainted(false);
-        jButton13.setContentAreaFilled(false);
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        jPanelNodosActuators1.add(jButton13);
-
-        jButton14.setForeground(new java.awt.Color(240, 240, 240));
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Fan Actuator.png"))); // NOI18N
-        jButton14.setText("Ventilador");
-        jButton14.setBorderPainted(false);
-        jButton14.setContentAreaFilled(false);
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-        jPanelNodosActuators1.add(jButton14);
-
-        jButton15.setForeground(new java.awt.Color(240, 240, 240));
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/LED Actuator.png"))); // NOI18N
-        jButton15.setText("LED");
-        jButton15.setBorderPainted(false);
-        jButton15.setContentAreaFilled(false);
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-        jPanelNodosActuators1.add(jButton15);
-
-        jButton16.setForeground(new java.awt.Color(240, 240, 240));
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Motor Actuator.png"))); // NOI18N
-        jButton16.setText("Motor");
-        jButton16.setBorderPainted(false);
-        jButton16.setContentAreaFilled(false);
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
-            }
-        });
-        jPanelNodosActuators1.add(jButton16);
-
-        jScrollPaneActuators.setViewportView(jPanelNodosActuators1);
-
-        jTabbedPane1.addTab("Actuadores", jScrollPaneActuators);
 
         jPanelNodos.setBackground(new java.awt.Color(61, 61, 61));
         jPanelNodos.setLayout(new java.awt.GridLayout(0, 3));
@@ -272,6 +205,73 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Sensores", jScrollPaneSensors);
 
+        jPanelNodosActuators1.setBackground(new java.awt.Color(61, 61, 61));
+        jPanelNodosActuators1.setLayout(new java.awt.GridLayout(0, 3));
+
+        jButton12.setForeground(new java.awt.Color(240, 240, 240));
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Air Conditioning Actuator.png"))); // NOI18N
+        jButton12.setText("Aire Acondicionado");
+        jButton12.setBorderPainted(false);
+        jButton12.setContentAreaFilled(false);
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanelNodosActuators1.add(jButton12);
+
+        jButton13.setForeground(new java.awt.Color(240, 240, 240));
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Alarm Actuator.png"))); // NOI18N
+        jButton13.setText("Alarma");
+        jButton13.setBorderPainted(false);
+        jButton13.setContentAreaFilled(false);
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        jPanelNodosActuators1.add(jButton13);
+
+        jButton14.setForeground(new java.awt.Color(240, 240, 240));
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Fan Actuator.png"))); // NOI18N
+        jButton14.setText("Ventilador");
+        jButton14.setBorderPainted(false);
+        jButton14.setContentAreaFilled(false);
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        jPanelNodosActuators1.add(jButton14);
+
+        jButton15.setForeground(new java.awt.Color(240, 240, 240));
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/LED Actuator.png"))); // NOI18N
+        jButton15.setText("LED");
+        jButton15.setBorderPainted(false);
+        jButton15.setContentAreaFilled(false);
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        jPanelNodosActuators1.add(jButton15);
+
+        jButton16.setForeground(new java.awt.Color(240, 240, 240));
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Motor Actuator.png"))); // NOI18N
+        jButton16.setText("Motor");
+        jButton16.setBorderPainted(false);
+        jButton16.setContentAreaFilled(false);
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanelNodosActuators1.add(jButton16);
+
+        jScrollPaneActuators.setViewportView(jPanelNodosActuators1);
+
+        jTabbedPane1.addTab("Actuadores", jScrollPaneActuators);
+
         add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 580, 190));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -332,13 +332,13 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         principal.agregarComponente("Motor Actuator", "Motor Actuator");
     }//GEN-LAST:event_jButton16ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       principal.agregarComponente("Smoke Sensor", "Smoke Sensor");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         principal.agregarComponente("Motion Sensor", "Motion Sensor");
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         principal.agregarComponente("Smoke Sensor", "Smoke Sensor");
-    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
