@@ -22,12 +22,17 @@ import javax.swing.tree.TreeSelectionModel;
 public class ProjectsTreeJPanel extends javax.swing.JPanel {
 
     private Principal principal;
+    private DefaultMutableTreeNode carpetaRaiz;
+    private DefaultTreeModel modelo;
 
     /**
      * Creates new form ArbolProyectosJPanel
      */
     public ProjectsTreeJPanel(Principal principal) {
         this.principal = principal;
+        this.carpetaRaiz = new DefaultMutableTreeNode("Proyectos");
+        this.modelo = new DefaultTreeModel(carpetaRaiz);
+        jTreeProjects = new JTree(modelo);
         initComponents();
     }
 
@@ -70,8 +75,8 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
         jPopupMenu1.add(jMenuItemPropiedades);
 
         jTreeProjects.setBackground(new java.awt.Color(45, 45, 45));
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Proyectos");
-        jTreeProjects.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTreeProjects.setModel(modelo
+        );
         jTreeProjects.setToolTipText("");
         jTreeProjects.setComponentPopupMenu(jPopupMenu1);
         jTreeProjects.setName(""); // NOI18N
@@ -131,15 +136,18 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
     /**
      * Method to add a new project to the tree
      *
-     * @param ProjectName
+     * @param projectName
      */
-    public void joinedProjects(String ProjectName) {
-        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
-        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(ProjectName);
+    public void joinedProjects(String projectName) {
+        //EASYY
+        DefaultMutableTreeNode selectedNode = carpetaRaiz;
+        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(projectName);
         selectedNode.add(newNode);
+
         // Reload jTree model
         DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
         model.reload();
+
     }
 
     /**

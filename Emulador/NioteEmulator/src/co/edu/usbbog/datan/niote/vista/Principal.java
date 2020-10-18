@@ -31,7 +31,6 @@ import co.edu.usbbog.datan.niote.zkeep.Graficar;
 import co.edu.usbbog.datan.niote.zkeep.Grafos;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Desktop;
-import java.awt.Dimension;
 
 //Files
 import java.io.File;
@@ -52,7 +51,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -109,22 +108,12 @@ public class Principal extends JFrame {
         setName("pricipalJFrame");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        //  pack();
-        //      setLocationRelativeTo(null);
-
         /*
         Logic relationships
          */
-        //  this.pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
         this.validacionesSistema = new ValidacionesSistema();
         DefaultListModel listModel = new DefaultListModel();
-        //       this.emulador = new Emulador(this);
 
-        // Method to mark and unmark the necessary CheckBox
-        // checkBoxValidation();
-        // Verification of requirements
-        //    if (validation() == true) {
-        //  jP.dispose();
         // Creation of documents folder (Where they are saved by default)
         createFolderDocuments();
 
@@ -142,7 +131,6 @@ public class Principal extends JFrame {
         // Start
         initComponents2();
         componentController = new ComponentController(emulationJPanel, listModel);
-        //         jP.dispose();
 
         //Pack the window
         this.pack();
@@ -152,8 +140,7 @@ public class Principal extends JFrame {
 
         // Maximize the window in its maximum size adapting it to the screen
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//            validarBotonesClickeados();
-        //      }
+
     }
 
     /**
@@ -166,6 +153,226 @@ public class Principal extends JFrame {
     private void initComponents() {
 
         jPanelFondo = new javax.swing.JPanel();
+        jMenuBar = new javax.swing.JMenuBar();
+        jMenuArchive = new javax.swing.JMenu();
+        jMenuItemNewProject = new javax.swing.JMenuItem();
+        jMenuItemOpenProject = new javax.swing.JMenuItem();
+        jMenuItemCloseProject = new javax.swing.JMenuItem();
+        jMenuItemCloseAllProjects = new javax.swing.JMenuItem();
+        jMenuExport = new javax.swing.JMenu();
+        jMenuItemExportToRar = new javax.swing.JMenuItem();
+        jMenuItemExit = new javax.swing.JMenuItem();
+        jMenuItemDocumentation = new javax.swing.JMenuItem();
+        jMenuEdit = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuExecute = new javax.swing.JMenu();
+        jMenuItemRun = new javax.swing.JMenuItem();
+        jMenuHelp = new javax.swing.JMenu();
+        jMenuItemReportError = new javax.swing.JMenuItem();
+        jMenuItemSearchUpdate = new javax.swing.JMenuItem();
+        jMenuItemAboutUs = new javax.swing.JMenuItem();
+        jMenuWindows = new javax.swing.JMenu();
+        jMenuItemWindowsConfiguration = new javax.swing.JMenuItem();
+        jMenuLanguage = new javax.swing.JMenu();
+        jCheckBoxMenuItemSpanishLanguage = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItemEnglishLanguage = new javax.swing.JCheckBoxMenuItem();
+        jMenuThemes = new javax.swing.JMenu();
+        jCheckBoxMenuItemLightTheme = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItemDarkTheme = new javax.swing.JCheckBoxMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 109, 0));
+
+        jPanelFondo.setBackground(new java.awt.Color(27, 27, 27));
+
+        javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
+        jPanelFondo.setLayout(jPanelFondoLayout);
+        jPanelFondoLayout.setHorizontalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1439, Short.MAX_VALUE)
+        );
+        jPanelFondoLayout.setVerticalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 514, Short.MAX_VALUE)
+        );
+
+        jMenuBar.setBackground(new java.awt.Color(27, 27, 27));
+        jMenuBar.setBorder(null);
+
+        jMenuArchive.setBackground(new java.awt.Color(45, 45, 45));
+        jMenuArchive.setText("Archivo");
+
+        jMenuItemNewProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemNewProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/crearproyectox1_18.png"))); // NOI18N
+        jMenuItemNewProject.setText("Nuevo proyecto");
+        jMenuItemNewProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNewProjectActionPerformed(evt);
+            }
+        });
+        jMenuArchive.add(jMenuItemNewProject);
+
+        jMenuItemOpenProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemOpenProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Openx1_18.png"))); // NOI18N
+        jMenuItemOpenProject.setText("Abrir proyecto");
+        jMenuItemOpenProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemOpenProjectActionPerformed(evt);
+            }
+        });
+        jMenuArchive.add(jMenuItemOpenProject);
+
+        jMenuItemCloseProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemCloseProject.setBackground(new java.awt.Color(45, 45, 45));
+        jMenuItemCloseProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"))); // NOI18N
+        jMenuItemCloseProject.setText("Cerrar proyecto");
+        jMenuItemCloseProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCloseProjectActionPerformed(evt);
+            }
+        });
+        jMenuArchive.add(jMenuItemCloseProject);
+
+        jMenuItemCloseAllProjects.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemCloseAllProjects.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"))); // NOI18N
+        jMenuItemCloseAllProjects.setText("Cerrar todos los proyectos");
+        jMenuArchive.add(jMenuItemCloseAllProjects);
+
+        jMenuExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exportx1_18.png"))); // NOI18N
+        jMenuExport.setText("Exportar");
+
+        jMenuItemExportToRar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/rarx1_18.png"))); // NOI18N
+        jMenuItemExportToRar.setText("a .rar");
+        jMenuExport.add(jMenuItemExportToRar);
+
+        jMenuArchive.add(jMenuExport);
+
+        jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exitx1_18.png"))); // NOI18N
+        jMenuItemExit.setText("Salir");
+        jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemExitActionPerformed(evt);
+            }
+        });
+        jMenuArchive.add(jMenuItemExit);
+
+        jMenuItemDocumentation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/documentacionx1_18.png"))); // NOI18N
+        jMenuItemDocumentation.setText("Documentacion (Proximamente...)");
+        jMenuItemDocumentation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDocumentationActionPerformed(evt);
+            }
+        });
+        jMenuArchive.add(jMenuItemDocumentation);
+
+        jMenuBar.add(jMenuArchive);
+        jMenuArchive.getAccessibleContext().setAccessibleDescription("");
+
+        jMenuEdit.setText("Editar");
+
+        jMenuItem4.setText("Borrar proyecto");
+        jMenuEdit.add(jMenuItem4);
+
+        jMenuBar.add(jMenuEdit);
+
+        jMenuExecute.setText("Ejecutar");
+
+        jMenuItemRun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        jMenuItemRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Executex1_18.png"))); // NOI18N
+        jMenuItemRun.setText("Ejecutar");
+        jMenuItemRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRunActionPerformed(evt);
+            }
+        });
+        jMenuExecute.add(jMenuItemRun);
+
+        jMenuBar.add(jMenuExecute);
+
+        jMenuHelp.setText("Ayuda");
+
+        jMenuItemReportError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/BugNotificationx1_18dp.png"))); // NOI18N
+        jMenuItemReportError.setText("Reportar error");
+        jMenuItemReportError.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemReportErrorActionPerformed(evt);
+            }
+        });
+        jMenuHelp.add(jMenuItemReportError);
+
+        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Updatex1_18.png"))); // NOI18N
+        jMenuItemSearchUpdate.setText("Buscar actualizaciones");
+        jMenuHelp.add(jMenuItemSearchUpdate);
+
+        jMenuItemAboutUs.setText("Sobre nosotros");
+        jMenuItemAboutUs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAboutUsActionPerformed(evt);
+            }
+        });
+        jMenuHelp.add(jMenuItemAboutUs);
+
+        jMenuBar.add(jMenuHelp);
+
+        jMenuWindows.setText("Ventana");
+
+        jMenuItemWindowsConfiguration.setText("Configuración de la ventana");
+        jMenuWindows.add(jMenuItemWindowsConfiguration);
+
+        jMenuLanguage.setText("Idioma");
+
+        jCheckBoxMenuItemSpanishLanguage.setText("Español");
+        jMenuLanguage.add(jCheckBoxMenuItemSpanishLanguage);
+
+        jCheckBoxMenuItemEnglishLanguage.setText("English");
+        jMenuLanguage.add(jCheckBoxMenuItemEnglishLanguage);
+
+        jMenuWindows.add(jMenuLanguage);
+
+        jMenuThemes.setText("Temas");
+
+        jCheckBoxMenuItemLightTheme.setText("Claro");
+        jMenuThemes.add(jCheckBoxMenuItemLightTheme);
+
+        jCheckBoxMenuItemDarkTheme.setSelected(true);
+        jCheckBoxMenuItemDarkTheme.setText("Oscuro");
+        jMenuThemes.add(jCheckBoxMenuItemDarkTheme);
+
+        jMenuWindows.add(jMenuThemes);
+
+        jMenuBar.add(jMenuWindows);
+
+        setJMenuBar(jMenuBar);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void initComponents2() {
+        /**
+         * Inicialitacion of jPanels in the main window
+         */
+        jPanelFondo = new javax.swing.JPanel();
+        mainMenuJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.MainMenuJPanel(this);
+        projectsTreeJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.ProjectsTreeJPanel(this);
+        dynamicNodesPaletteJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.DynamicNodesPaletteJPanel(this);
+        emulationJPanel = new co.edu.usbbog.datan.niote.vista.EmulationJPanel(this);
+        simulatedDataJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.SimulatedDataJPanel(this);
+        outputJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.OutputJPanel(this);
+
+        /**
+         * Initializacion of jMenuBar with its components
+         */
         jMenuBar = new javax.swing.JMenuBar();
         jMenuArchive = new javax.swing.JMenu();
         jMenuItemNewProject = new javax.swing.JMenuItem();
@@ -199,14 +406,37 @@ public class Principal extends JFrame {
         jPanelFondo.setBackground(new java.awt.Color(27, 27, 27));
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
+
         jPanelFondo.setLayout(jPanelFondoLayout);
         jPanelFondoLayout.setHorizontalGroup(
-            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1439, Short.MAX_VALUE)
+                jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(mainMenuJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelFondoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelFondoLayout.createSequentialGroup()
+                                                .addComponent(emulationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(outputJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())
         );
         jPanelFondoLayout.setVerticalGroup(
-            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 514, Short.MAX_VALUE)
+                jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelFondoLayout.createSequentialGroup()
+                                .addComponent(mainMenuJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanelFondoLayout.createSequentialGroup()
+                                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(emulationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(outputJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
 
         jMenuBar.setBackground(new java.awt.Color(27, 27, 27));
@@ -360,243 +590,6 @@ public class Principal extends JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    private void initComponents2() {
-        /**
-         * Inicialitacion of jPanels in the main window
-         */
-        jPanelFondo = new javax.swing.JPanel();
-        mainMenuJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.MainMenuJPanel(this);
-        projectsTreeJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.ProjectsTreeJPanel(this);
-        dynamicNodesPaletteJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.DynamicNodesPaletteJPanel(this);
-        emulationJPanel = new co.edu.usbbog.datan.niote.vista.EmulationJPanel(this);
-        simulatedDataJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.SimulatedDataJPanel(this);
-        outputJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.OutputJPanel(this);
-
-        /**
-         * Initializacion of jMenuBar with its components
-         */
-        jMenuBar = new javax.swing.JMenuBar();
-        jMenuArchive = new javax.swing.JMenu();
-        jMenuItemNewProject = new javax.swing.JMenuItem();
-        jMenuItemOpenProject = new javax.swing.JMenuItem();
-        jMenuItemCloseProject = new javax.swing.JMenuItem();
-        jMenuItemCloseAllProjects = new javax.swing.JMenuItem();
-        jMenuExport = new javax.swing.JMenu();
-        jMenuItemExportToRar = new javax.swing.JMenuItem();
-        jMenuItemExit = new javax.swing.JMenuItem();
-        jMenuEdit = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuExecute = new javax.swing.JMenu();
-        jMenuItemRun = new javax.swing.JMenuItem();
-        jMenuHelp = new javax.swing.JMenu();
-        jMenuItemDocumentation = new javax.swing.JMenuItem();
-        jMenuItemReportError = new javax.swing.JMenuItem();
-        jMenuItemSearchUpdate = new javax.swing.JMenuItem();
-        jMenuItemAboutUs = new javax.swing.JMenuItem();
-        jMenuWindows = new javax.swing.JMenu();
-        jMenuItemWindowsConfiguration = new javax.swing.JMenuItem();
-        jMenuLanguage = new javax.swing.JMenu();
-        jCheckBoxMenuItemSpanishLanguage = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItemEnglishLanguage = new javax.swing.JCheckBoxMenuItem();
-        jMenuThemes = new javax.swing.JMenu();
-        jCheckBoxMenuItemLightTheme = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItemDarkTheme = new javax.swing.JCheckBoxMenuItem();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 109, 0));
-        jPanelFondo.setBackground(new java.awt.Color(27, 27, 27));
-
-        javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
-
-        jPanelFondo.setLayout(jPanelFondoLayout);
-        jPanelFondoLayout.setHorizontalGroup(
-                jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(mainMenuJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelFondoLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelFondoLayout.createSequentialGroup()
-                                                .addComponent(emulationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(outputJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())
-        );
-        jPanelFondoLayout.setVerticalGroup(
-                jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanelFondoLayout.createSequentialGroup()
-                                .addComponent(mainMenuJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanelFondoLayout.createSequentialGroup()
-                                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(emulationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(outputJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addContainerGap())
-        );
-
-        jMenuBar.setBackground(new java.awt.Color(27, 27, 27));
-        jMenuBar.setBorder(null);
-
-        jMenuArchive.setBackground(new java.awt.Color(45, 45, 45));
-        jMenuArchive.setText("Archivo");
-
-        jMenuItemNewProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemNewProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/crearproyectox1_18.png"))); // NOI18N
-        jMenuItemNewProject.setText("Nuevo proyecto");
-        jMenuItemNewProject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemNewProjectActionPerformed(evt);
-            }
-        });
-        jMenuArchive.add(jMenuItemNewProject);
-
-        jMenuItemOpenProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemOpenProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Openx1_18.png"))); // NOI18N
-        jMenuItemOpenProject.setText("Abrir proyecto");
-        jMenuItemOpenProject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemOpenProjectActionPerformed(evt);
-            }
-        });
-        jMenuArchive.add(jMenuItemOpenProject);
-
-        jMenuItemCloseProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemCloseProject.setBackground(new java.awt.Color(45, 45, 45));
-        jMenuItemCloseProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"))); // NOI18N
-        jMenuItemCloseProject.setText("Cerrar proyecto");
-        jMenuItemCloseProject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCloseProjectActionPerformed(evt);
-            }
-        });
-        jMenuArchive.add(jMenuItemCloseProject);
-
-        jMenuItemCloseAllProjects.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemCloseAllProjects.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/cerrarx1_18.png"))); // NOI18N
-        jMenuItemCloseAllProjects.setText("Cerrar todos los proyectos");
-        jMenuArchive.add(jMenuItemCloseAllProjects);
-
-        jMenuExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exportx1_18.png"))); // NOI18N
-        jMenuExport.setText("Exportar");
-
-        jMenuItemExportToRar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/rarx1_18.png"))); // NOI18N
-        jMenuItemExportToRar.setText("a .rar");
-        jMenuExport.add(jMenuItemExportToRar);
-
-        jMenuArchive.add(jMenuExport);
-
-        jMenuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exitx1_18.png"))); // NOI18N
-        jMenuItemExit.setText("Salir");
-        jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemExitActionPerformed(evt);
-            }
-        });
-        jMenuArchive.add(jMenuItemExit);
-
-        jMenuBar.add(jMenuArchive);
-        jMenuArchive.getAccessibleContext().setAccessibleDescription("");
-
-        jMenuEdit.setText("Editar");
-
-        jMenuItem4.setText("Borrar proyecto");
-        jMenuEdit.add(jMenuItem4);
-
-        jMenuBar.add(jMenuEdit);
-
-        jMenuExecute.setText("Ejecutar");
-
-        jMenuItemRun.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
-        jMenuItemRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Executex1_18.png"))); // NOI18N
-        jMenuItemRun.setText("Ejecutar");
-        jMenuItemRun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemRunActionPerformed(evt);
-            }
-        });
-        jMenuExecute.add(jMenuItemRun);
-
-        jMenuBar.add(jMenuExecute);
-
-        jMenuHelp.setText("Ayuda");
-
-        jMenuItemDocumentation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/documentacionx1_18.png"))); // NOI18N
-        jMenuItemDocumentation.setText("Documentacion (Proximamente...)");
-        jMenuHelp.add(jMenuItemDocumentation);
-
-        jMenuItemReportError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/BugNotificationx1_18dp.png"))); // NOI18N
-        jMenuItemReportError.setText("Reportar error");
-        jMenuItemReportError.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemReportErrorActionPerformed(evt);
-            }
-        });
-        jMenuHelp.add(jMenuItemReportError);
-
-        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Updatex1_18.png"))); // NOI18N
-        jMenuItemSearchUpdate.setText("Buscar actualizaciones");
-        jMenuHelp.add(jMenuItemSearchUpdate);
-
-        jMenuItemAboutUs.setText("Sobre nosotros");
-        jMenuItemAboutUs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAboutUsActionPerformed(evt);
-            }
-        });
-        jMenuHelp.add(jMenuItemAboutUs);
-
-        jMenuBar.add(jMenuHelp);
-
-        jMenuWindows.setText("Ventana");
-
-        jMenuItemWindowsConfiguration.setText("Configuración de la ventana");
-        jMenuWindows.add(jMenuItemWindowsConfiguration);
-
-        jMenuLanguage.setText("Idioma");
-
-        jCheckBoxMenuItemSpanishLanguage.setText("Español");
-        jMenuLanguage.add(jCheckBoxMenuItemSpanishLanguage);
-
-        jCheckBoxMenuItemEnglishLanguage.setText("English");
-        jMenuLanguage.add(jCheckBoxMenuItemEnglishLanguage);
-
-        jMenuWindows.add(jMenuLanguage);
-
-        jMenuThemes.setText("Temas");
-
-        jCheckBoxMenuItemLightTheme.setText("Claro");
-        jMenuThemes.add(jCheckBoxMenuItemLightTheme);
-
-        jCheckBoxMenuItemDarkTheme.setSelected(true);
-        jCheckBoxMenuItemDarkTheme.setText("Oscuro");
-        jMenuThemes.add(jCheckBoxMenuItemDarkTheme);
-
-        jMenuWindows.add(jMenuThemes);
-
-        jMenuBar.add(jMenuWindows);
-
-        setJMenuBar(jMenuBar);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanelFondo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -614,7 +607,11 @@ public class Principal extends JFrame {
     }//GEN-LAST:event_jMenuItemNewProjectActionPerformed
 
     private void jMenuItemOpenProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOpenProjectActionPerformed
-        openProjects();
+        try {
+            openProjects();
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItemOpenProjectActionPerformed
 
     private void jMenuItemAboutUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAboutUsActionPerformed
@@ -634,12 +631,10 @@ public class Principal extends JFrame {
     }//GEN-LAST:event_jMenuItemExitActionPerformed
 
     private void jMenuItemCloseProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCloseProjectActionPerformed
-        //  arbolProyectosJPanel1.deleteProjects();
+
     }//GEN-LAST:event_jMenuItemCloseProjectActionPerformed
 
     private void jMenuItemDocumentationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDocumentationActionPerformed
-//FALTA ABRIR PDF
-        System.out.println("Va aqui al espichar");
         goOpenDocumentationProject();
     }//GEN-LAST:event_jMenuItemDocumentationActionPerformed
 
@@ -834,6 +829,22 @@ public class Principal extends JFrame {
     }
 
     /**
+     * FALTA ABRIR PFD
+     */
+    public void goOpenDocumentationProject() {
+        try {
+            String path = obteinAppDataPath() + "\\NioteEmulator\\Documents\\" + "DocumentoNIOTE.pdf";
+            ProcessBuilder p = new ProcessBuilder();
+            p.command("cmd.exe", "/c", path);
+            p.start();
+            System.out.println("ya");
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    /**
      * Method to add double inverted slash to folder addresses
      *
      * @param path to add double inverted slash
@@ -885,7 +896,7 @@ public class Principal extends JFrame {
         ventanaDialog = new WindowDialog(this, jP, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
 
-    protected void goCreateProject() {
+    public void goCreateProject() {
         crearProyectoJPanel = new CreateProjectJPanel(this);
         ventanaDialog = new WindowDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
@@ -907,7 +918,16 @@ public class Principal extends JFrame {
     protected void closeWindow() {
         ventanaDialog.dispose();
         ventanaDialog = null;
-        //  irAHome();
+    }
+
+    public void goInfComponent() {
+        nodeDescriptionJPanel = new NodeDescriptionJPanel(this);
+        ventanaDialog = new WindowDialog(this, nodeDescriptionJPanel, "Información del componente", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    public void goSimulatedData() {
+        simulatedDataJPanel = new SimulatedDataJPanel(this);
+        ventanaDialog = new WindowDialog(this, simulatedDataJPanel, "Información simulada por el componente", false, false, DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -924,33 +944,30 @@ public class Principal extends JFrame {
     /**
      * Method to open projects
      */
-    private void openProjects() {
-//Falta leer el archivo y guardarlo en una estructura de datos 
-//Draw and drop  Arrastrar y soltar
+    public void openProjects() throws IOException {
+
         JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(this);
+
         File archivoSeleccionado = chooser.getSelectedFile();
-        String ruta = null;
+        String ruta = archivoSeleccionado.getAbsolutePath();
+        String fileName = archivoSeleccionado.getName().replaceAll(".niote", "");
         try {
-            String tipodeArchivo = Files.probeContentType(archivoSeleccionado.toPath());
-            if (tipodeArchivo.equals(".niote")) {
-                loadNetwork(ruta, ".niote");
+            boolean tipodeArchivo = archivoSeleccionado.getName().endsWith("niote");
+
+            if (tipodeArchivo) {
+                System.out.println(ruta + " AQUI");
+                loadNetwork(ruta, fileName);
                 System.out.println("Se cargo");
             } else {
-
+                JOptionPane.showMessageDialog(this, "No ha seleccionado un archivo de extención .niote.");
             }
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("No se cargo");
-//REVISAR
         } catch (NullPointerException ex2) {
             System.out.println("No se cargo2");
         }
-        /* if (archivoSeleccionado!=null) {
-            ruta.setText(archivoSeleccionado.getAbsolutePath());
-        }*/
+        projectsTreeJPanel.joinedProjects(fileName);
+
         String archivo;
-        //  jTreeProjects.add(archivo);
     }
 
     private boolean validation() {
@@ -959,21 +976,30 @@ public class Principal extends JFrame {
         return validacionesSistema.getValidacionPantalla();
     }
 
-    public void agregarComponente(String nombre, String nomImagen) {
-        componentController.nuevoComponente(nombre, nomImagen);
+    /**
+     * Method to add the selected component in the EmulationJPanel and in the
+     * Output
+     *
+     * @param name of the selected component
+     * @param nameImage of the selected component
+     */
+    public void addComponentEmulatorJPanel(String name, String nameImage) {
+        componentController.nuevoComponente(name, nameImage);
+        outputJPanel.addNewComponentOnTextArea(name);
     }
 
     /**
-     * FALTA ABRIR PFD
+     * Method to run on JTextAreaOutput
      */
-    public void goOpenDocumentationProject() {
-        try {
-            String path = obteinAppDataPath() + "NioteEmulator\\Documents" + "Documento NIOTE.pdf";
-            ProcessBuilder p = new ProcessBuilder();
-            p.command("cmd.exe", "/c", path);
-            p.start();
-        } catch (IOException e) {
-        }
+    public void ejectProjectJTextArea() {
+        outputJPanel.ejectProject();
+    }
+
+    /**
+     * Method to stop emulation on JTextAreaOutput
+     */
+    public void stopEmulationProjectJTextArea() {
+        outputJPanel.stopEmulation();
     }
 
 }

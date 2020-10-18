@@ -87,14 +87,14 @@ public class ArchivoDeConfiguracionDeRed implements Serializable {
     }
 
     /**
-     * constructora para leer
+     * Constructora para leer
      *
      * @param ruta ruta donde está el archivo
      * @param nombreArchivo nombre del archivo con extensión .niote
      */
     public ArchivoDeConfiguracionDeRed(String ruta, String nombreArchivo) {
         this.ruta = darRuta(ruta);
-        this.nombreArchivo = darNombreArchivo(nombreArchivo);
+        this.nombreArchivo = nombreArchivo;
         this.gestionRed = cargarGestionRed();
     }
 
@@ -152,8 +152,6 @@ public class ArchivoDeConfiguracionDeRed implements Serializable {
      * @return ruta con \ al final
      */
     private String darRuta(String ruta) {
-        System.out.println("Falta");
-        System.out.println(ruta);
         File direc = new File(ruta);
         String[] rut = ruta.split("\\\\");
         for (int i = 0; i < rut.length; i++) {
@@ -164,7 +162,6 @@ public class ArchivoDeConfiguracionDeRed implements Serializable {
             crearCarpeta(ruta);
         }
         if (rut.length <= 0) {
-
             return ruta + "\\";
         } else {
             String ext = rut[rut.length - 1];
@@ -249,7 +246,7 @@ public class ArchivoDeConfiguracionDeRed implements Serializable {
     private GestionRed cargarGestionRed() {
         GestionRed gr = null;
         try {
-            archivo = new File(this.ruta + this.nombreArchivo);
+            archivo = new File(this.ruta);
             flujoEntrada = new FileInputStream(archivo);
             Object aux = null;
             lector = new ObjectInputStream(flujoEntrada);

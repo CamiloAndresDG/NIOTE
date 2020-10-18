@@ -5,7 +5,10 @@
  */
 package co.edu.usbbog.datan.niote.vista.paneles.principal;
 
+import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
 import co.edu.usbbog.datan.niote.vista.Principal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +17,12 @@ import co.edu.usbbog.datan.niote.vista.Principal;
 public class OutputJPanel extends javax.swing.JPanel {
 
     private Principal principal;
+    ValidacionesSistema vSystem;
+
+    private int auxiliar = 0;
+    private boolean realizado = false;
+    hilo ejecutar = new hilo();
+    boolean decision;
 
     /**
      * Creates new form OutputJPanel
@@ -21,7 +30,6 @@ public class OutputJPanel extends javax.swing.JPanel {
     public OutputJPanel(Principal principal) {
         this.principal = principal;
         initComponents();
-        jTextArea1.setText("Hola mundo");
 
     }
 
@@ -37,30 +45,32 @@ public class OutputJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanelOutput = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaOutput = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(47, 47, 47));
 
         jScrollPane2.setBackground(new java.awt.Color(47, 47, 47));
+        jScrollPane2.setBorder(null);
 
         jPanelOutput.setBackground(new java.awt.Color(47, 47, 47));
         jPanelOutput.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextArea1.setBackground(new java.awt.Color(47, 47, 47));
-        jTextArea1.setColumns(70);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaOutput.setEditable(false);
+        jTextAreaOutput.setBackground(new java.awt.Color(47, 47, 47));
+        jTextAreaOutput.setColumns(70);
+        jTextAreaOutput.setForeground(new java.awt.Color(255, 255, 255));
+        jTextAreaOutput.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaOutput);
 
         javax.swing.GroupLayout jPanelOutputLayout = new javax.swing.GroupLayout(jPanelOutput);
         jPanelOutput.setLayout(jPanelOutputLayout);
         jPanelOutputLayout.setHorizontalGroup(
             jPanelOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
         );
         jPanelOutputLayout.setVerticalGroup(
             jPanelOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
         );
 
         jScrollPane2.setViewportView(jPanelOutput);
@@ -81,7 +91,63 @@ public class OutputJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelOutput;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaOutput;
     // End of variables declaration//GEN-END:variables
 
+    public void ejectProject() {
+        jTextAreaOutput.setText("Ejecutando proyecto...");
+        /*if (realizado == false) {
+            realizado = true;
+            ejecutar.start();
+        }*/
+    }
+    
+    public void stopEmulation() {
+        jTextAreaOutput.append("\nEmulación detenida.");
+        /*if (realizado == false) {
+            realizado = true;
+            ejecutar.start();
+        }*/
+    }
+    
+    public void addNewComponentOnTextArea(String name) {
+        jTextAreaOutput.append("\nHa agregado el componente: " + name);
+    }
+
+    private class hilo extends Thread {
+
+        @Override
+        public void run() {
+            try {
+                while (true) {
+                    auxiliar++;
+                    jTextAreaOutput.setText("Ejecutando proyecto...");
+                    repaint();
+                    switch (auxiliar) {
+                        case 3:
+                            jTextAreaOutput.append("\nCargando programa.");
+                            break;
+                        case 20:
+                            jTextAreaOutput.append("\nCargando conexiones.");
+                            break;
+                        case 48:
+                            jTextAreaOutput.append("\nCarga finalizada.");
+                            break;
+                        case 50:
+                            jTextAreaOutput.append("\nSimulación iniciada.");
+
+                            //    Principal principal = new Principal();
+                            //  principal.setVisible(true);
+                            //             System.out.println("s");
+//                            principal.setLocationRelativeTo(PantallaDeCarga.this);
+                            //dispose();
+                            break;
+                    }
+                    Thread.sleep(100);
+                }
+            } catch (InterruptedException ex) {
+                System.out.println(ex);
+            }
+        }
+    }
 }

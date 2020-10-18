@@ -39,12 +39,28 @@ public class EmulationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jPopupMenu = new javax.swing.JPopupMenu();
+        jMenuItemInfComponent = new javax.swing.JMenuItem();
+        jMenuItemSimulatedData = new javax.swing.JMenuItem();
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        jMenuItemInfComponent.setText("Ver informacion del componente");
+        jMenuItemInfComponent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemInfComponentActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMenuItemInfComponent);
+
+        jMenuItemSimulatedData.setText("Ver datos simulados");
+        jMenuItemSimulatedData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSimulatedDataActionPerformed(evt);
+            }
+        });
+        jPopupMenu.add(jMenuItemSimulatedData);
 
         setBackground(new java.awt.Color(61, 61, 61));
+        setComponentPopupMenu(jPopupMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,12 +74,21 @@ public class EmulationJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuItemInfComponentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInfComponentActionPerformed
+        if (true) {
+            principal.goInfComponent();
+        }
+    }//GEN-LAST:event_jMenuItemInfComponentActionPerformed
+
+    private void jMenuItemSimulatedDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSimulatedDataActionPerformed
+        principal.goSimulatedData();        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemSimulatedDataActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JMenuItem jMenuItemInfComponent;
+    private javax.swing.JMenuItem jMenuItemSimulatedData;
+    private javax.swing.JPopupMenu jPopupMenu;
     // End of variables declaration//GEN-END:variables
 
-//    public void agregarComponente(String nombre, int id) {
-//        controladorComponentes.nuevoComponente(nombre, id);
-//    }
 }

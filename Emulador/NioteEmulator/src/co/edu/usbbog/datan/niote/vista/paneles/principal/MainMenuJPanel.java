@@ -1,7 +1,9 @@
 package co.edu.usbbog.datan.niote.vista.paneles.principal;
 
-
 import co.edu.usbbog.datan.niote.vista.Principal;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,6 +17,7 @@ import co.edu.usbbog.datan.niote.vista.Principal;
 public class MainMenuJPanel extends javax.swing.JPanel {
 
     private Principal principal;
+
     /**
      * Creates new form MenuPrincipalJPanel
      */
@@ -33,78 +36,93 @@ public class MainMenuJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jToolBar2 = new javax.swing.JToolBar();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
-        jButtonRun = new javax.swing.JButton();
-        jButtonSave = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonOpenProject = new javax.swing.JButton();
+        jButtonSaveProject = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        jButtonDeleteVerque = new javax.swing.JButton();
+        jButtonRunProject = new javax.swing.JButton();
+        jButtonPauseSimulation = new javax.swing.JButton();
 
         jToolBar2.setBackground(new java.awt.Color(45, 45, 45));
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        jButton3.setBackground(new java.awt.Color(45, 45, 45));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/add_white_18dp.png"))); // NOI18N
-        jButton3.setToolTipText("Abrir proyecto (COMBINACION)");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jToolBar2.add(jButton3);
-
-        jButton2.setBackground(new java.awt.Color(45, 45, 45));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/save_white_18dp.png"))); // NOI18N
-        jButton2.setToolTipText("Detener proyecto (COMBINACION)");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar2.add(jButton2);
-        jToolBar2.add(jSeparator1);
-
-        jButtonRun.setBackground(new java.awt.Color(45, 45, 45));
-        jButtonRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/delete_white_18dp.png"))); // NOI18N
-        jButtonRun.setToolTipText("Ejecutar proyecto (COMBINACION)");
-        jButtonRun.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonRun.setFocusable(false);
-        jButtonRun.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonRun.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonRun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRunActionPerformed(evt);
-            }
-        });
-        jToolBar2.add(jButtonRun);
-
-        jButtonSave.setBackground(new java.awt.Color(45, 45, 45));
-        jButtonSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/play_white_24dp.png"))); // NOI18N
-        jButtonSave.setToolTipText("Guardar proyecto (COMBINACION)");
-        jButtonSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButtonSave.setFocusable(false);
-        jButtonSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar2.add(jButtonSave);
-
         jButton1.setBackground(new java.awt.Color(45, 45, 45));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/pause_white_18dp.png"))); // NOI18N
-        jButton1.setToolTipText("Detener simulación (COMBINACION)");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/open_white_18dp.png"))); // NOI18N
+        jButton1.setToolTipText("Abrir proyecto (COMBINACION)");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jToolBar2.add(jButton1);
 
-        jButton4.setBackground(new java.awt.Color(45, 45, 45));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/stopComplety_white_18dp.png"))); // NOI18N
-        jButton4.setToolTipText("Detener proyecto (COMBINACION)");
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar2.add(jButton4);
+        jButtonOpenProject.setBackground(new java.awt.Color(45, 45, 45));
+        jButtonOpenProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/add_white_18dp.png"))); // NOI18N
+        jButtonOpenProject.setToolTipText("Crear nuevo proyecto (COMBINACION)");
+        jButtonOpenProject.setFocusable(false);
+        jButtonOpenProject.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonOpenProject.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonOpenProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOpenProjectActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jButtonOpenProject);
+
+        jButtonSaveProject.setBackground(new java.awt.Color(45, 45, 45));
+        jButtonSaveProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/save_white_18dp.png"))); // NOI18N
+        jButtonSaveProject.setToolTipText("Guardar proyecto (COMBINACION)");
+        jButtonSaveProject.setFocusable(false);
+        jButtonSaveProject.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveProject.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButtonSaveProject);
+        jToolBar2.add(jSeparator1);
+
+        jButtonDeleteVerque.setBackground(new java.awt.Color(45, 45, 45));
+        jButtonDeleteVerque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/delete_white_18dp.png"))); // NOI18N
+        jButtonDeleteVerque.setToolTipText("Borrar proyecto (COMBINACION)");
+        jButtonDeleteVerque.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonDeleteVerque.setFocusable(false);
+        jButtonDeleteVerque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonDeleteVerque.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonDeleteVerque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteVerqueActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jButtonDeleteVerque);
+
+        jButtonRunProject.setBackground(new java.awt.Color(45, 45, 45));
+        jButtonRunProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/play_white_24dp.png"))); // NOI18N
+        jButtonRunProject.setToolTipText("Ejecutar proyecto (COMBINACION)");
+        jButtonRunProject.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButtonRunProject.setFocusable(false);
+        jButtonRunProject.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonRunProject.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonRunProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRunProjectActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jButtonRunProject);
+
+        jButtonPauseSimulation.setBackground(new java.awt.Color(45, 45, 45));
+        jButtonPauseSimulation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/pause_white_18dp.png"))); // NOI18N
+        jButtonPauseSimulation.setToolTipText("Pausar emulación (COMBINACION)");
+        jButtonPauseSimulation.setFocusable(false);
+        jButtonPauseSimulation.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonPauseSimulation.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonPauseSimulation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPauseSimulationActionPerformed(evt);
+            }
+        });
+        jToolBar2.add(jButtonPauseSimulation);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -118,27 +136,40 @@ public class MainMenuJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
+    private void jButtonDeleteVerqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteVerqueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRunActionPerformed
+    }//GEN-LAST:event_jButtonDeleteVerqueActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        goAddNewNode();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButtonOpenProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenProjectActionPerformed
+        principal.goCreateProject();      // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonOpenProjectActionPerformed
+
+    private void jButtonRunProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunProjectActionPerformed
+        principal.ejectProjectJTextArea();      // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRunProjectActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            principal.openProjects();        // TODO add your handling code here:
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonPauseSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPauseSimulationActionPerformed
+principal.stopEmulationProjectJTextArea();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPauseSimulationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButtonRun;
-    private javax.swing.JButton jButtonSave;
+    private javax.swing.JButton jButtonDeleteVerque;
+    private javax.swing.JButton jButtonOpenProject;
+    private javax.swing.JButton jButtonPauseSimulation;
+    private javax.swing.JButton jButtonRunProject;
+    private javax.swing.JButton jButtonSaveProject;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar2;
     // End of variables declaration//GEN-END:variables
 
-    private void goAddNewNode() {
-        // principal.openProjects();
-    }
 }

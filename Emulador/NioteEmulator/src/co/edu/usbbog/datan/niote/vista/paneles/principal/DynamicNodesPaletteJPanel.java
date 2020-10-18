@@ -87,7 +87,7 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 40, 50));
 
         jPanelNodos.setBackground(new java.awt.Color(61, 61, 61));
-        jPanelNodos.setLayout(new java.awt.GridLayout(0, 3));
+        jPanelNodos.setLayout(new java.awt.GridLayout(0, 2));
 
         jButtonHumedity.setBackground(new java.awt.Color(45, 45, 45));
         jButtonHumedity.setForeground(new java.awt.Color(240, 240, 240));
@@ -206,12 +206,11 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         jTabbedPane1.addTab("Sensores", jScrollPaneSensors);
 
         jPanelNodosActuators1.setBackground(new java.awt.Color(61, 61, 61));
-        jPanelNodosActuators1.setLayout(new java.awt.GridLayout(0, 3));
+        jPanelNodosActuators1.setLayout(new java.awt.GridLayout(0, 2));
 
         jButton12.setForeground(new java.awt.Color(240, 240, 240));
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Air Conditioning Actuator.png"))); // NOI18N
         jButton12.setText("Aire Acondicionado");
-        jButton12.setBorderPainted(false);
         jButton12.setContentAreaFilled(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,7 +222,6 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         jButton13.setForeground(new java.awt.Color(240, 240, 240));
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Alarm Actuator.png"))); // NOI18N
         jButton13.setText("Alarma");
-        jButton13.setBorderPainted(false);
         jButton13.setContentAreaFilled(false);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +233,6 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         jButton14.setForeground(new java.awt.Color(240, 240, 240));
         jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Fan Actuator.png"))); // NOI18N
         jButton14.setText("Ventilador");
-        jButton14.setBorderPainted(false);
         jButton14.setContentAreaFilled(false);
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +244,6 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         jButton15.setForeground(new java.awt.Color(240, 240, 240));
         jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/LED Actuator.png"))); // NOI18N
         jButton15.setText("LED");
-        jButton15.setBorderPainted(false);
         jButton15.setContentAreaFilled(false);
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,7 +255,6 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
         jButton16.setForeground(new java.awt.Color(240, 240, 240));
         jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Motor Actuator.png"))); // NOI18N
         jButton16.setText("Motor");
-        jButton16.setBorderPainted(false);
         jButton16.setContentAreaFilled(false);
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +267,7 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Actuadores", jScrollPaneActuators);
 
-        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 580, 190));
+        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 370, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -284,60 +279,60 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonHumedityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHumedityActionPerformed
-        principal.agregarComponente("Humidity Sensor", "Humidity Sensor");
+        principal.addComponentEmulatorJPanel("Humidity Sensor", "Humidity Sensor");
         //agregarComponente("Agua");
     }//GEN-LAST:event_jButtonHumedityActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        principal.agregarComponente("Air Conditioning Actuator", "Air Conditioning Actuator");
+        principal.addComponentEmulatorJPanel("Air Conditioning Actuator", "Air Conditioning Actuator");
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButtonTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTemperatureActionPerformed
-        principal.agregarComponente("Temperature Sensor", "Temperature Sensor");
+        principal.addComponentEmulatorJPanel("Temperature Sensor", "Temperature Sensor");
     }//GEN-LAST:event_jButtonTemperatureActionPerformed
 
     private void jButtonSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSpeedActionPerformed
-        principal.agregarComponente("Speed Sensor", "Speed Sensor");
+        principal.addComponentEmulatorJPanel("Speed Sensor", "Speed Sensor");
     }//GEN-LAST:event_jButtonSpeedActionPerformed
 
     private void jButtonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSoundActionPerformed
-        principal.agregarComponente("Wave Sensor", "Wave Sensor");
+        principal.addComponentEmulatorJPanel("Wave Sensor", "Wave Sensor");
     }//GEN-LAST:event_jButtonSoundActionPerformed
 
     private void jButtonGPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGPSActionPerformed
-        principal.agregarComponente("GPS Sensor", "GPS Sensor");
+        principal.addComponentEmulatorJPanel("GPS Sensor", "GPS Sensor");
     }//GEN-LAST:event_jButtonGPSActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        principal.agregarComponente("Water Sensor", "Water Sensor");
+        principal.addComponentEmulatorJPanel("Water Sensor", "Water Sensor");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        principal.agregarComponente("Wind Sensor", "Wind Sensor");
+        principal.addComponentEmulatorJPanel("Wind Sensor", "Wind Sensor");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        principal.agregarComponente("Alarm Actuator", "Alarm Actuator");
+        principal.addComponentEmulatorJPanel("Alarm Actuator", "Alarm Actuator");
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        principal.agregarComponente("Fan Actuator", "Fan Actuator");
+        principal.addComponentEmulatorJPanel("Fan Actuator", "Fan Actuator");
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        principal.agregarComponente("LED Actuator", "LED Actuator");
+        principal.addComponentEmulatorJPanel("LED Actuator", "LED Actuator");
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        principal.agregarComponente("Motor Actuator", "Motor Actuator");
+        principal.addComponentEmulatorJPanel("Motor Actuator", "Motor Actuator");
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       principal.agregarComponente("Smoke Sensor", "Smoke Sensor");
+       principal.addComponentEmulatorJPanel("Smoke Sensor", "Smoke Sensor");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        principal.agregarComponente("Motion Sensor", "Motion Sensor");
+        principal.addComponentEmulatorJPanel("Motion Sensor", "Motion Sensor");
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
