@@ -80,7 +80,7 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
 
         jButtonAttachImage.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAttachImage.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAttachImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/baseline_attach_file_white_24dp.png"))); // NOI18N
+        jButtonAttachImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exportx1_18.png"))); // NOI18N
         jButtonAttachImage.setText("Adjuntar imagenes");
         jButtonAttachImage.setBorder(null);
         jButtonAttachImage.setBorderPainted(false);

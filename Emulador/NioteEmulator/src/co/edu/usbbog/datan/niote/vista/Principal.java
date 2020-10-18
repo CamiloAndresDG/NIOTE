@@ -24,11 +24,13 @@ import co.edu.usbbog.datan.niote.vista.paneles.principal.MainMenuJPanel;
 import co.edu.usbbog.datan.niote.vista.paneles.principal.NodeDescriptionJPanel;
 import co.edu.usbbog.datan.niote.vista.paneles.principal.ProjectsTreeJPanel;
 import co.edu.usbbog.datan.niote.vista.paneles.principal.SimulatedDataJPanel;
+import co.edu.usbbog.datan.niote.vista.paneles.principal.OutputJPanel;
 
 //Emulador (Grafico)
 import co.edu.usbbog.datan.niote.zkeep.Graficar;
 import co.edu.usbbog.datan.niote.zkeep.Grafos;
 import com.sun.glass.events.KeyEvent;
+import java.awt.Desktop;
 import java.awt.Dimension;
 
 //Files
@@ -84,18 +86,17 @@ public class Principal extends JFrame {
 
     CreateProjectJPanel crearProyectoJPanel;
     EmulationJPanel emulacionJPanel;
-//    ArbolProyectosJPanel arbolProyectosJPanel;
     NotifyErrorJPanel notificarErrorJPanel;
     AboutUsJPanel sobreNosotrosJPanel;
 
     // Relacion paneles pricnipales
-    private MainMenuJPanel mainMenuJPanel;
-
-    private DynamicNodesPaletteJPanel dynamicNodesPaletteJPanel;
-    private EmulationJPanel emulationJPanel;
+    MainMenuJPanel mainMenuJPanel;
+    DynamicNodesPaletteJPanel dynamicNodesPaletteJPanel;
+    EmulationJPanel emulationJPanel;
     NodeDescriptionJPanel nodeDescriptionJPanel;
-    private ProjectsTreeJPanel projectsTreeJPanel;
+    ProjectsTreeJPanel projectsTreeJPanel;
     SimulatedDataJPanel simulatedDataJPanel;
+    OutputJPanel outputJPanel;
 
     /**
      * Creates new form Principal
@@ -130,6 +131,9 @@ public class Principal extends JFrame {
         // Creation of documents folder (Where they are saved by default)
         createFolderAppData();
 
+        // Creation of documents folder (Where they are saved by default)
+        createFolderOnAppData_Documents();
+
         // Initialization for emulation (graphical environment)
         Graficar paint = new Graficar();
         Grafos trees = new Grafos();
@@ -137,7 +141,7 @@ public class Principal extends JFrame {
 
         // Start
         initComponents2();
-                componentController = new ComponentController(emulationJPanel, listModel);
+        componentController = new ComponentController(emulationJPanel, listModel);
         //         jP.dispose();
 
         //Pack the window
@@ -293,6 +297,11 @@ public class Principal extends JFrame {
 
         jMenuItemDocumentation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/documentacionx1_18.png"))); // NOI18N
         jMenuItemDocumentation.setText("Documentacion (Proximamente...)");
+        jMenuItemDocumentation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDocumentationActionPerformed(evt);
+            }
+        });
         jMenuHelp.add(jMenuItemDocumentation);
 
         jMenuItemReportError.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/BugNotificationx1_18dp.png"))); // NOI18N
@@ -371,6 +380,8 @@ public class Principal extends JFrame {
         projectsTreeJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.ProjectsTreeJPanel(this);
         dynamicNodesPaletteJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.DynamicNodesPaletteJPanel(this);
         emulationJPanel = new co.edu.usbbog.datan.niote.vista.EmulationJPanel(this);
+        simulatedDataJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.SimulatedDataJPanel(this);
+        outputJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.OutputJPanel(this);
 
         /**
          * Initializacion of jMenuBar with its components
@@ -407,30 +418,36 @@ public class Principal extends JFrame {
         jPanelFondo.setBackground(new java.awt.Color(27, 27, 27));
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
+
         jPanelFondo.setLayout(jPanelFondoLayout);
         jPanelFondoLayout.setHorizontalGroup(
                 jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(mainMenuJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelFondoLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(emulationJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
-                                        .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, Short.BYTES)
-                                        .addComponent(mainMenuJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-
+                                .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelFondoLayout.createSequentialGroup()
+                                                .addComponent(emulationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(outputJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap())
+        );
         jPanelFondoLayout.setVerticalGroup(
                 jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanelFondoLayout.createSequentialGroup()
-                                .addComponent(mainMenuJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mainMenuJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                                        .addComponent(projectsTreeJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanelFondoLayout.createSequentialGroup()
-                                                .addComponent(emulationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(dynamicNodesPaletteJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(emulationJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(outputJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
 
@@ -590,9 +607,6 @@ public class Principal extends JFrame {
 
         pack();
     }
-    
-    
-    
 
 
     private void jMenuItemNewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNewProjectActionPerformed
@@ -622,6 +636,12 @@ public class Principal extends JFrame {
     private void jMenuItemCloseProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCloseProjectActionPerformed
         //  arbolProyectosJPanel1.deleteProjects();
     }//GEN-LAST:event_jMenuItemCloseProjectActionPerformed
+
+    private void jMenuItemDocumentationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDocumentationActionPerformed
+//FALTA ABRIR PDF
+        System.out.println("Va aqui al espichar");
+        goOpenDocumentationProject();
+    }//GEN-LAST:event_jMenuItemDocumentationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -739,6 +759,14 @@ public class Principal extends JFrame {
 
     private void createFolderAppData() {
         File folderAppData = new File(obteinAppDataPath() + "\\NioteEmulator");
+        if (folderAppData.mkdirs()) {
+        } else {
+            folderAppData.mkdirs();
+        }
+    }
+
+    private void createFolderOnAppData_Documents() {
+        File folderAppData = new File(obteinAppDataPath() + "\\NioteEmulator" + "\\Documents");
         if (folderAppData.mkdirs()) {
         } else {
             folderAppData.mkdirs();
@@ -931,10 +959,21 @@ public class Principal extends JFrame {
         return validacionesSistema.getValidacionPantalla();
     }
 
-    public void agregarComponente(String nombre, String nomImagen){
+    public void agregarComponente(String nombre, String nomImagen) {
         componentController.nuevoComponente(nombre, nomImagen);
     }
-    
 
-    
+    /**
+     * FALTA ABRIR PFD
+     */
+    public void goOpenDocumentationProject() {
+        try {
+            String path = obteinAppDataPath() + "NioteEmulator\\Documents" + "Documento NIOTE.pdf";
+            ProcessBuilder p = new ProcessBuilder();
+            p.command("cmd.exe", "/c", path);
+            p.start();
+        } catch (IOException e) {
+        }
+    }
+
 }

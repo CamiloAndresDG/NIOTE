@@ -155,6 +155,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Documentacion (Proximamente...)"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemDocumentationActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemReportError">
               <Properties>

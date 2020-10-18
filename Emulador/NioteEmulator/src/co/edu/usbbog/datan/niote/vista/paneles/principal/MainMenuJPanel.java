@@ -45,10 +45,9 @@ public class MainMenuJPanel extends javax.swing.JPanel {
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
+        jButton3.setBackground(new java.awt.Color(45, 45, 45));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/add_white_18dp.png"))); // NOI18N
         jButton3.setToolTipText("Abrir proyecto (COMBINACION)");
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -59,9 +58,9 @@ public class MainMenuJPanel extends javax.swing.JPanel {
         });
         jToolBar2.add(jButton3);
 
+        jButton2.setBackground(new java.awt.Color(45, 45, 45));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/save_white_18dp.png"))); // NOI18N
         jButton2.setToolTipText("Detener proyecto (COMBINACION)");
-        jButton2.setContentAreaFilled(false);
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -71,8 +70,6 @@ public class MainMenuJPanel extends javax.swing.JPanel {
         jButtonRun.setBackground(new java.awt.Color(45, 45, 45));
         jButtonRun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/delete_white_18dp.png"))); // NOI18N
         jButtonRun.setToolTipText("Ejecutar proyecto (COMBINACION)");
-        jButtonRun.setBorderPainted(false);
-        jButtonRun.setContentAreaFilled(false);
         jButtonRun.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonRun.setFocusable(false);
         jButtonRun.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -93,17 +90,17 @@ public class MainMenuJPanel extends javax.swing.JPanel {
         jButtonSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(jButtonSave);
 
+        jButton1.setBackground(new java.awt.Color(45, 45, 45));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/pause_white_18dp.png"))); // NOI18N
         jButton1.setToolTipText("Detener simulación (COMBINACION)");
-        jButton1.setContentAreaFilled(false);
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar2.add(jButton1);
 
+        jButton4.setBackground(new java.awt.Color(45, 45, 45));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/menuprincipal/stopComplety_white_18dp.png"))); // NOI18N
         jButton4.setToolTipText("Detener proyecto (COMBINACION)");
-        jButton4.setContentAreaFilled(false);
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
