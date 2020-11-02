@@ -96,7 +96,7 @@ public class Terminal {
         String nombre = sn.next();
         System.out.println("ingrese la descripcion de la red");
         String descripcion = sn.next();
-        if (this.principal.createNetwork(id, nombre, descripcion)) {
+        if (this.principal.createNetwork(id, nombre, descripcion) != null) {
             return true;
         } else {
             return false;

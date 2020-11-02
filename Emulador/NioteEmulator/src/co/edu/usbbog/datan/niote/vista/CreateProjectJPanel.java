@@ -5,7 +5,7 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
-import co.edu.usbbog.datan.niote.vista.media.controladores.vista.TextPrompt;
+import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 import java.awt.Color;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -99,7 +99,7 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
 
         jTextFieldLocation.setBackground(new java.awt.Color(45, 45, 45));
         jTextFieldLocation.setForeground(new java.awt.Color(255, 255, 255));
-        jTextFieldLocation.setText("C:\\Users\\Camilo y Roberth\\Documents\\NIOTE_Projects");
+        jTextFieldLocation.setText(principal.obteinDocumentsPath()+"\\Niote Projects");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -195,7 +195,8 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
             String nombre = jTextFieldProjectName.getText();
             String descripcion = jTextAreaDescription.getText();
 
-            principal.createNetwork(nombre, nombre, descripcion);
+            GestionRed gRedCreada=principal.createNetwork(nombre, nombre, descripcion);
+            principal.projectsTreeJPanel.joinedProjects(nombre,gRedCreada);
           //  principal.arbolProyectosJPanel.joinedProjects(nombre);
             keepRed();
             principal.closeWindow();

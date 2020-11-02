@@ -7,10 +7,10 @@ package co.edu.usbbog.datan.niote.vista;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -80,7 +80,7 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
 
         jButtonAttachImage.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAttachImage.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAttachImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Exportx1_18.png"))); // NOI18N
+        jButtonAttachImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/attach_file_white_18dp.png"))); // NOI18N
         jButtonAttachImage.setText("Adjuntar imagenes");
         jButtonAttachImage.setBorder(null);
         jButtonAttachImage.setBorderPainted(false);
@@ -103,7 +103,7 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButtonAttachImage)
-                                .addGap(18, 18, 18)
+                                .addGap(71, 71, 71)
                                 .addComponent(jButtonSend))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -125,9 +125,9 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonSend)
-                    .addComponent(jButtonAttachImage))
+                    .addComponent(jButtonAttachImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -148,7 +148,11 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonSendActionPerformed
 
     private void jButtonAttachImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAttachImageActionPerformed
-        searchImages();
+        try {
+            searchImages();
+        } catch (IOException ex) {
+            Logger.getLogger(NotifyErrorJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonAttachImageActionPerformed
 
 
@@ -166,8 +170,36 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
      * Method to search and bring the images that will be sent through email
      * where the visible errors in the emulator are shown
      */
-    private void searchImages() {
+    private File[] searchImages() throws IOException {
+        try {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setMultiSelectionEnabled(true);
+            chooser.showOpenDialog(this);
+            File[] selectedFiles = chooser.getSelectedFiles();
+            for (int i = 0; i < selectedFiles.length; i++) {
+                try {
+                    if (selectedFiles[i].getName().endsWith("png")
+                            || selectedFiles[i].getName().endsWith("jpg")
+                            || selectedFiles[i].getName().endsWith("jpeg")
+                            || selectedFiles[i].getName().endsWith("gif")
+                            || selectedFiles[i].getName().endsWith("pdf")) {
+                        return selectedFiles;
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El archivo " + selectedFiles[i].getName() + " no es una imagen.");
+                    }
+                } catch (NullPointerException ex2) {
+                    System.out.println("No se cargo2");
+                }
+            }
 
+        } catch (NullPointerException e) {
+            System.out.println("No selecciono nada");
+        }
+        return null;
+    }
+
+    private void sendEmail() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -48,6 +48,8 @@ public class GestionRed implements Serializable {
      */
     private GestionSensores gestionSensores;
 
+    static final long serialVersionUID = 1L;
+
     /**
      * Método constructor para crear una nueva red
      *
@@ -133,6 +135,14 @@ public class GestionRed implements Serializable {
      */
     public GestionPuertasDeEnlace getGestionPuertaDeEnlace() {
         return gestionPuertasDeEnlace;
+    }
+
+    public ArchivoDeConfiguracionDeRed getArchivoDeConfiguracionDeRed() {
+        return archivoDeConfiguracionDeRed;
+    }
+
+    public void setArchivoDeConfiguracionDeRed(ArchivoDeConfiguracionDeRed archivoDeConfiguracionDeRed) {
+        this.archivoDeConfiguracionDeRed = archivoDeConfiguracionDeRed;
     }
 
     /**
@@ -546,5 +556,5 @@ public class GestionRed implements Serializable {
             return false;
         }
     }
-    
+
 }

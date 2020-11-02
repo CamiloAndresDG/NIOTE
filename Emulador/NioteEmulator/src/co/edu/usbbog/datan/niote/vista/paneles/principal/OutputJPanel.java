@@ -7,8 +7,6 @@ package co.edu.usbbog.datan.niote.vista.paneles.principal;
 
 import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
 import co.edu.usbbog.datan.niote.vista.Principal;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

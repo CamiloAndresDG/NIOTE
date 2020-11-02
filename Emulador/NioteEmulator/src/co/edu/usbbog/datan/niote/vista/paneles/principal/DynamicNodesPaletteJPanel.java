@@ -10,12 +10,9 @@ package co.edu.usbbog.datan.niote.vista.paneles.principal;
 //import co.edu.usbbog.datan.niote.vista.NavigationCommunication;
 //import co.edu.usbbog.datan.niote.vista.MainJFrame;
 import co.edu.usbbog.datan.niote.vista.Principal;
-import java.awt.Image;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 
 /**
  *

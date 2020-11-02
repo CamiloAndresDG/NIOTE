@@ -5,9 +5,6 @@
  */
 package co.edu.usbbog.datan.niote.vista;
 
-import co.edu.usbbog.datan.niote.vista.media.controladores.pantallaemulacion.ComponentController;
-import javax.swing.DefaultListModel;
-
 /**
  *
  * @author contr

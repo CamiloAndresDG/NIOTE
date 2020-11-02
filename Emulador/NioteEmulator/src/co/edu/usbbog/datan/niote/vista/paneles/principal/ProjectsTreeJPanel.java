@@ -5,14 +5,14 @@
  */
 package co.edu.usbbog.datan.niote.vista.paneles.principal;
 
+import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 import co.edu.usbbog.datan.niote.vista.Principal;
-import java.util.List;
-import javax.swing.ImageIcon;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
@@ -66,6 +66,11 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
         jPopupMenu1.add(jMenuItemEjecutar);
 
         jMenuItemBorrar.setText("Borrar");
+        jMenuItemBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBorrarActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItemBorrar);
 
         jMenuItemRenombrar.setText("Renombrar");
@@ -79,7 +84,10 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
         );
         jTreeProjects.setToolTipText("");
         jTreeProjects.setComponentPopupMenu(jPopupMenu1);
+        jTreeProjects.setFocusable(false);
         jTreeProjects.setName(""); // NOI18N
+        jTreeProjects.setRequestFocusEnabled(false);
+        jTreeProjects.setScrollsOnExpand(false);
         jTreeProjects.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTreeProjectsMouseClicked(evt);
@@ -106,8 +114,16 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTreeProjectsMouseClicked
 
     private void jMenuItemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCerrarActionPerformed
-        deleteProjects();        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemCerrarActionPerformed
+
+    private void jMenuItemBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarActionPerformed
+        try {
+            deleteProjects();        // TODO add your handling code here:
+        } catch (IOException ex) {
+            Logger.getLogger(ProjectsTreeJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItemBorrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -137,12 +153,14 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
      * Method to add a new project to the tree
      *
      * @param projectName
+     * @param gRed
      */
-    public void joinedProjects(String projectName) {
+    public void joinedProjects(String projectName, GestionRed gRed) {
         //EASYY
         DefaultMutableTreeNode selectedNode = carpetaRaiz;
         DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(projectName);
         selectedNode.add(newNode);
+        principal.listProjects.addPrimer(gRed);
 
         // Reload jTree model
         DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
@@ -153,16 +171,17 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
     /**
      * Method to delete a new project to the tree
      */
-    public void deleteProjects() {
-
+    public void deleteProjects() throws IOException {
         DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
-
         if (selectedNode != jTreeProjects.getModel().getRoot()) {
             DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
-
-            model.removeNodeFromParent(selectedNode);
-
-            model.reload();
+            if (principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()) != null) {
+                principal.deleteArchive(principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()).getArchivoDeConfiguracionDeRed().getArchivo().getPath());
+                model.removeNodeFromParent(selectedNode);
+                model.reload();
+            } else {
+                System.out.println("no se encontro");
+            }
         }
     }
 

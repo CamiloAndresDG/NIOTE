@@ -17,6 +17,7 @@ import co.edu.usbbog.datan.niote.controlador.logica.Emulador;
 import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
 import co.edu.usbbog.datan.niote.vista.media.controladores.pantallaemulacion.ComponentController;
+import co.edu.usbbog.datan.niote.vista.media.controladores.projectstree.ListaEnlazada;
 
 // Paneles pantalla principal
 import co.edu.usbbog.datan.niote.vista.paneles.principal.DynamicNodesPaletteJPanel;
@@ -41,8 +42,10 @@ import javax.swing.JFileChooser;
 //Excepciones 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
@@ -52,6 +55,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -96,12 +100,12 @@ public class Principal extends JFrame {
     ProjectsTreeJPanel projectsTreeJPanel;
     SimulatedDataJPanel simulatedDataJPanel;
     OutputJPanel outputJPanel;
+    public ListaEnlazada listProjects;
 
     /**
      * Creates new form Principal
      */
     public Principal() {
-
         setTitle("NIOTE");
 
         setIconImage(new ImageIcon(getClass().getResource("../vista/media/IconNIOTE.png")).getImage());
@@ -131,7 +135,7 @@ public class Principal extends JFrame {
         // Start
         initComponents2();
         componentController = new ComponentController(emulationJPanel, listModel);
-
+        listProjects = new ListaEnlazada();
         //Pack the window
         this.pack();
 
@@ -739,6 +743,48 @@ public class Principal extends JFrame {
         setLocationRelativeTo(null);
     }
 
+    /*
+    Navigation for Pop-Ups
+     */
+    protected void chargingScreen() {
+        jP = new PantallaDeCarga();
+        ventanaDialog = new WindowDialog(this, jP, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    public void goCreateProject() {
+        crearProyectoJPanel = new CreateProjectJPanel(this);
+        ventanaDialog = new WindowDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    /* private void irAPantallaDeCarga() {
+        pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
+        ventanaDialog = new WindowDialog(this, pantallaDeCargaJPanel, "Pantalla de carga", false, false, DISPOSE_ON_CLOSE);
+    }*/
+    protected void goAboutUs() {
+        sobreNosotrosJPanel = new AboutUsJPanel(this);
+        ventanaDialog = new WindowDialog(this, sobreNosotrosJPanel, "Información sobre nosotros", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    protected void goReportError() {
+        notificarErrorJPanel = new NotifyErrorJPanel(this);
+        ventanaDialog = new WindowDialog(this, notificarErrorJPanel, "Notificar error", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    protected void closeWindow() {
+        ventanaDialog.dispose();
+        ventanaDialog = null;
+    }
+
+    public void goInfComponent() {
+        nodeDescriptionJPanel = new NodeDescriptionJPanel(this);
+        ventanaDialog = new WindowDialog(this, nodeDescriptionJPanel, "Información del componente", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    public void goSimulatedData() {
+        simulatedDataJPanel = new SimulatedDataJPanel(this);
+        ventanaDialog = new WindowDialog(this, simulatedDataJPanel, "Información simulada por el componente", false, false, DISPOSE_ON_CLOSE);
+    }
+
     /**
      * Method to create main emulator folder in documents
      */
@@ -774,7 +820,7 @@ public class Principal extends JFrame {
      *
      * @return String where the folder documents is located
      */
-    private String obteinDocumentsPath() {
+    public String obteinDocumentsPath() {
         String myDocuments = null;
 
         try {
@@ -829,7 +875,7 @@ public class Principal extends JFrame {
     }
 
     /**
-     * FALTA ABRIR PFD
+     *
      */
     public void goOpenDocumentationProject() {
         try {
@@ -841,9 +887,36 @@ public class Principal extends JFrame {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    /**
+     * TERMINAR
+     *
+     * @param path
+     */
+    public void deleteArchive(String path) throws IOException {
+        File file = new File(path);
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(this, "¿Esta seguro en eliminar el archivo " + path + " ?", "Salir", dialog);
+        if (result == 0) {
+            if (file.delete()) {
+                System.out.println("eliminado");
+            }
+        }
 
     }
 
+//    public void moveToTrash(File... file) throws IOException {
+//        moveToTrash(false, file);
+//    }
+//
+//    public void promptMoveToTrash(File... file) throws IOException {
+//        moveToTrash(true, file);
+//    }
+//    private void moveToTrash(boolean withPrompt, File... file) throws IOException {
+//        String fileList = Stream.of(file).map(File::getAbsolutePath).reduce((f1, f2) -> f1 + " " + f2).orElse("");
+//        Runtime.getRuntime().exec("Recycle.exe " + (withPrompt ? "" : "-f ") + fileList);
+//    }
     /**
      * Method to add double inverted slash to folder addresses
      *
@@ -863,12 +936,12 @@ public class Principal extends JFrame {
      * @param description of the network
      * @return True if the network was created or False if not
      */
-    protected boolean createNetwork(String id, String name, String description) {
+    protected GestionRed createNetwork(String id, String name, String description) {
         this.gestionRed = new GestionRed(id, name, description);
         if (this.gestionRed != null) {
-            return true;
+            return gestionRed;
         } else {
-            return false;
+            return null;
         }
     }
 
@@ -886,48 +959,6 @@ public class Principal extends JFrame {
         } else {
             return false;
         }
-    }
-
-    /*
-    Navigation for Pop-Ups
-     */
-    protected void chargingScreen() {
-        jP = new PantallaDeCarga();
-        ventanaDialog = new WindowDialog(this, jP, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
-    }
-
-    public void goCreateProject() {
-        crearProyectoJPanel = new CreateProjectJPanel(this);
-        ventanaDialog = new WindowDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
-    }
-
-    /* private void irAPantallaDeCarga() {
-        pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
-        ventanaDialog = new WindowDialog(this, pantallaDeCargaJPanel, "Pantalla de carga", false, false, DISPOSE_ON_CLOSE);
-    }*/
-    protected void goAboutUs() {
-        sobreNosotrosJPanel = new AboutUsJPanel(this);
-        ventanaDialog = new WindowDialog(this, sobreNosotrosJPanel, "Información sobre nosotros", false, false, DISPOSE_ON_CLOSE);
-    }
-
-    protected void goReportError() {
-        notificarErrorJPanel = new NotifyErrorJPanel(this);
-        ventanaDialog = new WindowDialog(this, notificarErrorJPanel, "Notificar error", false, false, DISPOSE_ON_CLOSE);
-    }
-
-    protected void closeWindow() {
-        ventanaDialog.dispose();
-        ventanaDialog = null;
-    }
-
-    public void goInfComponent() {
-        nodeDescriptionJPanel = new NodeDescriptionJPanel(this);
-        ventanaDialog = new WindowDialog(this, nodeDescriptionJPanel, "Información del componente", false, false, DISPOSE_ON_CLOSE);
-    }
-
-    public void goSimulatedData() {
-        simulatedDataJPanel = new SimulatedDataJPanel(this);
-        ventanaDialog = new WindowDialog(this, simulatedDataJPanel, "Información simulada por el componente", false, false, DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -956,8 +987,10 @@ public class Principal extends JFrame {
             boolean tipodeArchivo = archivoSeleccionado.getName().endsWith("niote");
 
             if (tipodeArchivo) {
+                GestionRed gRedAbierta = new GestionRed(ruta, fileName);
                 System.out.println(ruta + " AQUI");
                 loadNetwork(ruta, fileName);
+                projectsTreeJPanel.joinedProjects(fileName, gRedAbierta);
                 System.out.println("Se cargo");
             } else {
                 JOptionPane.showMessageDialog(this, "No ha seleccionado un archivo de extención .niote.");
@@ -965,8 +998,6 @@ public class Principal extends JFrame {
         } catch (NullPointerException ex2) {
             System.out.println("No se cargo2");
         }
-        projectsTreeJPanel.joinedProjects(fileName);
-
         String archivo;
     }
 

@@ -98,6 +98,30 @@ public class ArchivoDeConfiguracionDeRed implements Serializable {
         this.gestionRed = cargarGestionRed();
     }
 
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    public File getCarpeta() {
+        return carpeta;
+    }
+
+    public void setCarpeta(File carpeta) {
+        this.carpeta = carpeta;
+    }
+
+    public File getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(File archivo) {
+        this.archivo = archivo;
+    }
+
     /**
      * Crea y verifica que el archivo exista
      */
