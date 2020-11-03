@@ -141,14 +141,17 @@ public class MainMenuJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonDeleteVerqueActionPerformed
 
     private void jButtonOpenProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenProjectActionPerformed
-        principal.goCreateProject();      // TODO add your handling code here:
+        // Method that opens the panel to create the new project
+        principal.goCreateProject();
     }//GEN-LAST:event_jButtonOpenProjectActionPerformed
 
     private void jButtonRunProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunProjectActionPerformed
-        principal.ejectProjectJTextArea();      // TODO add your handling code here:
+        // Method to start simulation (TextArea)
+        principal.ejectProjectJTextArea();
     }//GEN-LAST:event_jButtonRunProjectActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Method to open file explorer and be able to open projects
         try {
             principal.openProjects();        // TODO add your handling code here:
         } catch (IOException ex) {
@@ -157,7 +160,8 @@ public class MainMenuJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonPauseSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPauseSimulationActionPerformed
-principal.stopEmulationProjectJTextArea();        // TODO add your handling code here:
+        // Method to stop simulation (TextArea)
+        principal.stopEmulationProjectJTextArea();        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPauseSimulationActionPerformed
 
 

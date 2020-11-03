@@ -5,13 +5,11 @@
  */
 package co.edu.usbbog.datan.niote.vista.paneles.principal;
 
-//import co.edu.usbbog.datan.niote.vista.AddIoTNodeJPanel;
-//import co.edu.usbbog.datan.niote.vista.LogicalCommunication;
-//import co.edu.usbbog.datan.niote.vista.NavigationCommunication;
-//import co.edu.usbbog.datan.niote.vista.MainJFrame;
 import co.edu.usbbog.datan.niote.vista.Principal;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Icon;
 import javax.swing.JButton;
 
 /**
@@ -20,20 +18,15 @@ import javax.swing.JButton;
  */
 public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
+    private Principal principal;
     private List<JButton> nodes;
     private Integer indices;
-    private Principal principal;
-//    private AddIoTNodeJPanel agregarNodoIoTJPanel;
-//    private NavigationCommunication navegacion;
-//    private LogicalCommunication comunicacionLogica;
 
     /**
      * Creates new form PaletaNodosDinamicosJPanel
      */
     public DynamicNodesPaletteJPanel(Principal principal) {
         this.principal = principal;
-//        this.comunicacionLogica = new LogicalCommunication();
-//        this.navegacion = new NavigationCommunication();
         nodes = new ArrayList<>();
         indices = 0;
         initComponents();
@@ -202,11 +195,13 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Sensores", jScrollPaneSensors);
 
+        jScrollPaneActuators.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         jPanelNodosActuators1.setBackground(new java.awt.Color(61, 61, 61));
         jPanelNodosActuators1.setLayout(new java.awt.GridLayout(0, 2));
 
         jButton12.setForeground(new java.awt.Color(240, 240, 240));
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Air Conditioning Actuator.png"))); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/Air Conditioner Actuator.png"))); // NOI18N
         jButton12.setText("Aire Acondicionado");
         jButton12.setContentAreaFilled(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -264,20 +259,16 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Actuadores", jScrollPaneActuators);
 
-        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 370, 190));
+        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 370, 280));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        navegacion.goAddNewNode();
-//        File imegen = navegacion.searchNewImagen();
-////        JButton jButoon=new JButton("Boton con imagen", imegen.);
-//        addNewBotton();
+addNewBotton();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonHumedityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHumedityActionPerformed
         principal.addComponentEmulatorJPanel("Humidity Sensor", "Humidity Sensor");
-        //agregarComponente("Agua");
     }//GEN-LAST:event_jButtonHumedityActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -325,7 +316,7 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       principal.addComponentEmulatorJPanel("Smoke Sensor", "Smoke Sensor");
+        principal.addComponentEmulatorJPanel("Smoke Sensor", "Smoke Sensor");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -357,7 +348,8 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void addNewBotton() {
-        JButton botton = new JButton("Botton" + indices);
+        File imagen = principal.goToAddNewIoTJPanel();
+        JButton botton = new JButton("Botton" + indices, (Icon) imagen);
         jPanelNodos.add(botton);
         indices++;
         jPanelNodos.updateUI();

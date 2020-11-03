@@ -79,6 +79,8 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
         jMenuItemPropiedades.setText("Propiedades");
         jPopupMenu1.add(jMenuItemPropiedades);
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
         jTreeProjects.setBackground(new java.awt.Color(45, 45, 45));
         jTreeProjects.setModel(modelo
         );
@@ -110,16 +112,17 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
 
     private void jTreeProjectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeProjectsMouseClicked
         // Method to get the selected project and catch the name
+        //VERIFICAR
         methodToCatchProjectName();
     }//GEN-LAST:event_jTreeProjectsMouseClicked
 
     private void jMenuItemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCerrarActionPerformed
-        // TODO add your handling code here:
+        closeProject();
     }//GEN-LAST:event_jMenuItemCerrarActionPerformed
 
     private void jMenuItemBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarActionPerformed
         try {
-            deleteProjects();        // TODO add your handling code here:
+            deleteProjects(); 
         } catch (IOException ex) {
             Logger.getLogger(ProjectsTreeJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -139,6 +142,7 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
 
     /**
      * Method to get the selected project and catch the name
+     * VERIFICAR
      */
     public void methodToCatchProjectName() {
         // Display Selected Node Text Into JTextFields
@@ -150,39 +154,65 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
     }
 
     /**
-     * Method to add a new project to the tree
+     * Method to add a new project to the JTree
      *
-     * @param projectName
-     * @param gRed
+     * @param projectName to add on the JTree
+     * @param gRed to add on controller open projects
      */
     public void joinedProjects(String projectName, GestionRed gRed) {
-        //EASYY
         DefaultMutableTreeNode selectedNode = carpetaRaiz;
+
+        //Add on the principal Node the new node
         DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(projectName);
         selectedNode.add(newNode);
+
+        //Add on the controller the new open Network
         principal.listProjects.addPrimer(gRed);
 
-        // Reload jTree model
+        // Reload JTree model
         DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
         model.reload();
 
     }
 
     /**
-     * Method to delete a new project to the tree
+     * Method to delete selected project file from JTree
+     *
+     * @throws java.io.IOException to control the exception
      */
     public void deleteProjects() throws IOException {
+        // Catch the selected node
         DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
+
         if (selectedNode != jTreeProjects.getModel().getRoot()) {
             DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
+
+            // Check if the selected node is in the project controller
             if (principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()) != null) {
+                // Send the opened network to delete the archive
                 principal.deleteArchive(principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()).getArchivoDeConfiguracionDeRed().getArchivo().getPath());
+
+                // Reload JTree model
                 model.removeNodeFromParent(selectedNode);
                 model.reload();
             } else {
-                System.out.println("no se encontro");
+                System.out.println("No se encontro");
             }
         }
     }
 
+    /**
+     * Method to close the project on the JTree
+     */
+    private void closeProject() {
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
+
+        if (selectedNode != jTreeProjects.getModel().getRoot()) {
+            DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
+
+            // Reload JTree model
+            model.removeNodeFromParent(selectedNode);
+            model.reload();
+        }
+    }
 }

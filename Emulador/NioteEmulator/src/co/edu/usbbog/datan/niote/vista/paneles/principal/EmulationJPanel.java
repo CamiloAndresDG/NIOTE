@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.usbbog.datan.niote.vista;
+package co.edu.usbbog.datan.niote.vista.paneles.principal;
+
+import co.edu.usbbog.datan.niote.vista.Principal;
 
 /**
  *
@@ -57,17 +59,18 @@ public class EmulationJPanel extends javax.swing.JPanel {
         jPopupMenu.add(jMenuItemSimulatedData);
 
         setBackground(new java.awt.Color(61, 61, 61));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         setComponentPopupMenu(jPopupMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 644, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 405, Short.MAX_VALUE)
+            .addGap(0, 403, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

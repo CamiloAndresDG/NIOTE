@@ -5,7 +5,6 @@
  */
 package co.edu.usbbog.datan.niote.vista.paneles.principal;
 
-import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
 import co.edu.usbbog.datan.niote.vista.Principal;
 
 /**
@@ -15,7 +14,6 @@ import co.edu.usbbog.datan.niote.vista.Principal;
 public class OutputJPanel extends javax.swing.JPanel {
 
     private Principal principal;
-    ValidacionesSistema vSystem;
 
     private int auxiliar = 0;
     private boolean realizado = false;
@@ -64,7 +62,7 @@ public class OutputJPanel extends javax.swing.JPanel {
         jPanelOutput.setLayout(jPanelOutputLayout);
         jPanelOutputLayout.setHorizontalGroup(
             jPanelOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
         );
         jPanelOutputLayout.setVerticalGroup(
             jPanelOutputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +75,7 @@ public class OutputJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +105,7 @@ public class OutputJPanel extends javax.swing.JPanel {
             ejecutar.start();
         }*/
     }
-    
+      
     public void addNewComponentOnTextArea(String name) {
         jTextAreaOutput.append("\nHa agregado el componente: " + name);
     }
@@ -148,4 +146,5 @@ public class OutputJPanel extends javax.swing.JPanel {
             }
         }
     }
+
 }

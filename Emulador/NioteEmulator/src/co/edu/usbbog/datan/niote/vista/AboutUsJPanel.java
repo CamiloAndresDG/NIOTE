@@ -49,7 +49,7 @@ public class AboutUsJPanel extends javax.swing.JPanel {
         jTextAreaAboutUs.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jTextAreaAboutUs.setForeground(new java.awt.Color(255, 255, 255));
         jTextAreaAboutUs.setRows(5);
-        jTextAreaAboutUs.setText("Versión del proyecto: Niote 1.0\nLink de Niote con versión mas actualizada: \n\nDirectorio nativo para guardar proyectos: \nC:\\Users\\usuario\\Documents\\NIOTE_Projects\n\nContacto:\n\tJuan Esteban Contreras Diaz \n\tJhonatan Mauricio Villareal Corredor: https://www.linkedin.com/in/jhonatan-villarreal-b492571a8/\n\tCamilo Andrés Díaz Gómez : https://www.linkedin.com/in/camilo-andr%C3%A9s-d%C3%ADaz-g%C3%B3mez-97b5581a3/\n\n");
+        jTextAreaAboutUs.setText("Versión del proyecto: Niote 1.0\nLink de Niote con versión mas actualizada: \n\nDirectorio nativo para guardar proyectos: \nC:\\Users\\usuario\\Documents\\NIOTE_Projects\n\nContacto:\n\tJuan Esteban Contreras Diaz \n\tJhonatan Mauricio Villareal Corredor: https://www.linkedin.com/in/jhonatan-villarreal-b492571a8/\n\tCamilo Andrés Díaz Gómez : https://www.linkedin.com/in/camilo-andr%C3%A9s-d%C3%ADaz-g%C3%B3mez-97b5581a3/\n\n\tTutor: Andrés Armando Sánchez Martín\n\n\tEstudiantes iniciadores de la idea:\n\t\tJuan Ochoa\n\t\tSebastian Villanueva\n\n");
         jScrollPane1.setViewportView(jTextAreaAboutUs);
 
         jLabelDescription.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

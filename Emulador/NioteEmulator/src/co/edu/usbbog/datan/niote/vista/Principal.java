@@ -12,12 +12,14 @@ package co.edu.usbbog.datan.niote.vista;
 Relaciones
  */
 // Logica
+import co.edu.usbbog.datan.niote.vista.paneles.principal.EmulationJPanel;
 import co.edu.usbbog.datan.niote.zkeep.PantallaDeCarga;
 import co.edu.usbbog.datan.niote.controlador.logica.Emulador;
 import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
 import co.edu.usbbog.datan.niote.vista.media.controladores.pantallaemulacion.ComponentController;
 import co.edu.usbbog.datan.niote.vista.media.controladores.projectstree.ListaEnlazada;
+import co.edu.usbbog.datan.niote.vista.paneles.principal.AddNodeIoTJPanel;
 
 // Paneles pantalla principal
 import co.edu.usbbog.datan.niote.vista.paneles.principal.DynamicNodesPaletteJPanel;
@@ -31,21 +33,17 @@ import co.edu.usbbog.datan.niote.vista.paneles.principal.OutputJPanel;
 import co.edu.usbbog.datan.niote.zkeep.Graficar;
 import co.edu.usbbog.datan.niote.zkeep.Grafos;
 import com.sun.glass.events.KeyEvent;
-import java.awt.Desktop;
 
 //Files
 import java.io.File;
 
-import java.nio.file.Files;
 import javax.swing.JFileChooser;
 
 //Excepciones 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
@@ -55,7 +53,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -85,7 +82,6 @@ public class Principal extends JFrame {
     WindowDialog ventanaDialog;
 
     PantallaDeCarga jP;
-//    PantallaDeCargaJPanel pantallaDeCargaJPanel;
 
     CreateProjectJPanel crearProyectoJPanel;
     EmulationJPanel emulacionJPanel;
@@ -95,6 +91,7 @@ public class Principal extends JFrame {
     // Relacion paneles pricnipales
     MainMenuJPanel mainMenuJPanel;
     DynamicNodesPaletteJPanel dynamicNodesPaletteJPanel;
+    AddNodeIoTJPanel addNodeIoTJPanel;
     EmulationJPanel emulationJPanel;
     NodeDescriptionJPanel nodeDescriptionJPanel;
     ProjectsTreeJPanel projectsTreeJPanel;
@@ -117,6 +114,9 @@ public class Principal extends JFrame {
          */
         this.validacionesSistema = new ValidacionesSistema();
         DefaultListModel listModel = new DefaultListModel();
+        
+        // List to keep opened projects
+        this.listProjects = new ListaEnlazada();
 
         // Creation of documents folder (Where they are saved by default)
         createFolderDocuments();
@@ -127,15 +127,12 @@ public class Principal extends JFrame {
         // Creation of documents folder (Where they are saved by default)
         createFolderOnAppData_Documents();
 
-        // Initialization for emulation (graphical environment)
-        Graficar paint = new Graficar();
-        Grafos trees = new Grafos();
-        Graficar graph = new Graficar();
-
         // Start
-        initComponents2();
+        start();
+        
+        // Controller for sensors and actuators
         componentController = new ComponentController(emulationJPanel, listModel);
-        listProjects = new ListaEnlazada();
+          
         //Pack the window
         this.pack();
 
@@ -304,10 +301,11 @@ public class Principal extends JFrame {
         });
         jMenuHelp.add(jMenuItemReportError);
 
-        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Updatex1_18.png"))); // NOI18N
+        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/update_16.png"))); // NOI18N
         jMenuItemSearchUpdate.setText("Buscar actualizaciones");
         jMenuHelp.add(jMenuItemSearchUpdate);
 
+        jMenuItemAboutUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/about-us_16.png"))); // NOI18N
         jMenuItemAboutUs.setText("Sobre nosotros");
         jMenuItemAboutUs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -362,7 +360,7 @@ public class Principal extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initComponents2() {
+    private void start() {
         /**
          * Inicialitacion of jPanels in the main window
          */
@@ -370,7 +368,7 @@ public class Principal extends JFrame {
         mainMenuJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.MainMenuJPanel(this);
         projectsTreeJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.ProjectsTreeJPanel(this);
         dynamicNodesPaletteJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.DynamicNodesPaletteJPanel(this);
-        emulationJPanel = new co.edu.usbbog.datan.niote.vista.EmulationJPanel(this);
+        emulationJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.EmulationJPanel(this);
         simulatedDataJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.SimulatedDataJPanel(this);
         outputJPanel = new co.edu.usbbog.datan.niote.vista.paneles.principal.OutputJPanel(this);
 
@@ -547,10 +545,11 @@ public class Principal extends JFrame {
         });
         jMenuHelp.add(jMenuItemReportError);
 
-        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/Updatex1_18.png"))); // NOI18N
+        jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/update_16.png"))); // NOI18N
         jMenuItemSearchUpdate.setText("Buscar actualizaciones");
         jMenuHelp.add(jMenuItemSearchUpdate);
 
+        jMenuItemAboutUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/about-us_16.png"))); // NOI18N
         jMenuItemAboutUs.setText("Sobre nosotros");
         jMenuItemAboutUs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -756,10 +755,6 @@ public class Principal extends JFrame {
         ventanaDialog = new WindowDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
 
-    /* private void irAPantallaDeCarga() {
-        pantallaDeCargaJPanel = new PantallaDeCargaJPanel(this);
-        ventanaDialog = new WindowDialog(this, pantallaDeCargaJPanel, "Pantalla de carga", false, false, DISPOSE_ON_CLOSE);
-    }*/
     protected void goAboutUs() {
         sobreNosotrosJPanel = new AboutUsJPanel(this);
         ventanaDialog = new WindowDialog(this, sobreNosotrosJPanel, "Información sobre nosotros", false, false, DISPOSE_ON_CLOSE);
@@ -773,6 +768,17 @@ public class Principal extends JFrame {
     protected void closeWindow() {
         ventanaDialog.dispose();
         ventanaDialog = null;
+    }
+//public void goToAddNewIoTJPanel() {
+//        addNodeIoTJPanel = new AddNodeIoTJPanel(this);
+//        ventanaDialog = new WindowDialog(this, addNodeIoTJPanel, "Agregar nuevo componente IoT", false, false, DISPOSE_ON_CLOSE);
+//    }
+
+    public File goToAddNewIoTJPanel() {
+        addNodeIoTJPanel = new AddNodeIoTJPanel(this);
+        ventanaDialog = new WindowDialog(this, addNodeIoTJPanel, "Agregar nuevo componente IoT", false, false, DISPOSE_ON_CLOSE);
+
+        return addNodeIoTJPanel.getImagen();
     }
 
     public void goInfComponent() {
@@ -978,17 +984,15 @@ public class Principal extends JFrame {
     public void openProjects() throws IOException {
 
         JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Abrir proyecto");
         chooser.showOpenDialog(this);
 
         File archivoSeleccionado = chooser.getSelectedFile();
         String ruta = archivoSeleccionado.getAbsolutePath();
         String fileName = archivoSeleccionado.getName().replaceAll(".niote", "");
         try {
-            boolean tipodeArchivo = archivoSeleccionado.getName().endsWith("niote");
-
-            if (tipodeArchivo) {
+            if (archivoSeleccionado.getName().endsWith("niote")) {
                 GestionRed gRedAbierta = new GestionRed(ruta, fileName);
-                System.out.println(ruta + " AQUI");
                 loadNetwork(ruta, fileName);
                 projectsTreeJPanel.joinedProjects(fileName, gRedAbierta);
                 System.out.println("Se cargo");
