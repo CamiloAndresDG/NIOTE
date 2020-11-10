@@ -13,11 +13,15 @@ import javax.swing.Icon;
 import javax.swing.JButton;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since August 2020.
  */
 public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations and variables
+     */
     private Principal principal;
     private List<JButton> nodes;
     private Integer indices;
@@ -263,7 +267,7 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-addNewBotton();
+        addNewBotton();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

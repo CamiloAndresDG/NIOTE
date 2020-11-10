@@ -17,6 +17,7 @@ import co.edu.usbbog.datan.niote.zkeep.PantallaDeCarga;
 import co.edu.usbbog.datan.niote.controlador.logica.Emulador;
 import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 import co.edu.usbbog.datan.niote.controlador.logica.ValidacionesSistema;
+import co.edu.usbbog.datan.niote.modelo.Actuador;
 import co.edu.usbbog.datan.niote.vista.media.controladores.pantallaemulacion.ComponentController;
 import co.edu.usbbog.datan.niote.vista.media.controladores.projectstree.ListaEnlazada;
 import co.edu.usbbog.datan.niote.vista.paneles.principal.AddNodeIoTJPanel;
@@ -29,11 +30,6 @@ import co.edu.usbbog.datan.niote.vista.paneles.principal.ProjectsTreeJPanel;
 import co.edu.usbbog.datan.niote.vista.paneles.principal.SimulatedDataJPanel;
 import co.edu.usbbog.datan.niote.vista.paneles.principal.OutputJPanel;
 
-//Emulador (Grafico)
-import co.edu.usbbog.datan.niote.zkeep.Graficar;
-import co.edu.usbbog.datan.niote.zkeep.Grafos;
-import com.sun.glass.events.KeyEvent;
-
 //Files
 import java.io.File;
 
@@ -45,20 +41,24 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 
 //Explorador de archivos
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.ImageIcon;
 
+//
 import javax.swing.JFrame;
+
+//OptionPane
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Camilo Andres Diaz Gomez
- * @author Jhonatan Villareal
- * @author Juan Esteban Contreras Diaz
+ * @author Camilo Andrés Díaz Gómez.
+ * @author Jhonatan Mauricio Villarreal Corredor.
+ * @author Juan Esteban Contreras Diaz.
+ * @version 1.0
+ * @since April 2020.
  */
 public class Principal extends JFrame {
 
@@ -74,9 +74,7 @@ public class Principal extends JFrame {
     /*
     Componentes 
      */
-    private int tope = 0;//acumulado 
-    private int end; // nultimo nodo
-    private int start;
+    public boolean ejectedProject;
     int n = 0, nn = 0, id, id2;
     private int aristM;
     WindowDialog ventanaDialog;
@@ -94,7 +92,7 @@ public class Principal extends JFrame {
     AddNodeIoTJPanel addNodeIoTJPanel;
     EmulationJPanel emulationJPanel;
     NodeDescriptionJPanel nodeDescriptionJPanel;
-    ProjectsTreeJPanel projectsTreeJPanel;
+    public ProjectsTreeJPanel projectsTreeJPanel;
     SimulatedDataJPanel simulatedDataJPanel;
     OutputJPanel outputJPanel;
     public ListaEnlazada listProjects;
@@ -114,7 +112,7 @@ public class Principal extends JFrame {
          */
         this.validacionesSistema = new ValidacionesSistema();
         DefaultListModel listModel = new DefaultListModel();
-        
+
         // List to keep opened projects
         this.listProjects = new ListaEnlazada();
 
@@ -129,10 +127,10 @@ public class Principal extends JFrame {
 
         // Start
         start();
-        
+
         // Controller for sensors and actuators
         componentController = new ComponentController(emulationJPanel, listModel);
-          
+
         //Pack the window
         this.pack();
 
@@ -303,6 +301,11 @@ public class Principal extends JFrame {
 
         jMenuItemSearchUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/update_16.png"))); // NOI18N
         jMenuItemSearchUpdate.setText("Buscar actualizaciones");
+        jMenuItemSearchUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSearchUpdateActionPerformed(evt);
+            }
+        });
         jMenuHelp.add(jMenuItemSearchUpdate);
 
         jMenuItemAboutUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/about-us_16.png"))); // NOI18N
@@ -641,6 +644,10 @@ public class Principal extends JFrame {
         goOpenDocumentationProject();
     }//GEN-LAST:event_jMenuItemDocumentationActionPerformed
 
+    private void jMenuItemSearchUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSearchUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemSearchUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -732,67 +739,74 @@ public class Principal extends JFrame {
         });
     }
 
-    // Navigation from start
-    public void iniciar(JFrame jFrame) {
-        remove(jFrame);
-        crearProyectoJPanel = new CreateProjectJPanel(this);
-        crearProyectoJPanel.setVisible(true);
-        add(crearProyectoJPanel);
-        pack();
-        setLocationRelativeTo(null);
-    }
-
-    /*
-    Navigation for Pop-Ups
+    /**
+     * Navigation for Pop-Ups.
      */
     protected void chargingScreen() {
         jP = new PantallaDeCarga();
         ventanaDialog = new WindowDialog(this, jP, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * Method to show the panel to create a new project.
+     */
     public void goCreateProject() {
         crearProyectoJPanel = new CreateProjectJPanel(this);
         ventanaDialog = new WindowDialog(this, crearProyectoJPanel, "Creacion de nuevo proyecto", false, false, DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * Method to show the panel to report a error on the emulation.
+     */
+    protected void goReportError() {
+        notificarErrorJPanel = new NotifyErrorJPanel(this);
+        ventanaDialog = new WindowDialog(this, notificarErrorJPanel, "Notificar error", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    /**
+     * Method to show the panel to share our information.
+     */
     protected void goAboutUs() {
         sobreNosotrosJPanel = new AboutUsJPanel(this);
         ventanaDialog = new WindowDialog(this, sobreNosotrosJPanel, "Información sobre nosotros", false, false, DISPOSE_ON_CLOSE);
     }
 
-    protected void goReportError() {
-        notificarErrorJPanel = new NotifyErrorJPanel(this);
-        ventanaDialog = new WindowDialog(this, notificarErrorJPanel, "Notificar error", false, false, DISPOSE_ON_CLOSE);
+    /**
+     * Method to show the panel to add a new IoT node.
+     *
+     * @return the image to add in the DynamicNodesPaletteJPanel.
+     */
+    public File goToAddNewIoTJPanel() {
+        addNodeIoTJPanel = new AddNodeIoTJPanel(this);
+        ventanaDialog = new WindowDialog(this, addNodeIoTJPanel, "Agregar nuevo componente IoT", false, false, DISPOSE_ON_CLOSE);
+        return addNodeIoTJPanel.getImagen();
+    }
+
+    /**
+     * Method to show the panel to see the info of selected IoT node.
+     */
+    public void goInfComponent() {
+        nodeDescriptionJPanel = new NodeDescriptionJPanel(this);
+        ventanaDialog = new WindowDialog(this, nodeDescriptionJPanel, "Información del componente", false, false, DISPOSE_ON_CLOSE);
+    }
+
+    /**
+     * Method to show the panel where the user can see the data simulated.
+     */
+    public void goSimulatedData() {
+        simulatedDataJPanel = new SimulatedDataJPanel(this);
+        ventanaDialog = new WindowDialog(this, simulatedDataJPanel, "Información simulada por el componente", false, false, DISPOSE_ON_CLOSE);
     }
 
     protected void closeWindow() {
         ventanaDialog.dispose();
         ventanaDialog = null;
     }
-//public void goToAddNewIoTJPanel() {
-//        addNodeIoTJPanel = new AddNodeIoTJPanel(this);
-//        ventanaDialog = new WindowDialog(this, addNodeIoTJPanel, "Agregar nuevo componente IoT", false, false, DISPOSE_ON_CLOSE);
-//    }
-
-    public File goToAddNewIoTJPanel() {
-        addNodeIoTJPanel = new AddNodeIoTJPanel(this);
-        ventanaDialog = new WindowDialog(this, addNodeIoTJPanel, "Agregar nuevo componente IoT", false, false, DISPOSE_ON_CLOSE);
-
-        return addNodeIoTJPanel.getImagen();
-    }
-
-    public void goInfComponent() {
-        nodeDescriptionJPanel = new NodeDescriptionJPanel(this);
-        ventanaDialog = new WindowDialog(this, nodeDescriptionJPanel, "Información del componente", false, false, DISPOSE_ON_CLOSE);
-    }
-
-    public void goSimulatedData() {
-        simulatedDataJPanel = new SimulatedDataJPanel(this);
-        ventanaDialog = new WindowDialog(this, simulatedDataJPanel, "Información simulada por el componente", false, false, DISPOSE_ON_CLOSE);
-    }
 
     /**
-     * Method to create main emulator folder in documents
+     * Method to create main emulator folder in documents.
+     *
+     * @return True if the folder was created or False if not.
      */
     private boolean createFolderDocuments() {
         File folderDocuments = new File(obteinDocumentsPath() + "\\Niote Projects");
@@ -804,19 +818,34 @@ public class Principal extends JFrame {
         }
     }
 
-    private void createFolderAppData() {
+    /**
+     * Method to create main emulator folder in AppData.
+     *
+     * @return True if the folder was created or False if not.
+     */
+    private boolean createFolderAppData() {
         File folderAppData = new File(obteinAppDataPath() + "\\NioteEmulator");
         if (folderAppData.mkdirs()) {
+            return true;
         } else {
             folderAppData.mkdirs();
+            return false;
         }
     }
 
-    private void createFolderOnAppData_Documents() {
+    /**
+     * Method to create documents folder in AppData where will be all documents
+     * like created document, user manual, etc.
+     *
+     * @return True if the folder was created or False if not.
+     */
+    private boolean createFolderOnAppData_Documents() {
         File folderAppData = new File(obteinAppDataPath() + "\\NioteEmulator" + "\\Documents");
         if (folderAppData.mkdirs()) {
+            return true;
         } else {
             folderAppData.mkdirs();
+            return false;
         }
     }
 
@@ -881,7 +910,7 @@ public class Principal extends JFrame {
     }
 
     /**
-     *
+     * Method to open the PDF document of the project.
      */
     public void goOpenDocumentationProject() {
         try {
@@ -889,27 +918,30 @@ public class Principal extends JFrame {
             ProcessBuilder p = new ProcessBuilder();
             p.command("cmd.exe", "/c", path);
             p.start();
-            System.out.println("ya");
         } catch (IOException e) {
             System.out.println(e);
         }
     }
 
     /**
-     * TERMINAR
+     * Method to delete the file .niote.
      *
-     * @param path
+     * @param path where the file is located.
+     * @return True if the file was deleted or false if not.
+     * @throws IOException
      */
-    public void deleteArchive(String path) throws IOException {
+    public boolean deleteArchive(String path) throws IOException {
         File file = new File(path);
         int dialog = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(this, "¿Esta seguro en eliminar el archivo " + path + " ?", "Salir", dialog);
+        int result = JOptionPane.showConfirmDialog(this, "¿Esta seguro en eliminar el archivo " + path + "?\nNota: Este archivo no se podra recuperar posteriormente.", "Salir", dialog);
         if (result == 0) {
             if (file.delete()) {
-                System.out.println("eliminado");
+                return true;
+            } else {
+                return false;
             }
         }
-
+        return false;
     }
 
 //    public void moveToTrash(File... file) throws IOException {
@@ -924,10 +956,10 @@ public class Principal extends JFrame {
 //        Runtime.getRuntime().exec("Recycle.exe " + (withPrompt ? "" : "-f ") + fileList);
 //    }
     /**
-     * Method to add double inverted slash to folder addresses
+     * Method to add double inverted slash to folder addresses.
      *
-     * @param path to add double inverted slash
-     * @return newPath with double inverted slash
+     * @param path to add double inverted slash.
+     * @return newPath with double inverted slash.
      */
     private String addDoubleInvertedSlash(String path) {
         String newPath = null;
@@ -935,12 +967,12 @@ public class Principal extends JFrame {
     }
 
     /**
-     * Method to create a new network
+     * Method to create a new network.
      *
-     * @param id of the network
-     * @param name of the network
-     * @param description of the network
-     * @return True if the network was created or False if not
+     * @param id of the network.
+     * @param name of the network.
+     * @param description of the network.
+     * @return True if the network was created or False if not.
      */
     protected GestionRed createNetwork(String id, String name, String description) {
         this.gestionRed = new GestionRed(id, name, description);
@@ -952,11 +984,11 @@ public class Principal extends JFrame {
     }
 
     /**
-     * Method to load a previously created network
+     * Method to load a previously created network.
      *
-     * @param route of the network
-     * @param fileName of the project
-     * @return True if the network was loaded or False if not
+     * @param route of the network.
+     * @param fileName of the project.
+     * @return True if the network was loaded or False if not.
      */
     protected boolean loadNetwork(String route, String fileName) {
         this.gestionRed = new GestionRed(route, fileName);
@@ -968,18 +1000,7 @@ public class Principal extends JFrame {
     }
 
     /**
-     * Method to validate the clicked key or key combination
-     */
-    private void validarBotonesClickeados() {
-        java.awt.event.KeyEvent evt = null;
-        char teclaPresionada = evt.getKeyChar();
-        if (teclaPresionada == KeyEvent.VK_F5) {
-//            jButtonRun.doClick();
-        }
-    }
-
-    /**
-     * Method to open projects
+     * Method to open projects with the documents explorer.
      */
     public void openProjects() throws IOException {
 
@@ -1013,10 +1034,10 @@ public class Principal extends JFrame {
 
     /**
      * Method to add the selected component in the EmulationJPanel and in the
-     * Output
+     * Output.
      *
-     * @param name of the selected component
-     * @param nameImage of the selected component
+     * @param name of the selected component.
+     * @param nameImage of the selected component.
      */
     public void addComponentEmulatorJPanel(String name, String nameImage) {
         componentController.nuevoComponente(name, nameImage);
@@ -1024,14 +1045,14 @@ public class Principal extends JFrame {
     }
 
     /**
-     * Method to run on JTextAreaOutput
+     * Method to run on JTextAreaOutput.
      */
     public void ejectProjectJTextArea() {
         outputJPanel.ejectProject();
     }
 
     /**
-     * Method to stop emulation on JTextAreaOutput
+     * Method to stop emulation on JTextAreaOutput.
      */
     public void stopEmulationProjectJTextArea() {
         outputJPanel.stopEmulation();

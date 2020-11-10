@@ -9,11 +9,15 @@ import co.edu.usbbog.datan.niote.vista.Principal;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since August 2020.
  */
 public class SimulatedDataJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations and variables
+     */
     private Principal principal;
     DefaultTableModel dt = new DefaultTableModel();
 

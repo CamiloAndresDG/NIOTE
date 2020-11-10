@@ -1,14 +1,14 @@
 package co.edu.usbbog.datan.niote.vista.media.controladores.pantallaemulacion;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- * @author Juan
+ * @author Juan Esteban Contreras Díaz.
+ * @version 1.0
+ * @since July 2020.
  */
 public class ComponentController {
 
@@ -71,7 +71,6 @@ public class ComponentController {
 //        tmp.setIcon(new ImageIcon(getClass().getResource("/org/bolivia/app/res/" + ((int) Math.floor(Math.random() * 4 + 1)) + ".png")));
 //        tmp.repaint();
 //    }
-
     /**
      * Method that changes all the images of all the objects that exist in the
      * MAP
@@ -83,7 +82,6 @@ public class ComponentController {
 //            cambiarImagen(e.getKey().toString());
 //        }
 //    }
-
     /**
      * Returns a random integer between 0 and a number passed as a parameter
      *

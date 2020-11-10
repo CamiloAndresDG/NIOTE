@@ -8,13 +8,15 @@ package co.edu.usbbog.datan.niote.vista.paneles.principal;
 import co.edu.usbbog.datan.niote.vista.Principal;
 
 /**
- *
- * @author contr
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since August 2020.
  */
 public class EmulationJPanel extends javax.swing.JPanel {
 
-//    private ComponentController controladorComponentes;
-//    private DefaultListModel lista = new DefaultListModel();
+    /**
+     * Relations and variables
+     */
     private Principal principal;
 
     /**
@@ -23,10 +25,6 @@ public class EmulationJPanel extends javax.swing.JPanel {
     public EmulationJPanel(Principal principal) {
         this.principal = principal;
         initComponents();
-        //crea nueva instancia e inicia parametros
-//        controladorComponentes = new ComponentController(this.panelContenedor, this.lista);
-        //agrega ListModel a JList
-//        listaComponentesJList.setModel(lista);
     }
 
     /**

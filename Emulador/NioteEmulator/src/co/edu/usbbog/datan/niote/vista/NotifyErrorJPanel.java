@@ -13,11 +13,15 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since April 2020.
  */
 public class NotifyErrorJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations
+     */
     private Principal principal;
 
     /**
@@ -168,7 +172,7 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
 
     /**
      * Method to search and bring the images that will be sent through email
-     * where the visible errors in the emulator are shown
+     * where the visible errors in the emulator are shown.
      */
     private File[] searchImages() throws IOException {
         try {
@@ -198,6 +202,9 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
         return null;
     }
 
+    /**
+     * Method to send the email.
+     */
     private void sendEmail() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

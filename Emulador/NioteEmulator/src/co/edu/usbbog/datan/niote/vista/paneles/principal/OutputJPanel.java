@@ -8,11 +8,15 @@ package co.edu.usbbog.datan.niote.vista.paneles.principal;
 import co.edu.usbbog.datan.niote.vista.Principal;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since August 2020.
  */
 public class OutputJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations and variables
+     */
     private Principal principal;
 
     private int auxiliar = 0;
@@ -97,7 +101,7 @@ public class OutputJPanel extends javax.swing.JPanel {
             ejecutar.start();
         }*/
     }
-    
+
     public void stopEmulation() {
         jTextAreaOutput.append("\nEmulación detenida.");
         /*if (realizado == false) {
@@ -105,7 +109,7 @@ public class OutputJPanel extends javax.swing.JPanel {
             ejecutar.start();
         }*/
     }
-      
+
     public void addNewComponentOnTextArea(String name) {
         jTextAreaOutput.append("\nHa agregado el componente: " + name);
     }

@@ -177,6 +177,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar actualizaciones"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemSearchUpdateActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAboutUs">
               <Properties>

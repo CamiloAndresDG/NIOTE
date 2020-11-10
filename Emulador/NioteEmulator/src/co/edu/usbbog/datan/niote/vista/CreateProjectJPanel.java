@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -11,12 +11,15 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
  * @version 1.0
+ * @since April 2020.
  */
 public class CreateProjectJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations
+     */
     private Principal principal;
 
     /**
@@ -160,7 +163,6 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
 
     private void jButtonCreateProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateProjectActionPerformed
         createProject();
-        goToEmulation();
     }//GEN-LAST:event_jButtonCreateProjectActionPerformed
 
 
@@ -178,38 +180,26 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Method to go to the emulation screen
-     */
-    private void goToEmulation() {
-        jTextFieldProjectName.setBackground(Color.GRAY);
-        jTextFieldProjectName.setForeground(Color.GREEN);
-// principal.irAEm(this);
-    }
-
-    /**
-     * Method to create new project with the entered data
+     * Method to create new project with the entered data.
      */
     private void createProject() {
-        Boolean validacion = validationEntereData();
-        if (validacion = true) {
-            String nombre = jTextFieldProjectName.getText();
-            String descripcion = jTextAreaDescription.getText();
+//        if (validationEntereData() == true) {
+        String nombre = jTextFieldProjectName.getText();
+        String descripcion = jTextAreaDescription.getText();
 
-            GestionRed gRedCreada=principal.createNetwork(nombre, nombre, descripcion);
-            principal.projectsTreeJPanel.joinedProjects(nombre,gRedCreada);
-          //  principal.arbolProyectosJPanel.joinedProjects(nombre);
-            keepRed();
-            principal.closeWindow();
-        }
+        GestionRed gRedCreada = principal.createNetwork(nombre, nombre, descripcion);
+        principal.projectsTreeJPanel.joinedProjects(nombre, gRedCreada);
+        //  principal.arbolProyectosJPanel.joinedProjects(nombre);
+        keepRed();
+        principal.closeWindow();
+//        }
     }
 
     /**
-     * Method the new project will be saved in the chosen path
+     * Method the new project will be saved in the chosen path.
      */
     private void keepRed() {
         String ruta = jTextFieldLocation.getText();
-        // System.out.println(ruta);
-        //System.out.println(jTextFieldNombreDelProyecto.getText() + " difsoifndsiofnsf");
         String nombreArchivo = jTextFieldProjectName.getText();
         System.out.println(this.principal.getGestionRed().guardarRed(ruta, nombreArchivo));
     }
@@ -220,32 +210,7 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
     }
 
     /**
-     * Method to validate that the project name and description boxes have text
-     *
-     * @return True if it have text, false if it don't have it
-     */
-    private boolean validationEntereData() {
-        String comparableProjectName = "javax.swing.JTextField[,89,57,309x20,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=com.sun.java.swing.plaf.windows.XPStyle$XPFillBorder@69d11f90,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],columns=0,columnWidth=0,command=,horizontalAlignment=LEADING]";
-        String comparableDescription = "javax.swing.JTextArea[,0,0,537x111,layout=java.awt.BorderLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=296,maximumSize=,minimumSize=,preferredSize=,caretColor=javax.swing.plaf.ColorUIResource[r=0,g=0,b=0],disabledTextColor=javax.swing.plaf.ColorUIResource[r=109,g=109,b=109],editable=true,margin=javax.swing.plaf.InsetsUIResource[top=2,left=2,bottom=2,right=2],selectedTextColor=javax.swing.plaf.ColorUIResource[r=255,g=255,b=255],selectionColor=javax.swing.plaf.ColorUIResource[r=0,g=120,b=215],colums=20,columWidth=8,rows=5,rowHeight=14,word=false,wrap=false]";
-        //System.out.println(jTextFieldNombreDelProyecto+" 222222");
-        //      System.out.println(jTextAreaDescripcion+" 333");
-        if (jTextFieldProjectName.getText() == null || jTextFieldProjectName.getText() == "" || jTextFieldProjectName.getText() == comparableProjectName) {
-            if (jTextAreaDescription.getText() == null || jTextAreaDescription.getText() == "" || jTextAreaDescription.getText() == comparableDescription) {
-                //   Icon imagenError = new ImageIcon(getClass().getResource("/iconos/baseline_warning_black_36dp.png"));
-                JOptionPane.showMessageDialog(this, "Tiene un campo donde el valor no es valido o esta vacio", "Error al agregar la  nueva aeronave", JOptionPane.INFORMATION_MESSAGE);
-
-                JOptionPane.showMessageDialog(null, "Hace falta ingresar la descripcion del proyecto");
-                return false;
-            }
-            JOptionPane.showMessageDialog(null, "Hace falta ingresar el nombre del proyecto");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    /**
-     * Method to find a new location where the user will save the project
+     * Method to find a new location where the user will save the project.
      */
     private void searchNewLocation() {
         JFileChooser chooser;
@@ -259,6 +224,28 @@ public class CreateProjectJPanel extends javax.swing.JPanel {
             jTextFieldLocation.setText(String.valueOf(chooser.getSelectedFile()));
         } else {
             System.out.println("No Selection");
+        }
+    }
+
+    private boolean validationEntereData() {
+        String name = jTextFieldProjectName.getText();
+        String path = jTextFieldLocation.getText();
+        String description = jTextAreaDescription.getText();
+        if (name.equals("")) {
+            if (path.equals("")) {
+                if (description.equals("")) {
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Hace falta ingresar la descripción del proyecto.", "Error al crear el proyecto", HEIGHT);
+                    return false;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Hace falta ingresar la dirección del proyecto.", "Error al crear el proyecto", HEIGHT);
+                return false;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Hace falta ingresar el nombre del proyecto.", "Error al crear el proyecto", HEIGHT);
+            return false;
         }
     }
 }

@@ -2,6 +2,11 @@ package co.edu.usbbog.datan.niote.vista.media.controladores.projectstree;
 
 import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 
+/**
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since August 2020.
+ */
 public class ListaEnlazada {
 
     Nodo cabeza;

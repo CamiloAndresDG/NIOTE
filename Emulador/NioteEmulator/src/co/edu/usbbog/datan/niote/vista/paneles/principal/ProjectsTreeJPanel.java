@@ -10,17 +10,22 @@ import co.edu.usbbog.datan.niote.vista.Principal;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since August 2020.
  */
 public class ProjectsTreeJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations and variables
+     */
     private Principal principal;
     private DefaultMutableTreeNode carpetaRaiz;
     private DefaultTreeModel modelo;
@@ -118,11 +123,12 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
 
     private void jMenuItemCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCerrarActionPerformed
         closeProject();
+        jTreeProjects.clearSelection();
     }//GEN-LAST:event_jMenuItemCerrarActionPerformed
 
     private void jMenuItemBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarActionPerformed
         try {
-            deleteProjects(); 
+            deleteProjects();
         } catch (IOException ex) {
             Logger.getLogger(ProjectsTreeJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -141,8 +147,7 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * Method to get the selected project and catch the name
-     * VERIFICAR
+     * Method to get the selected project and catch the name VERIFICAR
      */
     public void methodToCatchProjectName() {
         // Display Selected Node Text Into JTextFields
@@ -181,38 +186,47 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
      * @throws java.io.IOException to control the exception
      */
     public void deleteProjects() throws IOException {
-        // Catch the selected node
-        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
+        try {
+            DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
 
-        if (selectedNode != jTreeProjects.getModel().getRoot()) {
-            DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
+            if (selectedNode != jTreeProjects.getModel().getRoot()) {
+                DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
 
-            // Check if the selected node is in the project controller
-            if (principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()) != null) {
-                // Send the opened network to delete the archive
-                principal.deleteArchive(principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()).getArchivoDeConfiguracionDeRed().getArchivo().getPath());
+                // Check if the selected node is in the project controller
+                if (principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()) != null) {
+                    // Send the opened network to delete the archive
+                    principal.deleteArchive(principal.listProjects.buscarElemento(selectedNode.getUserObject().toString()).getArchivoDeConfiguracionDeRed().getArchivo().getPath());
 
-                // Reload JTree model
-                model.removeNodeFromParent(selectedNode);
-                model.reload();
-            } else {
-                System.out.println("No se encontro");
+                    // Reload JTree model
+                    model.removeNodeFromParent(selectedNode);
+                    model.reload();
+                } else {
+                    System.out.println("No se encontro");
+                }
             }
-        }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ningun proyecto para eliminar.", "Error al borrar el archivo ", HEIGHT);
+        }// Catch the selected node
+
     }
 
     /**
      * Method to close the project on the JTree
      */
     private void closeProject() {
-        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
+        try {
+            DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) jTreeProjects.getSelectionPath().getLastPathComponent();
 
-        if (selectedNode != jTreeProjects.getModel().getRoot()) {
-            DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
+            if (selectedNode != jTreeProjects.getModel().getRoot()) {
+                DefaultTreeModel model = (DefaultTreeModel) jTreeProjects.getModel();
 
-            // Reload JTree model
-            model.removeNodeFromParent(selectedNode);
-            model.reload();
+                // Reload JTree model
+                model.removeNodeFromParent(selectedNode);
+                model.reload();
+            }
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ningun proyecto para cerrar.", "Error al cerrar", HEIGHT);
         }
+
     }
 }

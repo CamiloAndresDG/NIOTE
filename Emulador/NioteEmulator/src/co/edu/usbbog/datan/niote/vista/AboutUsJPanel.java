@@ -6,12 +6,15 @@
 package co.edu.usbbog.datan.niote.vista;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since April 2020.
  */
 public class AboutUsJPanel extends javax.swing.JPanel {
 
-    // Relations
+    /**
+     * Relations
+     */
     private Principal principal;
 
     /**

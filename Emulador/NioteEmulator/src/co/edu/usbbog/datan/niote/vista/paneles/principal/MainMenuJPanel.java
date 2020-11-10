@@ -5,17 +5,16 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since August 2020.
  */
 public class MainMenuJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations and variables
+     */
     private Principal principal;
 
     /**
@@ -137,7 +136,11 @@ public class MainMenuJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDeleteVerqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteVerqueActionPerformed
-        // TODO add your handling code here:
+        try {
+            principal.projectsTreeJPanel.deleteProjects();        // TODO add your handling code here:
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonDeleteVerqueActionPerformed
 
     private void jButtonOpenProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpenProjectActionPerformed
@@ -148,6 +151,7 @@ public class MainMenuJPanel extends javax.swing.JPanel {
     private void jButtonRunProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunProjectActionPerformed
         // Method to start simulation (TextArea)
         principal.ejectProjectJTextArea();
+        
     }//GEN-LAST:event_jButtonRunProjectActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -161,7 +165,9 @@ public class MainMenuJPanel extends javax.swing.JPanel {
 
     private void jButtonPauseSimulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPauseSimulationActionPerformed
         // Method to stop simulation (TextArea)
-        principal.stopEmulationProjectJTextArea();        // TODO add your handling code here:
+        principal.stopEmulationProjectJTextArea();
+        
+// TODO add your handling code here:
     }//GEN-LAST:event_jButtonPauseSimulationActionPerformed
 
 

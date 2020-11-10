@@ -24,7 +24,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
- * @author Juan
+ * @author Juan Esteban Contreras Díaz.
+ * @version 1.0
+ * @since July 2020.
  */
 public class Componente extends JLabel implements MouseListener, MouseMotionListener {
 
@@ -69,9 +71,9 @@ public class Componente extends JLabel implements MouseListener, MouseMotionList
         //"getPredefinedCursor" devuelve un objeto de cursor con el tipo predefinido especificado.
         this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         this.setSize(dimension);
-        this.setPreferredSize(dimension);  
+        this.setPreferredSize(dimension);
         //Asigna una imagen al objeto   
-        this.setIcon(new ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/" + nomImagen+ ".png")));  
+        this.setIcon(new ImageIcon(getClass().getResource("/co/edu/usbbog/datan/niote/vista/media/imagenes/paletanodos/" + nomImagen + ".png")));
         this.setText("");
         this.setVisible(true);
         this.setLocation(posicion);

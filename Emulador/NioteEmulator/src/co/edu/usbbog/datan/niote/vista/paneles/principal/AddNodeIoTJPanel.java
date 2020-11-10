@@ -5,18 +5,21 @@
  */
 package co.edu.usbbog.datan.niote.vista.paneles.principal;
 
-import co.edu.usbbog.datan.niote.controlador.logica.GestionRed;
 import co.edu.usbbog.datan.niote.vista.Principal;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Camilo y Roberth
+ * @author Camilo Andrés Díaz Gómez.
+ * @version 1.0
+ * @since July 2020.
  */
 public class AddNodeIoTJPanel extends javax.swing.JPanel {
 
+    /**
+     * Relations and variables
+     */
     Principal principal;
     File imagen;
 
@@ -145,7 +148,7 @@ public class AddNodeIoTJPanel extends javax.swing.JPanel {
             if (archivoSeleccionado.getName().endsWith("png") || archivoSeleccionado.getName().endsWith("jpg") || archivoSeleccionado.getName().endsWith("jpeg")) {
                 rsscalelabel.RSScaleLabel.setScaleLabel(jLabelImage, chooser.getSelectedFile().toString());
                 System.out.println("Se cargo");
-                
+
                 return imagen = chooser.getSelectedFile();
             } else {
                 JOptionPane.showMessageDialog(this, "No ha seleccionado un archivo de extención .niote.");
