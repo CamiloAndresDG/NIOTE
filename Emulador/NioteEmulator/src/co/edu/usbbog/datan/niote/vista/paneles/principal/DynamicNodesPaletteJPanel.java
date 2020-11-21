@@ -265,10 +265,9 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
 
         add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 370, 280));
     }// </editor-fold>//GEN-END:initComponents
-
+  
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         addNewBotton();
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonHumedityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHumedityActionPerformed
@@ -276,7 +275,7 @@ public class DynamicNodesPaletteJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonHumedityActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        principal.addComponentEmulatorJPanel("Air Conditioning Actuator", "Air Conditioning Actuator");
+        principal.addComponentEmulatorJPanel("Air Conditioner Actuator", "Air Conditioner Actuator");
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButtonTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTemperatureActionPerformed
