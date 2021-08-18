@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
@@ -68,6 +69,11 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
         jPopupMenu1.add(jMenuItemCerrar);
 
         jMenuItemEjecutar.setText("Ejecutar");
+        jMenuItemEjecutar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEjecutarActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItemEjecutar);
 
         jMenuItemBorrar.setText("Borrar");
@@ -79,6 +85,11 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
         jPopupMenu1.add(jMenuItemBorrar);
 
         jMenuItemRenombrar.setText("Renombrar");
+        jMenuItemRenombrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRenombrarActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItemRenombrar);
 
         jMenuItemPropiedades.setText("Propiedades");
@@ -133,6 +144,15 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
             Logger.getLogger(ProjectsTreeJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItemBorrarActionPerformed
+
+    private void jMenuItemRenombrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRenombrarActionPerformed
+        String newName = JOptionPane.showInputDialog("Digite el nuevo nombre para el componente seleccionado");
+        changeName(newName);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemRenombrarActionPerformed
+
+    private void jMenuItemEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEjecutarActionPerformed
+principal.outputJPanel.ejectProject();// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemEjecutarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -227,6 +247,34 @@ public class ProjectsTreeJPanel extends javax.swing.JPanel {
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "No ha seleccionado ningun proyecto para cerrar.", "Error al cerrar", HEIGHT);
         }
+    }
 
+//    public void changeNodeName(String newName) {
+//        //get the path to the selected nod
+//        TreePath selectedPath = mainWindow.getStructureTree().getSelectionPath();
+//        //make sure there is no other node with this name
+//        DefaultMutableTreeNode node = (DefaultMutableTreeNode) selectedPath.getLastPathComponent();
+//        //change its name
+//        node.setUserObject(newName);
+//    }
+    void changeName(String newName) {
+        // Obtenemos el nodo
+        TreePath currentSelection = jTreeProjects.getSelectionPath();
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) currentSelection.getLastPathComponent();
+
+// Lo asignamos al nodo:
+        node.setUserObject(new DefaultMutableTreeNode(newName));
+
+// Y le decimos que el nodo cambió:
+        ((DefaultTreeModel) jTreeProjects.getModel()).nodeChanged(node);
+
+        //Se cambia en el controlador el nombre tanto del proyecto como del archivo
+        //Se busca la red con el nombre anterior
+        GestionRed gRedAntigua = principal.listProjects.buscarElemento(node.getUserObject().toString());
+//        System.out.println(node.getUserObject().toString());
+//        System.out.println(gRedAntigua);
+//        if (gRedAntigua != null) {
+//            gRedAntigua.getRed().setNombre(newName);
+//        }
     }
 }

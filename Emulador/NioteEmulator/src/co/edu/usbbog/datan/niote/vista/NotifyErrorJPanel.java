@@ -186,7 +186,13 @@ public class NotifyErrorJPanel extends javax.swing.JPanel {
                             || selectedFiles[i].getName().endsWith("jpg")
                             || selectedFiles[i].getName().endsWith("jpeg")
                             || selectedFiles[i].getName().endsWith("gif")
-                            || selectedFiles[i].getName().endsWith("pdf")) {
+                            || selectedFiles[i].getName().endsWith("pdf")
+                            || selectedFiles[i].getName().endsWith("PNG")
+                            || selectedFiles[i].getName().endsWith("JPG")
+                            || selectedFiles[i].getName().endsWith("JPEG")
+                            || selectedFiles[i].getName().endsWith("GIF")
+                            || selectedFiles[i].getName().endsWith("PDF")) {
+                        JOptionPane.showMessageDialog(null, "Ha seleccionado satifcatoriamente los archivos "+selectedFiles[i]);
                         return selectedFiles;
                     } else {
                         JOptionPane.showMessageDialog(this, "El archivo " + selectedFiles[i].getName() + " no es una imagen.");

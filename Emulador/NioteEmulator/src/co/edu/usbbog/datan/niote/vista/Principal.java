@@ -94,7 +94,7 @@ public class Principal extends JFrame {
     NodeDescriptionJPanel nodeDescriptionJPanel;
     public ProjectsTreeJPanel projectsTreeJPanel;
     SimulatedDataJPanel simulatedDataJPanel;
-    OutputJPanel outputJPanel;
+    public OutputJPanel outputJPanel;
     public ListaEnlazada listProjects;
 
     /**
@@ -629,7 +629,7 @@ public class Principal extends JFrame {
     }//GEN-LAST:event_jMenuItemReportErrorActionPerformed
 
     private void jMenuItemRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRunActionPerformed
-        // TODO add your handling code here:
+outputJPanel.ejectProject();        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemRunActionPerformed
 
     private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
