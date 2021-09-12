@@ -1,12 +1,13 @@
 ### NIOTE
 
 ---
-![N|Solid](https://www.usbbog.edu.co/matlab/images/logo_acreditacion.png)
+![N|Solid](http://dachcolombia.com/wp-content/uploads/2017/07/7993_universidad-de-san-buenaventura.jpg)
 
 ---
 
 ## About us 💻
 We are students of Systems Engineering at the University of San Buenaventura.
+
 ![Login](https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif)
 ---
 
@@ -24,7 +25,7 @@ We are students of Systems Engineering at the University of San Buenaventura.
 | Projects | Description |
 | --- | --- |
 | Niote document | In this file you can find all the information about this project, such as justification, objectives, scope and limitations, among other things. |
-| Niote presentation | This workshop is about recursion and iteration, so, thanks to the supplied guide and the explanations provided by Professor Luis Eduardo Barreto, this could be developed. |
+| Niote presentation | The presentation that is in the documents folder will be able to identify the requirements and general data of the project. |
 | NetIoTEmulator | This is the emulator that we are making, where you can find its structure, logic, among other things. |
 ---
 
