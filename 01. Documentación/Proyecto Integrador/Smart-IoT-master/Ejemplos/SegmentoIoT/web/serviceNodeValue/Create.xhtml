@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServiceNodeValueCreateDlg" widgetVar="ServiceNodeValueCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateServiceNodeValueTitle}">
+            <h:form id="ServiceNodeValueCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serviceNodeValueController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateServiceNodeValueLabel_idServiceNodeValue}" for="idServiceNodeValue" />
+                        <p:inputText id="idServiceNodeValue" value="#{serviceNodeValueController.selected.idServiceNodeValue}" title="#{bundle.CreateServiceNodeValueTitle_idServiceNodeValue}" required="true" requiredMessage="#{bundle.CreateServiceNodeValueRequiredMessage_idServiceNodeValue}"/>
+                        <p:outputLabel value="#{bundle.CreateServiceNodeValueLabel_date}" for="date" />
+                        <p:calendar id="date" pattern="MM/dd/yyyy HH:mm:ss" value="#{serviceNodeValueController.selected.date}" title="#{bundle.EditServiceNodeValueTitle_date}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateServiceNodeValueLabel_value}" for="value" />
+                        <p:inputText id="value" value="#{serviceNodeValueController.selected.value}" title="#{bundle.CreateServiceNodeValueTitle_value}" />
+                        <p:outputLabel value="#{bundle.CreateServiceNodeValueLabel_serviceNode}" for="serviceNode" />
+                        <p:selectOneMenu id="serviceNode" value="#{serviceNodeValueController.selected.serviceNode}" >
+                            <f:selectItems value="#{serviceNodeController.itemsAvailableSelectOne}"
+                                           var="serviceNodeItem"
+                                           itemValue="#{serviceNodeItem}"
+                                           itemLabel="#{serviceNodeItem.idSwsn}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{serviceNodeValueController.create}" value="#{bundle.Save}" update="display,:ServiceNodeValueListForm:datalist,:growl" oncomplete="handleSubmit(args,'ServiceNodeValueCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ServiceNodeValueCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

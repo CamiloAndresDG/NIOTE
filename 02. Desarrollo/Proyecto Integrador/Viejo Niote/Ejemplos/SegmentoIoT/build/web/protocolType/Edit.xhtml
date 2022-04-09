@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProtocolTypeEditDlg" widgetVar="ProtocolTypeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProtocolTypeTitle}">
+            <h:form id="ProtocolTypeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{protocolTypeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProtocolTypeLabel_protocolTypeId}" for="protocolTypeId" />
+                        <p:inputText id="protocolTypeId" value="#{protocolTypeController.selected.protocolTypeId}" title="#{bundle.EditProtocolTypeTitle_protocolTypeId}" required="true" requiredMessage="#{bundle.EditProtocolTypeRequiredMessage_protocolTypeId}"/>
+                        <p:outputLabel value="#{bundle.EditProtocolTypeLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{protocolTypeController.selected.description}" title="#{bundle.EditProtocolTypeTitle_description}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{protocolTypeController.update}" value="#{bundle.Save}" update="display,:ProtocolTypeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProtocolTypeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProtocolTypeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

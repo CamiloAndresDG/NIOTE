@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://iot.servicio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://iot.servicio/">
+
+<xs:element name="AgregarEventos" type="tns:AgregarEventos"/>
+
+<xs:element name="AgregarEventosResponse" type="tns:AgregarEventosResponse"/>
+
+<xs:element name="AgregarEventosSim" type="tns:AgregarEventosSim"/>
+
+<xs:element name="AgregarEventosSimResponse" type="tns:AgregarEventosSimResponse"/>
+
+<xs:element name="ApagarTV" type="tns:ApagarTV"/>
+
+<xs:element name="ApagarTVResponse" type="tns:ApagarTVResponse"/>
+
+<xs:element name="Bienestar" type="tns:Bienestar"/>
+
+<xs:element name="BienestarResponse" type="tns:BienestarResponse"/>
+
+<xs:element name="PrenderTV" type="tns:PrenderTV"/>
+
+<xs:element name="PrenderTVResponse" type="tns:PrenderTVResponse"/>
+
+<xs:element name="Salud" type="tns:Salud"/>
+
+<xs:element name="SaludResponse" type="tns:SaludResponse"/>
+
+<xs:complexType name="ApagarTV">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ApagarTVResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Salud">
+<xs:sequence>
+<xs:element name="idSalud" type="xs:int"/>
+<xs:element name="presion" type="xs:string" minOccurs="0"/>
+<xs:element name="respiracion" type="xs:string" minOccurs="0"/>
+<xs:element name="pulso" type="xs:string" minOccurs="0"/>
+<xs:element name="temperatura" type="xs:string" minOccurs="0"/>
+<xs:element name="saturacion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SaludResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AgregarEventos">
+<xs:sequence>
+<xs:element name="tipoAccion" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoNodo" type="xs:string" minOccurs="0"/>
+<xs:element name="idObjeto" type="xs:string" minOccurs="0"/>
+<xs:element name="objeto" type="xs:string" minOccurs="0"/>
+<xs:element name="contenido" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="visto" type="xs:string" minOccurs="0"/>
+<xs:element name="publicado" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarEventosResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AgregarEventosSim">
+<xs:sequence>
+<xs:element name="tipoAccion" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoNodo" type="xs:string" minOccurs="0"/>
+<xs:element name="idObjeto" type="xs:string" minOccurs="0"/>
+<xs:element name="objeto" type="xs:string" minOccurs="0"/>
+<xs:element name="contenido" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="visto" type="xs:string" minOccurs="0"/>
+<xs:element name="publicado" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarEventosSimResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="Bienestar">
+<xs:sequence>
+<xs:element name="idBienestar" type="xs:int"/>
+<xs:element name="alimentacion" type="xs:string" minOccurs="0"/>
+<xs:element name="energia" type="xs:string" minOccurs="0"/>
+<xs:element name="salud" type="xs:string" minOccurs="0"/>
+<xs:element name="fisico" type="xs:string" minOccurs="0"/>
+<xs:element name="ocio" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BienestarResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="PrenderTV">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="PrenderTVResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

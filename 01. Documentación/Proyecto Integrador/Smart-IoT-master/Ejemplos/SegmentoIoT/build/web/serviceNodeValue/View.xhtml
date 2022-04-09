@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServiceNodeValueViewDlg" widgetVar="ServiceNodeValueViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewServiceNodeValueTitle}">
+            <h:form id="ServiceNodeValueViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serviceNodeValueController.selected != null}">
+                        <h:outputText value="#{bundle.ViewServiceNodeValueLabel_idServiceNodeValue}"/>
+                        <h:outputText value="#{serviceNodeValueController.selected.idServiceNodeValue}" title="#{bundle.ViewServiceNodeValueTitle_idServiceNodeValue}"/>
+                        <h:outputText value="#{bundle.ViewServiceNodeValueLabel_date}"/>
+                        <h:outputText value="#{serviceNodeValueController.selected.date}" title="#{bundle.ViewServiceNodeValueTitle_date}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewServiceNodeValueLabel_value}"/>
+                        <h:outputText value="#{serviceNodeValueController.selected.value}" title="#{bundle.ViewServiceNodeValueTitle_value}"/>
+                        <h:outputText value="#{bundle.ViewServiceNodeValueLabel_serviceNode}"/>
+                        <h:outputText value="#{serviceNodeValueController.selected.serviceNode}" title="#{bundle.ViewServiceNodeValueTitle_serviceNode}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ServiceNodeValueViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

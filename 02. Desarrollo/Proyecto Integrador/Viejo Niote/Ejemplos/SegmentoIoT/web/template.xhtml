@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title><ui:insert name="title">#{bundle.AppName}</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="growl" life="3000" />
+
+        <p:layout fullPage="true">
+            
+            <p:layoutUnit position="north" size="194" header="#{bundle.AppName}">
+
+                <p:panel style="display:block; text-align:center">
+
+                    <h:form id="language_form">
+                        <img src="#{languageSwitcher.getPathImage()}" width="638" height="100" alt="#{bundle.AppName}" />
+                        <h:commandLink action="#{languageSwitcher.changeLanguage('es')}" value="#{bundle.spanish}" /> -
+                        <h:commandLink action="#{languageSwitcher.changeLanguage('en')}" value="#{bundle.english}" />
+                    </h:form>
+
+                </p:panel>
+
+                <h:form id="menuForm">
+                    <p:menubar>
+                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
+                        <p:submenu label="#{bundle.Maintenance}" icon="ui-icon-wrench">
+                            <p:menuitem value="#{bundle.Service}" outcome="/service/List.xhtml" />
+                            <p:menuitem value="Attribute type" outcome="/attributeType/List.xhtml" />
+                            <p:menuitem value="#{bundle.ServiceAttribute}" outcome="/serviceAttribute/List.xhtml" />
+                            <p:menuitem value="#{bundle.ServiceType}" outcome="/serviceType/List.xhtml" />
+                            <p:menuitem value="Node Type" outcome="/nodeType/List.xhtml" />
+                            <p:menuitem value="Protocol Type" outcome="/protocolType/List.xhtml" />
+                            <p:menuitem value="#{bundle.ServiceNode}" outcome="/serviceNode/List.xhtml" />
+                            <p:menuitem value="#{bundle.ServiceNodeAttribute}" outcome="/serviceNodeAttribute/List.xhtml" />
+                            <p:menuitem value="#{bundle.ServiceNodeValue}" outcome="/serviceNodeValue/List.xhtml" />
+                        </p:submenu>
+                        <p:submenu label="#{bundle.Service}" icon="ui-icon-mail-closed">
+                            <p:menuitem value="#{bundle.SendReading}" outcome="/updateService/Create.xhtml" />
+                            <p:menuitem value="#{bundle.ConsultService}" outcome="/consultService/List.xhtml" />
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="60">
+                <ui:insert name="footer"/>
+            </p:layoutUnit>
+            
+        </p:layout>
+
+    </h:body>
+
+</html>

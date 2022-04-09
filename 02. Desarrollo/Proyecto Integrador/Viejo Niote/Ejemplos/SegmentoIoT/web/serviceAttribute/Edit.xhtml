@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServiceAttributeEditDlg" widgetVar="ServiceAttributeEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditServiceAttributeTitle}">
+            <h:form id="ServiceAttributeEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serviceAttributeController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditServiceAttributeLabel_idServiceAttribute}" for="idServiceAttribute" />
+                        <p:inputText id="idServiceAttribute" value="#{serviceAttributeController.selected.idServiceAttribute}" title="#{bundle.EditServiceAttributeTitle_idServiceAttribute}" required="true" requiredMessage="#{bundle.EditServiceAttributeRequiredMessage_idServiceAttribute}"/>
+                        <p:outputLabel value="#{bundle.EditServiceAttributeLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{serviceAttributeController.selected.description}" title="#{bundle.EditServiceAttributeTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditServiceAttributeLabel_value}" for="value" />
+                        <p:inputText id="value" value="#{serviceAttributeController.selected.value}" title="#{bundle.EditServiceAttributeTitle_value}" />
+                        <p:outputLabel value="#{bundle.EditServiceAttributeLabel_attributeType}" for="attributeType" />
+                        <p:selectOneMenu id="attributeType" value="#{serviceAttributeController.selected.attributeType}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{attributeTypeController.itemsAvailableSelectOne}"
+                                           var="attributeTypeItem"
+                                           itemValue="#{attributeTypeItem}"
+                                           itemLabel="#{attributeTypeItem.description}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditServiceAttributeLabel_service}" for="service" />
+                        <p:selectOneMenu id="service" value="#{serviceAttributeController.selected.service}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{serviceController.itemsAvailableSelectOne}"
+                                           var="serviceItem"
+                                           itemValue="#{serviceItem}"
+                                           itemLabel="#{serviceItem.description}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{serviceAttributeController.update}" value="#{bundle.Save}" update="display,:ServiceAttributeListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ServiceAttributeEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ServiceAttributeEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

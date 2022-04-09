@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ServiceEditDlg" widgetVar="ServiceEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditServiceTitle}">
+            <h:form id="ServiceEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{serviceController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditServiceLabel_idCatalog}" for="idCatalog" />
+                        <p:inputText id="idCatalog" value="#{serviceController.selected.idCatalog}" title="#{bundle.EditServiceTitle_idCatalog}" required="true" requiredMessage="#{bundle.EditServiceRequiredMessage_idCatalog}"/>
+                        <p:outputLabel value="#{bundle.EditServiceLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{serviceController.selected.description}" title="#{bundle.EditServiceTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditServiceLabel_idSusn}" for="idSusn" />
+                        <p:inputText id="idSusn" value="#{serviceController.selected.idSusn}" title="#{bundle.EditServiceTitle_idSusn}" />
+                        <p:outputLabel value="#{bundle.EditServiceLabel_serviceState}" for="serviceState" />
+                        <p:selectOneMenu id="serviceState" value="#{serviceController.selected.serviceState}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"  noSelectionOption="true"/>
+                            <f:selectItem itemValue="1" itemLabel="A" />
+                            <f:selectItem itemValue="0" itemLabel="I" />
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditServiceLabel_dateLastValue}" for="dateLastValue" />
+                        <p:calendar id="dateLastValue" pattern="MM/dd/yyyy HH:mm:ss" value="#{serviceController.selected.dateLastValue}" title="#{bundle.EditServiceTitle_dateLastValue}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditServiceLabel_lastValue}" for="lastValue" />
+                        <p:inputText id="lastValue" value="#{serviceController.selected.lastValue}" title="#{bundle.EditServiceTitle_lastValue}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{serviceController.update}" value="#{bundle.Save}" update="display,:ServiceListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ServiceEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ServiceEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

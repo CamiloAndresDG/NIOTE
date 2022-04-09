@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListServiceNodeTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="ServiceNodeListForm">
+                <p:panel header="#{bundle.ListServiceNodeTitle}">
+                    <p:dataTable id="datalist" value="#{serviceNodeController.items}" var="item"
+                                 selectionMode="single" selection="#{serviceNodeController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idServiceNode}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_idServiceNode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idServiceNode}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_service}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.service.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_serviceType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceType.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_idNode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idNode}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_idService}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ip}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_idSwsn}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSwsn}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_serviceNodeState}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceNodeState}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_nodeType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nodeType.description}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListServiceNodeTitle_protocolType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.protocolType.description}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{serviceNodeController.prepareCreate}" update=":ServiceNodeCreateForm" oncomplete="PF('ServiceNodeCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ServiceNodeViewForm" oncomplete="PF('ServiceNodeViewDialog').show()" disabled="#{empty serviceNodeController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ServiceNodeEditForm" oncomplete="PF('ServiceNodeEditDialog').show()" disabled="#{empty serviceNodeController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{serviceNodeController.destroy}" update=":growl,datalist" disabled="#{empty serviceNodeController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>
