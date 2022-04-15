@@ -1,0 +1,6 @@
+####
+Nombre del archivo: Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura
+Procedencia: Datos Abiertos (https://www.datos.gov.co/Ambiente-y-Desarrollo-Sostenible/Temperatura/xq6k-pr9h)
+Uso: Predicción de temperatura
+Descripción: CSV que contiene las temperaturas tomadas en Bogota desde el 2022-01
+####
