@@ -38,4 +38,3 @@ We are students of Systems Engineering at the University of San Buenaventura.
 [LinkedIn de Juan Esteban Contreras Diaz](https://www.linkedin.com/in/juan-contreras-95a70221b/)
 
 ---
----
