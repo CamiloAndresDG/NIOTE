@@ -36,5 +36,6 @@ We are students of Systems Engineering at the University of San Buenaventura.
 [LinkedIn de Jhonatan Mauricio Villarreal Corredor](https://www.linkedin.com/in/jhonatan-villarreal-corredor-b492571a8/)
 
 [LinkedIn de Juan Esteban Contreras Diaz](https://www.linkedin.com/in/juan-contreras-95a70221b/)
+
 ---
 ---
