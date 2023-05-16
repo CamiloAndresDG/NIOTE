@@ -1,7 +1,7 @@
 ### NIOTE
 
 ---
-![N|Solid](http://dachcolombia.com/wp-content/uploads/2017/07/7993_universidad-de-san-buenaventura.jpg)
+![N|Solid](https://filosofia.net/cdf/uds/usb.png)
 
 ---
 
@@ -32,7 +32,9 @@ We are students of Systems Engineering at the University of San Buenaventura.
 
 ## If you want to contact me
 [LinkedIn de Juan Esteban Contreras Diaz](https://www.linkedin.com/in/camilo-andrés-díaz-gómez-97b5581a3/)
+
 [LinkedIn de Jhonatan Mauricio Villarreal Corredor](https://www.linkedin.com/in/jhonatan-villarreal-corredor-b492571a8/)
+
 [LinkedIn de Juan Esteban Contreras Diaz](https://www.linkedin.com/in/juan-contreras-95a70221b/)
 ---
 ---
